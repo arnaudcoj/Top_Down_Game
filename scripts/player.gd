@@ -105,7 +105,18 @@ func _process_animation():
 		# heading forward to, and start playing an idle animation.
 		#
 		# Depending on the game, this may or may not be preferred..
-		node_animation_player.stop_all()
+		if (direction == DIRECTION_LEFT):
+			if (node_animation_player.get_current_animation() != "idle_left"):
+				node_animation_player.set_current_animation("idle_left")
+		if (direction == DIRECTION_RIGHT):
+			if (node_animation_player.get_current_animation() != "idle_right"):
+				node_animation_player.set_current_animation("idle_right")
+		if (direction == DIRECTION_UP):
+			if (node_animation_player.get_current_animation() != "idle_up"):
+				node_animation_player.set_current_animation("idle_up")
+		if (direction == DIRECTION_DOWN):
+			if (node_animation_player.get_current_animation() != "idle_down"):
+				node_animation_player.set_current_animation("idle_down")
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
