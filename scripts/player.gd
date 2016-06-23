@@ -54,7 +54,7 @@ func _ready():
 func _fixed_process(delta):
 	# Apply motion speed and delta.
 	var motion = velocity.normalized() * motion_speed * delta
-	
+
 	# If we are in motion, process it.
 	if (is_moving):
 		# In case of a collision, calculate sliding motion.
@@ -78,7 +78,7 @@ func _process(delta):
 	_process_input()
 	
 	# Process the animation.
-	_process_animation()
+	# A DECOMMENTER QUAND ANIMATIONS OK _process_animation()
 	
 ## _process_animation - 
 func _process_animation():
@@ -113,10 +113,10 @@ func _process_input():
 	var directions_pressed = 0
 
 	# Fetches the current key states in this frame.
-	var is_up_pressed = int(Input.is_action_pressed("move_up"))
-	var is_left_pressed = int(Input.is_action_pressed("move_left"))
-	var is_right_pressed = int(Input.is_action_pressed("move_right"))
-	var is_down_pressed = int(Input.is_action_pressed("move_down"))
+	var is_up_pressed = int(Input.is_action_pressed("ui_up"))
+	var is_left_pressed = int(Input.is_action_pressed("ui_left"))
+	var is_right_pressed = int(Input.is_action_pressed("ui_right"))
+	var is_down_pressed = int(Input.is_action_pressed("ui_down"))
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed
@@ -139,6 +139,8 @@ func _process_input():
 		# If one wishes to reverse the priorities, it is as simple as shifting
 		# the if statements around.
 		
+		velocity = Vector2(0, 0)
+		
 		# Check for left_right_direction movement.
 		if (left_right_direction):
 			# Setup is_moving state.
@@ -147,15 +149,13 @@ func _process_input():
 			# Determine which direction to execute.
 			if (is_left_pressed):
 				# Setup velocity.
-				velocity.x = -1
-				velocity.y = 0
+				velocity.x -= 1
 				
 				# Setup direction state.
 				direction = DIRECTION_LEFT
 			else:
 				# Setup velocity.
-				velocity.x = 1
-				velocity.y = 0
+				velocity.x += 1
 				
 				# Setup direction state.
 				direction = DIRECTION_RIGHT
@@ -167,19 +167,16 @@ func _process_input():
 			# Determine which direction to execute.
 			if (is_up_pressed):
 				# Setup velocity.
-				velocity.x = 0
-				velocity.y = -1
+				velocity.y -= 1
 				
 				# Setup direction state.
 				direction = DIRECTION_UP
 			else:
 				# Setup velocity.
-				velocity.x = 0
-				velocity.y = 1
+				velocity.y += 1
 				
 				# Setup direction state.
 				direction = DIRECTION_DOWN
 	else:
 		# Stop movement, nothing is pressed.
-		velocity = Vector2(0, 0)
 		is_moving = false
