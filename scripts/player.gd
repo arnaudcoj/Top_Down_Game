@@ -48,7 +48,7 @@ func _ready():
 	set_fixed_process(true)
 	
 	# Fetch nodes.
-	node_animation_player = get_node("AnimationPlayer")
+	node_animation_player = get_node("Sprite/AnimationPlayer")
 	
 ## _fixed_process - handle the fixed processing of the player controller. (Main physics logic)
 func _fixed_process(delta):
@@ -78,7 +78,7 @@ func _process(delta):
 	_process_input()
 	
 	# Process the animation.
-	# A DECOMMENTER QUAND ANIMATIONS OK _process_animation()
+	_process_animation()
 	
 ## _process_animation - 
 func _process_animation():

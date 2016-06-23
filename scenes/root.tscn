@@ -46,45 +46,6 @@ tile_data = IntArray( 65537, 332, 65538, 364, 65539, 364, 65540, 380, 65541, 327
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 240, 192 )
-transform/scale = Vector2( 1, 1 )
-
-[node name="Player 2" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 96, 224 )
-
-[node name="Sprite" parent="Player 2"]
-
-frame = 20
-
-[node name="AnimationPlayer" parent="Player 2/Sprite"]
-
-autoplay = "right"
-
-[node name="Player 3" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 224, 320 )
-
-[node name="Sprite" parent="Player 3"]
-
-frame = 0
-
-[node name="AnimationPlayer" parent="Player 3/Sprite"]
-
-autoplay = "top"
-
-[node name="Player 4" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 352, 240 )
-
-[node name="Sprite" parent="Player 4"]
-
-frame = 30
-
-[node name="AnimationPlayer" parent="Player 4/Sprite"]
-
-autoplay = "left"
+collision/margin = 0.08
 
 
-[editable path="Player 2"]
-[editable path="Player 3"]
-[editable path="Player 4"]
