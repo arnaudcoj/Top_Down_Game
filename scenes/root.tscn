@@ -67,10 +67,11 @@ tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610,
 [node name="Player" parent="Objects/Objects - Middle" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 58.5, 117 )
+collision/margin = 0.08
 
 [node name="Portal" parent="Objects/Objects - Middle" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 104, 184 )
+transform/pos = Vector2( 120, 80 )
 next_scene = "res://scenes//root.tscn"
 
 [node name="Objects - Front" type="TileMap" parent="Objects"]
