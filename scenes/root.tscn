@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=3]
 
 [node name="Root" type="Node2D"]
 
@@ -65,8 +66,12 @@ tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610,
 
 [node name="Player" parent="Objects/Objects - Middle" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 113.424, 114.137 )
-collision/margin = 0.08
+transform/pos = Vector2( 58.5, 117 )
+
+[node name="Portal" parent="Objects/Objects - Middle" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 104, 184 )
+next_scene = "res://scenes//root.tscn"
 
 [node name="Objects - Front" type="TileMap" parent="Objects"]
 
