@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/link_sprites.png" type="Texture" id=2]
-[ext_resource path="res://sprites/shadow.png" type="Texture" id=3]
+[ext_resource path="res://sprites/shadow.png" type="Texture" id=2]
+[ext_resource path="res://sprites/link_sprites.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12, 7 )
+extents = Vector2( 8, 3.5 )
 
 [sub_resource type="Animation" id=2]
 
@@ -95,21 +95,33 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatAr
 
 [node name="Player" type="KinematicBody2D"]
 
+transform/pos = Vector2( 0, -4 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 21 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 11.5 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
 motion_speed = 140.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 11.5 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Shadow" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 11 )
+texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 2, 2 )
-z/z = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 4
 hframes = 11
 frame = 11
@@ -131,18 +143,5 @@ playback/active = true
 playback/speed = 1.5
 blend_times = [  ]
 autoplay = "idle_down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-transform/pos = Vector2( 0, 21 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Shadow" type="Sprite" parent="."]
-
-transform/pos = Vector2( 0, 20 )
-transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
 
 
