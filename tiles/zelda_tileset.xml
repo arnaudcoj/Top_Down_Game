@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="91" version="2.0" version_name="Godot Engine v2.0.stable.official">
+<resource_file type="TileSet" subresource_count="99" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://tiles/zelda_tileset.png" type="Texture" index="0"></ext_resource>
 	<resource type="ImageTexture" path="local://1">
 		<int name="flags"> 0 </int>
@@ -154,19 +154,9 @@
 		<vector2_array name="points" len="4"> 			-2, -8, 8, -8, -1, 0, -4, -2 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://31">
+	<resource type="ConvexPolygonShape2D" path="local://105">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			1, 8, -4, 4, -1, 1, 8, 8 </vector2_array>
-
-	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://32">
-		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-1, 1, -6, -2, -2, -8, 8, -8 </vector2_array>
-
-	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://33">
-		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="3"> 			-1, 1, 8, -8, 8, 8 </vector2_array>
+		<vector2_array name="points" len="6"> 			-29, 346, -34, 337, -34, 333, -22, 332, -18, 337, -18, 346 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://34">
@@ -344,9 +334,19 @@
 		<vector2 name="extents"> 7, 3 </vector2>
 
 	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://102">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="9"> 			-7, -4, -3, -6, 1, -6, 3, -4, 8, 1, 3, 6, -2, 8, -6, 8, -8, 4 </vector2_array>
+
+	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://69">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2_array name="points" len="4"> 			8, 8, 0, 8, 0, -8, 8, -8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://103">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="8"> 			5, 4, -2, 4, -5, 2, -5, 0, -2, -3, 0, -3, 5, -3, 8, 0 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://70">
@@ -371,80 +371,120 @@
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://74">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			7, 8, -8, 8, -8, -8, 7, -8 </vector2_array>
+		<vector2_array name="points" len="6"> 			6, -6, 8, -5, 8, -1, 1, -1, 1, -5, 3, -6 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://75">
+	<resource type="ConvexPolygonShape2D" path="local://96">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			0, 8, -8, 8, -8, -8, 0, -8 </vector2_array>
+		<vector2_array name="points" len="4"> 			8, 2, 8, 6, 4, 6, 7, 2 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://76">
+	<resource type="ConvexPolygonShape2D" path="local://97">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			7, 8, -7, 8, -7, 2, 7, 2 </vector2_array>
+		<vector2_array name="points" len="6"> 			1, 3, 4, 2, 7, 2, 4, 6, 2, 8, -3, 8 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://77">
+	<resource type="ConvexPolygonShape2D" path="local://98">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-7, 8, -7, -8, 8, -8, 8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			-2, 3, 1, 3, -3, 8, -5, 6 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://78">
+	<resource type="ConvexPolygonShape2D" path="local://99">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-7, 8, -7, -8, 8, -8, 8, 8 </vector2_array>
+		<vector2_array name="points" len="5"> 			-4, 3, -2, 3, -5, 6, -7, 6, -8, 5 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://79">
+	<resource type="ConvexPolygonShape2D" path="local://100">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			8, -8, 8, 6, -7, -6, -7, -8 </vector2_array>
+		<vector2_array name="points" len="5"> 			-5, 1, -4, 3, -8, 5, -8, 2, -7, 1 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://104">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="6"> 			-8, 0, -8, -4, -3, -7, 1, -7, 8, -5, 8, -1 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://101">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			8, -7, 8, 7, 1, 7, 0, -4, 4, -7 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://80">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			0, 8, 0, -8, 8, -8, 8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			7, 8, -8, 8, -8, -8, 7, -8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://81">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			0, 8, -8, 8, -8, -8, 0, -8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://82">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			7, 8, -7, 8, -7, 2, 7, 2 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://83">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 6, -8, 6 </vector2_array>
+		<vector2_array name="points" len="4"> 			-7, 8, -7, -8, 8, -8, 8, 8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://84">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			-7, 8, -7, -8, 8, -8, 8, 8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://85">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			8, -8, 8, 6, -7, -6, -7, -8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://86">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			8, 6, -8, 6, -8, -8, 8, -8 </vector2_array>
+		<vector2_array name="points" len="4"> 			0, 8, 0, -8, 8, -8, 8, 8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://87">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-8, -8, 5, -8, 5, 8, -8, 8 </vector2_array>
+		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://88">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			5, 8, -8, 8, -8, -8, 5, -8 </vector2_array>
+		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
 
 	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://89">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 6, -8, 6 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://90">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://91">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-8, -8, 8, -8, 8, 8, -8, 8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://92">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			8, 6, -8, 6, -8, -8, 8, -8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://93">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-8, -8, 5, -8, 5, 8, -8, 8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://94">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			5, 8, -8, 8, -8, -8, 5, -8 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://95">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2_array name="points" len="4"> 			-8, -8, 5, -8, 5, -7, -8, 6 </vector2_array>
 
@@ -1602,10 +1642,8 @@
 		<vector2 name="124/occluder_offset"> 8, 8 </vector2>
 		<resource name="124/occluder"></resource>		<vector2 name="124/navigation_offset"> 8, 8 </vector2>
 		<resource name="124/navigation"></resource>		<vector2 name="124/shape_offset"> 8, 8 </vector2>
-		<array name="124/shapes" len="3" shared="false">
-			<resource  resource_type="Shape2D" path="local://31">  </resource>
-			<resource  resource_type="Shape2D" path="local://32">  </resource>
-			<resource  resource_type="Shape2D" path="local://33">  </resource>
+		<array name="124/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://105">  </resource>
 		</array>
 		<string name="125/name"> "Sprite 126" </string>
 		<resource name="125/texture" resource_type="Texture" path="local://1">  </resource>
@@ -2188,8 +2226,9 @@
 		<resource name="185/material"></resource>		<rect2 name="185/region"> 256, 240, 16, 16 </rect2>
 		<vector2 name="185/occluder_offset"> 8, 8 </vector2>
 		<resource name="185/occluder"></resource>		<vector2 name="185/navigation_offset"> 8, 8 </vector2>
-		<resource name="185/navigation"></resource>		<vector2 name="185/shape_offset"> 0, 0 </vector2>
-		<array name="185/shapes" len="0" shared="false">
+		<resource name="185/navigation"></resource>		<vector2 name="185/shape_offset"> 8, 8 </vector2>
+		<array name="185/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://102">  </resource>
 		</array>
 		<string name="186/name"> "Sprite 187" </string>
 		<resource name="186/texture" resource_type="Texture" path="local://1">  </resource>
@@ -2270,8 +2309,9 @@
 		<resource name="194/material"></resource>		<rect2 name="194/region"> 272, 128, 16, 16 </rect2>
 		<vector2 name="194/occluder_offset"> 8, 8 </vector2>
 		<resource name="194/occluder"></resource>		<vector2 name="194/navigation_offset"> 8, 8 </vector2>
-		<resource name="194/navigation"></resource>		<vector2 name="194/shape_offset"> 0, 0 </vector2>
-		<array name="194/shapes" len="0" shared="false">
+		<resource name="194/navigation"></resource>		<vector2 name="194/shape_offset"> 8, 8 </vector2>
+		<array name="194/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://103">  </resource>
 		</array>
 		<string name="195/name"> "Sprite 196" </string>
 		<resource name="195/texture" external="0">  </resource>
@@ -2310,8 +2350,9 @@
 		<resource name="198/material"></resource>		<rect2 name="198/region"> 272, 192, 16, 16 </rect2>
 		<vector2 name="198/occluder_offset"> 8, 8 </vector2>
 		<resource name="198/occluder"></resource>		<vector2 name="198/navigation_offset"> 8, 8 </vector2>
-		<resource name="198/navigation"></resource>		<vector2 name="198/shape_offset"> 0, 0 </vector2>
-		<array name="198/shapes" len="0" shared="false">
+		<resource name="198/navigation"></resource>		<vector2 name="198/shape_offset"> 8, 8 </vector2>
+		<array name="198/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://74">  </resource>
 		</array>
 		<string name="199/name"> "Sprite 200" </string>
 		<resource name="199/texture" external="0">  </resource>
@@ -2319,8 +2360,13 @@
 		<resource name="199/material"></resource>		<rect2 name="199/region"> 272, 208, 16, 16 </rect2>
 		<vector2 name="199/occluder_offset"> 8, 8 </vector2>
 		<resource name="199/occluder"></resource>		<vector2 name="199/navigation_offset"> 8, 8 </vector2>
-		<resource name="199/navigation"></resource>		<vector2 name="199/shape_offset"> 0, 0 </vector2>
-		<array name="199/shapes" len="0" shared="false">
+		<resource name="199/navigation"></resource>		<vector2 name="199/shape_offset"> 8, 8 </vector2>
+		<array name="199/shapes" len="5" shared="false">
+			<resource  resource_type="Shape2D" path="local://96">  </resource>
+			<resource  resource_type="Shape2D" path="local://97">  </resource>
+			<resource  resource_type="Shape2D" path="local://98">  </resource>
+			<resource  resource_type="Shape2D" path="local://99">  </resource>
+			<resource  resource_type="Shape2D" path="local://100">  </resource>
 		</array>
 		<string name="200/name"> "Sprite 201" </string>
 		<resource name="200/texture" external="0">  </resource>
@@ -2328,8 +2374,9 @@
 		<resource name="200/material"></resource>		<rect2 name="200/region"> 272, 224, 16, 16 </rect2>
 		<vector2 name="200/occluder_offset"> 8, 8 </vector2>
 		<resource name="200/occluder"></resource>		<vector2 name="200/navigation_offset"> 8, 8 </vector2>
-		<resource name="200/navigation"></resource>		<vector2 name="200/shape_offset"> 0, 0 </vector2>
-		<array name="200/shapes" len="0" shared="false">
+		<resource name="200/navigation"></resource>		<vector2 name="200/shape_offset"> 8, 8 </vector2>
+		<array name="200/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://104">  </resource>
 		</array>
 		<string name="201/name"> "Sprite 202" </string>
 		<resource name="201/texture" external="0">  </resource>
@@ -2337,8 +2384,9 @@
 		<resource name="201/material"></resource>		<rect2 name="201/region"> 272, 240, 16, 16 </rect2>
 		<vector2 name="201/occluder_offset"> 8, 8 </vector2>
 		<resource name="201/occluder"></resource>		<vector2 name="201/navigation_offset"> 8, 8 </vector2>
-		<resource name="201/navigation"></resource>		<vector2 name="201/shape_offset"> 0, 0 </vector2>
-		<array name="201/shapes" len="0" shared="false">
+		<resource name="201/navigation"></resource>		<vector2 name="201/shape_offset"> 8, 8 </vector2>
+		<array name="201/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://101">  </resource>
 		</array>
 		<string name="202/name"> "Sprite 203" </string>
 		<resource name="202/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3311,7 +3359,7 @@
 		<resource name="309/occluder"></resource>		<vector2 name="309/navigation_offset"> 8, 8 </vector2>
 		<resource name="309/navigation"></resource>		<vector2 name="309/shape_offset"> 8, 8 </vector2>
 		<array name="309/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://74">  </resource>
+			<resource  resource_type="Shape2D" path="local://80">  </resource>
 		</array>
 		<string name="310/name"> "Sprite 311" </string>
 		<resource name="310/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3429,7 +3477,7 @@
 		<resource name="322/occluder"></resource>		<vector2 name="322/navigation_offset"> 8, 8 </vector2>
 		<resource name="322/navigation"></resource>		<vector2 name="322/shape_offset"> 8, 8 </vector2>
 		<array name="322/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://75">  </resource>
+			<resource  resource_type="Shape2D" path="local://81">  </resource>
 		</array>
 		<string name="323/name"> "Sprite 324" </string>
 		<resource name="323/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3448,7 +3496,7 @@
 		<resource name="324/occluder"></resource>		<vector2 name="324/navigation_offset"> 8, 8 </vector2>
 		<resource name="324/navigation"></resource>		<vector2 name="324/shape_offset"> 8, 8 </vector2>
 		<array name="324/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://76">  </resource>
+			<resource  resource_type="Shape2D" path="local://82">  </resource>
 		</array>
 		<string name="325/name"> "Sprite 326" </string>
 		<resource name="325/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3530,7 +3578,7 @@
 		<resource name="333/occluder"></resource>		<vector2 name="333/navigation_offset"> 8, 8 </vector2>
 		<resource name="333/navigation"></resource>		<vector2 name="333/shape_offset"> 8, 8 </vector2>
 		<array name="333/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://77">  </resource>
+			<resource  resource_type="Shape2D" path="local://83">  </resource>
 		</array>
 		<string name="334/name"> "Sprite 335" </string>
 		<resource name="334/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3540,7 +3588,7 @@
 		<resource name="334/occluder"></resource>		<vector2 name="334/navigation_offset"> 8, 8 </vector2>
 		<resource name="334/navigation"></resource>		<vector2 name="334/shape_offset"> 8, 8 </vector2>
 		<array name="334/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://78">  </resource>
+			<resource  resource_type="Shape2D" path="local://84">  </resource>
 		</array>
 		<string name="335/name"> "Sprite 336" </string>
 		<resource name="335/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3550,7 +3598,7 @@
 		<resource name="335/occluder"></resource>		<vector2 name="335/navigation_offset"> 8, 8 </vector2>
 		<resource name="335/navigation"></resource>		<vector2 name="335/shape_offset"> 8, 8 </vector2>
 		<array name="335/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://79">  </resource>
+			<resource  resource_type="Shape2D" path="local://85">  </resource>
 		</array>
 		<string name="336/name"> "Sprite 337" </string>
 		<resource name="336/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3578,7 +3626,7 @@
 		<resource name="338/occluder"></resource>		<vector2 name="338/navigation_offset"> 8, 8 </vector2>
 		<resource name="338/navigation"></resource>		<vector2 name="338/shape_offset"> 8, 8 </vector2>
 		<array name="338/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://80">  </resource>
+			<resource  resource_type="Shape2D" path="local://86">  </resource>
 		</array>
 		<string name="339/name"> "Sprite 340" </string>
 		<resource name="339/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3678,7 +3726,7 @@
 		<resource name="349/occluder"></resource>		<vector2 name="349/navigation_offset"> 8, 8 </vector2>
 		<resource name="349/navigation"></resource>		<vector2 name="349/shape_offset"> 8, 8 </vector2>
 		<array name="349/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://81">  </resource>
+			<resource  resource_type="Shape2D" path="local://87">  </resource>
 		</array>
 		<string name="350/name"> "Sprite 351" </string>
 		<resource name="350/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3688,7 +3736,7 @@
 		<resource name="350/occluder"></resource>		<vector2 name="350/navigation_offset"> 8, 8 </vector2>
 		<resource name="350/navigation"></resource>		<vector2 name="350/shape_offset"> 8, 8 </vector2>
 		<array name="350/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://82">  </resource>
+			<resource  resource_type="Shape2D" path="local://88">  </resource>
 		</array>
 		<string name="351/name"> "Sprite 352" </string>
 		<resource name="351/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3698,7 +3746,7 @@
 		<resource name="351/occluder"></resource>		<vector2 name="351/navigation_offset"> 8, 8 </vector2>
 		<resource name="351/navigation"></resource>		<vector2 name="351/shape_offset"> 8, 8 </vector2>
 		<array name="351/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://83">  </resource>
+			<resource  resource_type="Shape2D" path="local://89">  </resource>
 		</array>
 		<string name="352/name"> "Sprite 353" </string>
 		<resource name="352/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3825,7 +3873,7 @@
 		<resource name="365/occluder"></resource>		<vector2 name="365/navigation_offset"> 8, 8 </vector2>
 		<resource name="365/navigation"></resource>		<vector2 name="365/shape_offset"> 8, 8 </vector2>
 		<array name="365/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://84">  </resource>
+			<resource  resource_type="Shape2D" path="local://90">  </resource>
 		</array>
 		<string name="366/name"> "Sprite 367" </string>
 		<resource name="366/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3835,7 +3883,7 @@
 		<resource name="366/occluder"></resource>		<vector2 name="366/navigation_offset"> 8, 8 </vector2>
 		<resource name="366/navigation"></resource>		<vector2 name="366/shape_offset"> 8, 8 </vector2>
 		<array name="366/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://85">  </resource>
+			<resource  resource_type="Shape2D" path="local://91">  </resource>
 		</array>
 		<string name="367/name"> "Sprite 368" </string>
 		<resource name="367/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3845,7 +3893,7 @@
 		<resource name="367/occluder"></resource>		<vector2 name="367/navigation_offset"> 8, 8 </vector2>
 		<resource name="367/navigation"></resource>		<vector2 name="367/shape_offset"> 8, 8 </vector2>
 		<array name="367/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://86">  </resource>
+			<resource  resource_type="Shape2D" path="local://92">  </resource>
 		</array>
 		<string name="368/name"> "Sprite 369" </string>
 		<resource name="368/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3972,7 +4020,7 @@
 		<resource name="381/occluder"></resource>		<vector2 name="381/navigation_offset"> 8, 8 </vector2>
 		<resource name="381/navigation"></resource>		<vector2 name="381/shape_offset"> 8, 8 </vector2>
 		<array name="381/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://87">  </resource>
+			<resource  resource_type="Shape2D" path="local://93">  </resource>
 		</array>
 		<string name="382/name"> "Sprite 383" </string>
 		<resource name="382/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3982,7 +4030,7 @@
 		<resource name="382/occluder"></resource>		<vector2 name="382/navigation_offset"> 8, 8 </vector2>
 		<resource name="382/navigation"></resource>		<vector2 name="382/shape_offset"> 8, 8 </vector2>
 		<array name="382/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://88">  </resource>
+			<resource  resource_type="Shape2D" path="local://94">  </resource>
 		</array>
 		<string name="383/name"> "Sprite 384" </string>
 		<resource name="383/texture" resource_type="Texture" path="local://1">  </resource>
@@ -3992,7 +4040,7 @@
 		<resource name="383/occluder"></resource>		<vector2 name="383/navigation_offset"> 8, 8 </vector2>
 		<resource name="383/navigation"></resource>		<vector2 name="383/shape_offset"> 8, 8 </vector2>
 		<array name="383/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://89">  </resource>
+			<resource  resource_type="Shape2D" path="local://95">  </resource>
 		</array>
 		<string name="384/name"> "Sprite 385" </string>
 		<resource name="384/texture" resource_type="Texture" path="local://1">  </resource>
