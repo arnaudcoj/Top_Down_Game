@@ -106,11 +106,8 @@ func _process_animation():
 			node_animation_player.play()
 			
 		is_attacking = true
-	
-	elif (is_attacking):
-		if(node_animation_player.is_blocking_signals()):
-			is_attacking = false
-	elif (is_moving):
+			
+	elif (is_moving && !is_attacking):
 		# Display animation depending on the direction.
 		if (direction == DIRECTION_LEFT):
 			if (node_animation_player.get_current_animation() != "move_left"):
@@ -127,8 +124,7 @@ func _process_animation():
 		if (!node_animation_player.is_playing()):
 			node_animation_player.play()
 			
-	# Pause/play animation in case we're still moving.
-	else :
+	elif (!is_attacking):
 		# If preferred, one can actually check the direction we're
 		# heading forward to, and start playing an idle animation.
 		#
@@ -145,6 +141,9 @@ func _process_animation():
 		if (direction == DIRECTION_DOWN):
 			if (node_animation_player.get_current_animation() != "idle_down"):
 				node_animation_player.set_current_animation("idle_down")
+			
+		if (!node_animation_player.is_playing()):
+			node_animation_player.play()
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
@@ -158,8 +157,10 @@ func _process_input():
 	var is_down_pressed = int(Input.is_action_pressed("ui_down"))
 	var is_attack_pressed = Input.is_action_pressed("ui_select")
 	
-	if(!is_attacking):
-		attacks = is_attack_pressed
+	if(!is_attacking && is_attack_pressed):
+		attacks = true
+	else:
+		attacks = false
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed

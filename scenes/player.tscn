@@ -96,46 +96,46 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatAr
 [sub_resource type="Animation" id=10]
 
 resource/name = "sword_down"
-length = 1.0
+length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ 55, 62 ] }
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 55, 62 ] }
 
 [sub_resource type="Animation" id=11]
 
 resource/name = "sword_left"
-length = 1.0
+length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ 77, 84 ] }
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 77, 84 ] }
 
 [sub_resource type="Animation" id=12]
 
 resource/name = "sword_right"
-length = 1.0
+length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ 66, 73 ] }
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 66, 73 ] }
 
 [sub_resource type="Animation" id=13]
 
 resource/name = "sword_up"
-length = 1.0
+length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "values":[ 44, 51 ] }
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 44, 51 ] }
 
 [node name="Player" type="KinematicBody2D"]
 
