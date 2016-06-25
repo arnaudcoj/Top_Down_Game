@@ -37,7 +37,8 @@ var is_moving = false				# Stores whether the player is moving or not.
 									# It can also be determined by velocity, but for simplicity we won't.
 var direction = DIRECTION_DOWN		# Stores what direciton the player is facing at.
 var velocity = Vector2(0, 0)		# Velocity the player is moving at.
-
+var attacks = false
+var is_attacking = false
 
 ##########################################################################
 ## Private Functions.                                                   ##
@@ -49,6 +50,7 @@ func _ready():
 	
 	# Fetch nodes.
 	node_animation_player = get_node("Sprite/AnimationPlayer")
+	node_animation_player.connect("finished", self, "_animation_finished")
 	
 ## _fixed_process - handle the fixed processing of the player controller. (Main physics logic)
 func _fixed_process(delta):
@@ -79,28 +81,54 @@ func _process(delta):
 	
 	# Process the animation.
 	_process_animation()
-	
+
+## _animation_finished - 
+func _animation_finished():
+	is_attacking = false
+		
 ## _process_animation - 
 func _process_animation():
-	# Display animation depending on the direction.
-	if (direction == DIRECTION_LEFT):
-		if (node_animation_player.get_current_animation() != "move_left"):
-			node_animation_player.set_current_animation("move_left")
-	if (direction == DIRECTION_RIGHT):
-		if (node_animation_player.get_current_animation() != "move_right"):
-			node_animation_player.set_current_animation("move_right")
-	if (direction == DIRECTION_UP):
-		if (node_animation_player.get_current_animation() != "move_up"):
-			node_animation_player.set_current_animation("move_up")
-	if (direction == DIRECTION_DOWN):
-		if (node_animation_player.get_current_animation() != "move_down"):
-			node_animation_player.set_current_animation("move_down")
-			
-	# Pause/play animation in case we're still moving.
-	if (is_moving):
+	if (attacks):
+		if (direction == DIRECTION_LEFT):
+			if (node_animation_player.get_current_animation() != "sword_left"):
+				node_animation_player.set_current_animation("sword_left")
+		if (direction == DIRECTION_RIGHT):
+			if (node_animation_player.get_current_animation() != "sword_right"):
+				node_animation_player.set_current_animation("sword_right")
+		if (direction == DIRECTION_UP):
+			if (node_animation_player.get_current_animation() != "sword_up"):
+				node_animation_player.set_current_animation("sword_up")
+		if (direction == DIRECTION_DOWN):
+			if (node_animation_player.get_current_animation() != "sword_down"):
+				node_animation_player.set_current_animation("sword_down")
+		
 		if (!node_animation_player.is_playing()):
 			node_animation_player.play()
-	else:
+			
+		is_attacking = true
+	
+	elif (is_attacking):
+		if(node_animation_player.is_blocking_signals()):
+			is_attacking = false
+	elif (is_moving):
+		# Display animation depending on the direction.
+		if (direction == DIRECTION_LEFT):
+			if (node_animation_player.get_current_animation() != "move_left"):
+				node_animation_player.set_current_animation("move_left")
+		if (direction == DIRECTION_RIGHT):
+			if (node_animation_player.get_current_animation() != "move_right"):
+				node_animation_player.set_current_animation("move_right")
+		if (direction == DIRECTION_UP):
+			if (node_animation_player.get_current_animation() != "move_up"):
+				node_animation_player.set_current_animation("move_up")
+		if (direction == DIRECTION_DOWN):
+			if (node_animation_player.get_current_animation() != "move_down"):
+				node_animation_player.set_current_animation("move_down")
+		if (!node_animation_player.is_playing()):
+			node_animation_player.play()
+			
+	# Pause/play animation in case we're still moving.
+	else :
 		# If preferred, one can actually check the direction we're
 		# heading forward to, and start playing an idle animation.
 		#
@@ -128,6 +156,10 @@ func _process_input():
 	var is_left_pressed = int(Input.is_action_pressed("ui_left"))
 	var is_right_pressed = int(Input.is_action_pressed("ui_right"))
 	var is_down_pressed = int(Input.is_action_pressed("ui_down"))
+	var is_attack_pressed = Input.is_action_pressed("ui_select")
+	
+	if(!is_attacking):
+		attacks = is_attack_pressed
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed
@@ -140,7 +172,7 @@ func _process_input():
 		directions_pressed += up_down_direction
 	
 	# Identify whether movement keys have been pressed.
-	if (directions_pressed > 0):
+	if (directions_pressed > 0 && !is_attacking):
 		# We now start checking for directions to execute logic for.
 		# We give left and right a priority, which means that while moving
 		# left or right, the movement will be intercepted and replaced with
