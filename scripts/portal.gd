@@ -1,7 +1,8 @@
 
 extends Node2D
 
-export (String) var next_scene
+export (String) var spawn_point
+export (String) var target_level
 
 # member variables here, example:
 # var a=2
@@ -16,5 +17,5 @@ func _ready():
 
 func _on_Area2D_body_enter( body ):
 	if body.get_name() == "Player":
-		print("zwiup to ", next_scene)
-		get_tree().change_scene(next_scene)
+		print("zwiup'd to ", target_level)
+		controller.root.change_level(target_level, spawn_point)

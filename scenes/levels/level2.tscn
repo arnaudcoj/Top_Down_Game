@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://musics/Peace Returns.ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Ground" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 106, 1, 115, 2, 131, 3, 115, 4, 131, 5, 127, 6, 155, 7, 155, 8, 111, 9, 115, 10, 131, 11, 115, 12, 131, 13, 122, 65536, 107, 65537, 8, 65538, 8, 65539, 8, 65540, 8, 65541, 8, 65542, 155, 65543, 155, 65544, 8, 65545, 8, 65546, 8, 65547, 8, 65548, 8, 65549, 123, 131072, 108, 131073, 41, 131074, 8, 131075, 8, 131076, 8, 131077, 8, 131078, 8, 131079, 8, 131080, 8, 131081, 8, 131082, 8, 131083, 10, 131084, 8, 131085, 124, 196608, 109, 196609, 8, 196610, 10, 196611, 8, 196612, 8, 196613, 8, 196614, 8, 196615, 8, 196616, 8, 196617, 8, 196618, 10, 196619, 8, 196620, 8, 196621, 125, 262144, 109, 262145, 8, 262146, 8, 262147, 10, 262148, 10, 262149, 8, 262150, 8, 262151, 8, 262152, 24, 262153, 8, 262154, 8, 262155, 8, 262156, 54, 262157, 123, 327680, 107, 327681, 41, 327682, 8, 327683, 9, 327684, 54, 327685, 24, 327686, 26, 327687, 26, 327688, 24, 327689, 24, 327690, 54, 327691, 8, 327692, 8, 327693, 124, 393216, 108, 393217, 9, 393218, 46, 393219, 41, 393220, 8, 393221, 24, 393222, 26, 393223, 26, 393224, 8, 393225, 55, 393226, 55, 393227, 55, 393228, 8, 393229, 123, 458752, 109, 458753, 8, 458754, 46, 458755, 46, 458756, 38, 458757, 8, 458758, 26, 458759, 26, 458760, 8, 458761, 55, 458762, 55, 458763, 55, 458764, 8, 458765, 124, 524288, 109, 524289, 41, 524290, 46, 524291, 46, 524292, 8, 524293, 161, 524294, 138, 524295, 138, 524296, 145, 524297, 24, 524298, 8, 524299, 41, 524300, 8, 524301, 125, 589824, 110, 589825, 8, 589826, 8, 589827, 9, 589828, 8, 589829, 126, 589830, 139, 589831, 139, 589832, 110, 589833, 8, 589834, 8, 589835, 8, 589836, 54, 589837, 126, 655360, 111, 655361, 113, 655362, 129, 655363, 113, 655364, 129, 655365, 127, 655366, 139, 655367, 139, 655368, 111, 655369, 129, 655370, 129, 655371, 129, 655372, 129, 655373, 127, 720896, 112, 720897, 114, 720898, 114, 720899, 114, 720900, 114, 720901, 128, 720902, 139, 720903, 139, 720904, 112, 720905, 114, 720906, 114, 720907, 130, 720908, 130, 720909, 128 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Back" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 2
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 196616, 51, 196617, 73, 262145, 335, 262146, 351, 262147, 367, 262148, 383, 262152, 52, 262153, 74, 262155, 198, 327688, 53, 327689, 75, 589825, 200 )
+
+[node name="Middle" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262156, 338, 327684, 324, 327692, 338, 393228, 338, 458761, 173, 458762, 173, 458763, 173, 458764, 338, 524289, 185, 524297, 173, 524298, 173, 524299, 173, 524300, 338, 589833, 309, 589834, 309, 589835, 309, 589836, 309 )
+
+[node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 0, 0 )
+collision/margin = 0.08
+
+[node name="Front" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65537, 332, 65538, 348, 65539, 364, 65540, 380, 131073, 333, 131074, 349, 131075, 365, 131076, 381 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 4 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Spawn" parent="Spawns" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 112.094, 10.717 )
+
+[node name="Portals" type="Node2D" parent="."]
+
+[node name="Portal" parent="Portals" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 112, -16 )
+transform/scale = Vector2( 2, 1 )
+spawn_point = "Spawn1"
+target_level = "level1"
+
+[node name="Portal1" parent="Portals" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 112, 208 )
+transform/scale = Vector2( 2, 1 )
+spawn_point = "Spawn"
+target_level = "level2"
+
+
