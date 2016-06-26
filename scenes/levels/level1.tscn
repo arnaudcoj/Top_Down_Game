@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://musics/Peace Returns.ogg" type="AudioStream" id=4]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
 
 [node name="Level1" type="Node2D"]
 
 script/script = ExtResource( 1 )
+music = "Peace Returns"
 
 [node name="Ground" type="TileMap" parent="."]
 
@@ -90,30 +90,19 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 65537, 332, 65538, 348, 65539, 364, 65540, 380, 65541, 327, 65542, 343, 65543, 359, 65544, 375, 65545, 391, 131073, 333, 131074, 349, 131075, 365, 131076, 381, 131077, 117, 131078, 133, 131079, 149, 131080, 165, 131081, 181, 196613, 118, 196614, 134, 196615, 150, 196616, 166, 196617, 182, 262150, 135, 262151, 151, 262152, 167 )
 
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 4 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = true
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
-
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 5 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 170.775, 93.3087 )
 
-[node name="Spawn1" parent="Spawns" instance=ExtResource( 5 )]
+[node name="Spawn1" parent="Spawns" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 111.193, 178.71 )
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 6 )]
+[node name="Portal" parent="Portals" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 111.547, 209.986 )
 transform/scale = Vector2( 2, 1 )

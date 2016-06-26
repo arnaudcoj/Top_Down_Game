@@ -17,5 +17,5 @@ func _ready():
 
 func _on_Area2D_body_enter( body ):
 	if body.get_name() == "Player":
-		print("zwiup'd to ", target_level)
-		controller.root.change_level(target_level, spawn_point)
+		if controler.debug : print("zwiup'd to ", target_level)
+		controler.root.change_level(target_level, spawn_point)

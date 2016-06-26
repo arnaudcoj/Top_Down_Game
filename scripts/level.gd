@@ -1,6 +1,8 @@
 
 extends Node2D
 
+export (String) var music
+
 var spawns 
 var player
 
@@ -18,7 +20,6 @@ func spawn_player(spawn_name):
 		spawn = spawns.get_node(spawn_name) 
 	else :
 		spawn = spawns.get_child(0)
-	print(spawn)
 	
 	if spawn != null :
 		player.set_pos(spawn.get_pos())
