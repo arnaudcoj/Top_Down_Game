@@ -160,11 +160,12 @@ func _process_input():
 	var directions_pressed = 0
 
 	# Fetches the current key states in this frame.
-	var is_up_pressed = int(Input.is_action_pressed("ui_up"))
-	var is_left_pressed = int(Input.is_action_pressed("ui_left"))
-	var is_right_pressed = int(Input.is_action_pressed("ui_right"))
-	var is_down_pressed = int(Input.is_action_pressed("ui_down"))
-	var is_attack_pressed = Input.is_action_pressed("ui_select")
+	var is_up_pressed = int(Input.is_action_pressed("move_up"))
+	var is_left_pressed = int(Input.is_action_pressed("move_left"))
+	var is_right_pressed = int(Input.is_action_pressed("move_right"))
+	var is_down_pressed = int(Input.is_action_pressed("move_down"))
+	var is_attack_pressed = Input.is_action_pressed("attack")
+	var interact = Input.is_action_pressed("interact")
 	
 	if(!is_attacking && is_attack_pressed):
 		is_attacking = true

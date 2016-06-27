@@ -1,7 +1,7 @@
 
 extends Node
 
-var debug = 0
+var debug = true
 
 var root
 
