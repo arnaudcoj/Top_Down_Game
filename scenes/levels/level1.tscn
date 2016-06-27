@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/breakable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Node2D"]
 
@@ -47,7 +48,7 @@ collision/bounce = 0.0
 collision/layers = 2
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 262145, 335, 262146, 351, 262147, 367, 262148, 383, 262155, 198, 327685, 120, 327687, 152, 327689, 184, 393222, 137, 393223, 153, 393224, 169, 589825, 200 )
+tile_data = IntArray( 262145, 335, 262146, 351, 262147, 367, 262148, 383, 262155, 198, 327685, 120, 327687, 152, 327689, 184, 393222, 137, 393223, 153, 393224, 169, 458761, 172, 458762, 172, 458763, 172, 524297, 172, 524298, 172, 524299, 172, 589825, 200 )
 
 [node name="Middle" type="TileMap" parent="Objects"]
 
@@ -65,12 +66,36 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262149, 119, 262153, 183, 262156, 338, 327684, 324, 327686, 136, 327688, 168, 327692, 338, 393228, 338, 458761, 173, 458762, 173, 458763, 173, 458764, 338, 524289, 185, 524297, 173, 524298, 173, 524299, 173, 524300, 338, 589833, 309, 589834, 309, 589835, 309, 589836, 309 )
+tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262149, 119, 262153, 183, 262156, 338, 327684, 324, 327686, 136, 327688, 168, 327692, 338, 393228, 338, 458764, 338, 524289, 185, 524300, 338, 589833, 309, 589834, 309, 589835, 309, 589836, 309 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 0, 0 )
 collision/margin = 0.08
+
+[node name="Breakable" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 120 )
+
+[node name="Breakable1" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 120 )
+
+[node name="Breakable2" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 120 )
+
+[node name="Breakable3" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 152, 136 )
+
+[node name="Breakable4" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 136 )
+
+[node name="Breakable5" parent="Objects/Middle" groups=[ "bushes" ] instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 168, 136 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 
@@ -92,17 +117,21 @@ tile_data = IntArray( 65537, 332, 65538, 348, 65539, 364, 65540, 380, 65541, 327
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 4 )]
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Spawn" parent="Spawns" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 170.775, 93.3087 )
 
-[node name="Spawn1" parent="Spawns" instance=ExtResource( 4 )]
+[node name="Spawn1" parent="Spawns" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 111.193, 178.71 )
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 5 )]
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Portal" parent="Portals" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 111.547, 209.986 )
 transform/scale = Vector2( 2, 1 )

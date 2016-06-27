@@ -168,7 +168,7 @@ texture = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 11
-frame = 11
+frame = 80
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
@@ -191,5 +191,21 @@ playback/active = true
 playback/speed = 1.5
 blend_times = [  ]
 autoplay = "idle_down"
+
+[node name="ActionUp" type="Position2D" parent="."]
+
+transform/pos = Vector2( 0, -9 )
+
+[node name="ActionDown" type="Position2D" parent="."]
+
+transform/pos = Vector2( 0, 9 )
+
+[node name="ActionLeft" type="Position2D" parent="."]
+
+transform/pos = Vector2( -8, 2 )
+
+[node name="ActionRight" type="Position2D" parent="."]
+
+transform/pos = Vector2( 8, 2 )
 
 

@@ -39,6 +39,13 @@ var direction = DIRECTION_DOWN		# Stores what direciton the player is facing at.
 var velocity = Vector2(0, 0)		# Velocity the player is moving at.
 var is_attacking = false
 
+var action_up
+var action_down
+var action_left
+var action_right
+
+var attack = preload("res://scenes/attack.tscn")
+
 ##########################################################################
 ## Private Functions.                                                   ##
 ##########################################################################
@@ -50,6 +57,11 @@ func _ready():
 	# Fetch nodes.
 	node_animation_player = get_node("Sprite/AnimationPlayer")
 	node_animation_player.connect("finished", self, "_animation_finished")
+	
+	action_up = get_node("ActionUp")
+	action_down = get_node("ActionDown")
+	action_left = get_node("ActionLeft")
+	action_right = get_node("ActionRight")
 	
 ## _fixed_process - handle the fixed processing of the player controller. (Main physics logic)
 func _fixed_process(delta):
@@ -156,6 +168,15 @@ func _process_input():
 	
 	if(!is_attacking && is_attack_pressed):
 		is_attacking = true
+		# Create attack
+		if (direction == DIRECTION_LEFT):
+			action_left.add_child(attack.instance())
+		elif (direction == DIRECTION_RIGHT):
+			action_right.add_child(attack.instance())
+		elif (direction == DIRECTION_UP):
+			action_up.add_child(attack.instance())
+		elif (direction == DIRECTION_DOWN):
+			action_down.add_child(attack.instance())
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed
