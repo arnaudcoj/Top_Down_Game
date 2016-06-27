@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scripts/sword_hit.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.969, 29.3978 )
+
+[node name="SwordHitVertical" type="Area2D"]
+
+transform/pos = Vector2( -1.19209e-07, 9.53674e-07 )
+transform/scale = Vector2( 0.59375, 0.5625 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.533938, 0, 0, 0.81626, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+
+transform/scale = Vector2( 0.533938, 0.81626 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+

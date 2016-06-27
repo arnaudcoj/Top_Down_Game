@@ -44,7 +44,8 @@ var action_down
 var action_left
 var action_right
 
-var attack = preload("res://scenes/attack.tscn")
+var sword_hit_vertical = preload("res://scenes/sword_hit_vertical.tscn")
+var sword_hit_horizontal = preload("res://scenes/sword_hit_horizontal.tscn")
 
 ##########################################################################
 ## Private Functions.                                                   ##
@@ -171,13 +172,13 @@ func _process_input():
 		is_attacking = true
 		# Create attack
 		if (direction == DIRECTION_LEFT):
-			action_left.add_child(attack.instance())
+			action_left.add_child(sword_hit_vertical.instance())
 		elif (direction == DIRECTION_RIGHT):
-			action_right.add_child(attack.instance())
+			action_right.add_child(sword_hit_vertical.instance())
 		elif (direction == DIRECTION_UP):
-			action_up.add_child(attack.instance())
+			action_up.add_child(sword_hit_horizontal.instance())
 		elif (direction == DIRECTION_DOWN):
-			action_down.add_child(attack.instance())
+			action_down.add_child(sword_hit_horizontal.instance())
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed

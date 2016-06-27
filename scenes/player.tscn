@@ -151,7 +151,7 @@ script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 motion_speed = 140.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 0, 8.5 )
 shape = SubResource( 1 )
@@ -168,7 +168,7 @@ texture = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 11
-frame = 55
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
