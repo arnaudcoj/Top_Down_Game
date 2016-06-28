@@ -7,5 +7,5 @@ func _ready():
 
 func _on_enter(area):
 	if (area extends sword_hit):
-		sound_player.play("cut_bush")
+		controler.soundPlayer.play("cut_bush")
 		queue_free()
