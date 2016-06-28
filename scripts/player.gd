@@ -39,13 +39,10 @@ var direction = DIRECTION_DOWN		# Stores what direciton the player is facing at.
 var velocity = Vector2(0, 0)		# Velocity the player is moving at.
 var is_attacking = false
 
-var action_up
-var action_down
-var action_left
-var action_right
+var actions
+var action_front
 
-var sword_hit_vertical = preload("res://scenes/sword_hit_vertical.tscn")
-var sword_hit_horizontal = preload("res://scenes/sword_hit_horizontal.tscn")
+var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
 
 ##########################################################################
 ## Private Functions.                                                   ##
@@ -59,10 +56,8 @@ func _ready():
 	node_animation_player = get_node("Sprite/AnimationPlayer")
 	node_animation_player.connect("finished", self, "_animation_finished")
 	
-	action_up = get_node("ActionUp")
-	action_down = get_node("ActionDown")
-	action_left = get_node("ActionLeft")
-	action_right = get_node("ActionRight")
+	actions = get_node("Actions")
+	action_front = actions.get_node("ActionFront")
 	
 ## _fixed_process - handle the fixed processing of the player controller. (Main physics logic)
 func _fixed_process(delta):
@@ -171,14 +166,7 @@ func _process_input():
 	if(!is_attacking && is_attack_pressed):
 		is_attacking = true
 		# Create attack
-		if (direction == DIRECTION_LEFT):
-			action_left.add_child(sword_hit_vertical.instance())
-		elif (direction == DIRECTION_RIGHT):
-			action_right.add_child(sword_hit_vertical.instance())
-		elif (direction == DIRECTION_UP):
-			action_up.add_child(sword_hit_horizontal.instance())
-		elif (direction == DIRECTION_DOWN):
-			action_down.add_child(sword_hit_horizontal.instance())
+		action_front.add_child(sword_hit_lateral.instance())
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed
@@ -214,13 +202,13 @@ func _process_input():
 				velocity.x -= 1
 				
 				# Setup direction state.
-				direction = DIRECTION_LEFT
+				set_direction(DIRECTION_LEFT)
 			else:
 				# Setup velocity.
 				velocity.x += 1
 				
 				# Setup direction state.
-				direction = DIRECTION_RIGHT
+				set_direction(DIRECTION_RIGHT)
 		
 		# Check for up_down_direction movement.
 		if (up_down_direction):
@@ -232,13 +220,28 @@ func _process_input():
 				velocity.y -= 1
 				
 				# Setup direction state.
-				direction = DIRECTION_UP
+				set_direction(DIRECTION_UP)
 			else:
 				# Setup velocity.
 				velocity.y += 1
 				
 				# Setup direction state.
-				direction = DIRECTION_DOWN
+				set_direction(DIRECTION_DOWN)
 	else:
 		# Stop movement, nothing is pressed.
 		is_moving = false
+		
+func set_direction(new_direction):
+	var rot = 0
+	if new_direction == DIRECTION_UP :
+		rot = 180
+	if new_direction == DIRECTION_RIGHT :
+		rot = 90
+	if new_direction == DIRECTION_DOWN :
+		rot = 0
+	if new_direction == DIRECTION_LEFT :
+		rot = -90
+	
+	actions.set_rotd(rot)
+	
+	direction = new_direction

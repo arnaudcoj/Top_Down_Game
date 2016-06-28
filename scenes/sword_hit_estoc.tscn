@@ -13,7 +13,7 @@ transform/pos = Vector2( -1.19209e-07, 9.53674e-07 )
 transform/scale = Vector2( 0.59375, 0.5625 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.533938, -0, 0, 0.81626, 0, 0 )
+shapes/0/transform = Matrix32( 0.533938, 0, 0, 0.81626, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -35,5 +35,17 @@ process_mode = 1
 wait_time = 0.1
 one_shot = false
 autostart = false
+
+[node name="Panel" type="Panel" parent="."]
+
+visibility/self_opacity = 0.4
+margin/left = -8.0
+margin/top = -16.0
+margin/right = 8.0
+margin/bottom = 16.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 
 

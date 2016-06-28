@@ -192,20 +192,10 @@ playback/speed = 1.5
 blend_times = [  ]
 autoplay = "idle_down"
 
-[node name="ActionUp" type="Position2D" parent="."]
+[node name="Actions" type="Node2D" parent="."]
 
-transform/pos = Vector2( 0, -16 )
-
-[node name="ActionDown" type="Position2D" parent="."]
+[node name="ActionFront" type="Position2D" parent="Actions"]
 
 transform/pos = Vector2( 0, 16 )
-
-[node name="ActionLeft" type="Position2D" parent="."]
-
-transform/pos = Vector2( -16, 0 )
-
-[node name="ActionRight" type="Position2D" parent="."]
-
-transform/pos = Vector2( 16, 0 )
 
 
