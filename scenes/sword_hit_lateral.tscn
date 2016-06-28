@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://scripts/sword_hit.gd" type="Script" id=1]
 
@@ -6,9 +6,6 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 16.0002, 8 )
-
-[sub_resource type="Theme" id=2]
-
 
 [node name="SwordHitHorizontal" type="Area2D"]
 
@@ -34,18 +31,5 @@ process_mode = 1
 wait_time = 0.1
 one_shot = false
 autostart = false
-
-[node name="Panel" type="Panel" parent="."]
-
-visibility/self_opacity = 0.4
-margin/left = -16.0
-margin/top = -8.0
-margin/right = 16.0
-margin/bottom = 8.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = SubResource( 2 )
 
 

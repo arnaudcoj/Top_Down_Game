@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 script/script = ExtResource( 1 )
 music = "Peace Returns"
@@ -68,9 +68,6 @@ occluder/light_mask = 1
 tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262156, 338, 327684, 324, 327692, 338, 393228, 338, 458761, 289, 458762, 304, 458763, 320, 458764, 338, 524289, 185, 524297, 290, 524298, 305, 524299, 321, 524300, 338, 589833, 309, 589834, 309, 589835, 309, 589836, 309 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 0, 0 )
-collision/margin = 0.08
 
 [node name="Front" type="TileMap" parent="Objects"]
 

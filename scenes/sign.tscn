@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/sign.gd" type="Script" id=1]
+[ext_resource path="res://tiles/zelda_tileset.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 3 )
+
+[node name="Sign" type="StaticBody2D" groups=[ "can_interact" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 5 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 5 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 400, 193, 16, 16 )
+
+[node name="InteractionRay" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 0, 8 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+layer_mask = 1
+type_mask = 15
+
+

@@ -32,12 +32,15 @@ export(float) var motion_speed = 60		# The motion speed the character walks with
 # Animation player node.
 var node_animation_player = AnimationPlayer
 
+onready var node_interaction_ray = get_node("Actions/InteractionRay")
+
 # States.
 var is_moving = false				# Stores whether the player is moving or not.
 									# It can also be determined by velocity, but for simplicity we won't.
 var direction = DIRECTION_DOWN		# Stores what direciton the player is facing at.
 var velocity = Vector2(0, 0)		# Velocity the player is moving at.
 var is_attacking = false
+var is_interacting = false
 
 var actions
 var action_front
@@ -161,12 +164,19 @@ func _process_input():
 	var is_right_pressed = int(Input.is_action_pressed("move_right"))
 	var is_down_pressed = int(Input.is_action_pressed("move_down"))
 	var is_attack_pressed = Input.is_action_pressed("attack")
-	var interact = Input.is_action_pressed("interact")
+	var is_interact_pressed = Input.is_action_pressed("interact")
 	
 	if(!is_attacking && is_attack_pressed):
 		is_attacking = true
 		# Create attack
 		action_front.add_child(sword_hit_lateral.instance())
+	
+	if(!is_interacting && is_interact_pressed):
+#		is_interacting = true
+		if node_interaction_ray.is_colliding() :
+			var body = node_interaction_ray.get_collider()
+			if body.is_in_group("can_interact") :
+				body.interact(self)
 
 	# Determine whether left/right are pressed, if so, add the bits to directions_pressed.
 	var left_right_direction = is_right_pressed ^ is_left_pressed
