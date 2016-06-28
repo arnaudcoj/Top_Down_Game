@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/root.gd" type="Script" id=1]
+[ext_resource path="res://sounds/cut_bush.smp" type="Sample" id=2]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 
 [node name="Root" type="Node2D"]
 
@@ -19,5 +24,16 @@ stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="SoundPlayer" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 1 )
+config/pitch_random = 0.0
 
 

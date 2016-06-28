@@ -3,9 +3,11 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/breakable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ bush.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=6]
+
+
 
 [node name="Level1" type="Node2D"]
 
@@ -73,29 +75,29 @@ tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610,
 transform/pos = Vector2( 0, 0 )
 collision/margin = 0.08
 
-[node name="Breakable" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Bush" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 152, 120 )
 
-[node name="Breakable1" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 168, 120 )
 
-[node name="Breakable2" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 184, 120 )
 
-[node name="Breakable3" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 152, 136 )
 
-[node name="Breakable4" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 184, 136 )
-
-[node name="Breakable5" parent="Objects/Middle" groups=[ "bushes" ] instance=ExtResource( 4 )]
+[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 168, 136 )
+
+[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 136 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 
