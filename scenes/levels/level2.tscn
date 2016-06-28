@@ -9,7 +9,7 @@
 [node name="Level1" type="Node2D"]
 
 script/script = ExtResource( 1 )
-music = "Pet"
+music = "Peace Returns"
 
 [node name="Ground" type="TileMap" parent="."]
 
