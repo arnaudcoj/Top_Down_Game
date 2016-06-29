@@ -8,6 +8,7 @@ func _ready():
 
 func _on_enter(area):
 	if (area extends sword_hit):
+		get_node("CollisionBox").set_trigger(true) 
 		get_node("Sprite").queue_free()
 		get_node("HitBox").queue_free()
 		get_node("SoundPlayer").play("cut_bush")

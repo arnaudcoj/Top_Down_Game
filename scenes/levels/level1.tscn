@@ -3,9 +3,9 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=8]
 
@@ -69,49 +69,48 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262149, 119, 262153, 183, 262156, 338, 327686, 136, 327688, 168, 327692, 338, 393228, 338, 458764, 338, 524300, 338, 589825, 185, 589836, 338, 655361, 200, 655369, 309, 655370, 309, 655371, 309, 655372, 309 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
 collision/margin = 0.08
 
-[node name="Bush" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 152, 152 )
-
-[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 168, 152 )
-
-[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 184, 152 )
-
-[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 152, 136 )
-
-[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 168, 136 )
-
-[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 184, 136 )
-
-[node name="Sign" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Sign" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 72, 88 )
 
-[node name="Solid" parent="Objects/Middle" instance=ExtResource( 6 )]
+[node name="Solid" parent="Objects/Middle" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 24, 152 )
 linear_damp = 0.1
 
-[node name="Solid1" parent="Objects/Middle" instance=ExtResource( 6 )]
+[node name="Solid1" parent="Objects/Middle" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 184, 56 )
 linear_damp = 0.1
+
+[node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 184, 136 )
+
+[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 184, 152 )
+
+[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 168, 152 )
+
+[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 152, 152 )
+
+[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 168, 136 )
+
+[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 152, 136 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 

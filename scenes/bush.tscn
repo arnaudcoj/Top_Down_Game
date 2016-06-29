@@ -4,10 +4,10 @@
 [ext_resource path="res://tiles/zelda_tileset.png" type="Texture" id=2]
 [ext_resource path="res://sounds/cut_bush.smp" type="Sample" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 28.4444, 32, -28.4444, 32, -28.4444, -24.8889, 28.4444, -24.8889 )
+points = Vector2Array( -8, -8, 8, -8, 8, 7, -8, 7 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -21,6 +21,9 @@ samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 [node name="Bush" type="StaticBody2D"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -30,30 +33,18 @@ bounce = 0.0
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 
+[node name="CollisionBox" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -8, -8, 8, -8, 8, 7, -8, 7 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
 region = true
 region_rect = Rect2( 256, 48, 16, 16 )
-
-[node name="CollisionBox" type="KinematicBody2D" parent="Sprite"]
-
-transform/pos = Vector2( 4.76837e-07, -1 )
-transform/scale = Vector2( 0.28125, 0.28125 )
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/CollisionBox"]
-
-build_mode = 0
-polygon = Vector2Array( 28.4444, -24.8889, -28.4444, -24.8889, -28.4444, 32, 28.4444, 32 )
-shape_range = Vector2( 0, 0 )
-trigger = false
 
 [node name="HitBox" type="Area2D" parent="."]
 
