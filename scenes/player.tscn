@@ -139,7 +139,6 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":Float
 
 [node name="Player" type="KinematicBody2D"]
 
-transform/pos = Vector2( 0, -4 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 8.5 )
@@ -148,7 +147,6 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-__meta__ = { "_edit_group_":true }
 motion_speed = 140.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
@@ -204,5 +202,12 @@ data = { "active":false, "connections":[ "anim", "transition", 0, "anim 2", "tra
 [node name="ActionFront" type="Position2D" parent="Actions"]
 
 transform/pos = Vector2( 0, 16 )
+
+[node name="InteractionRay" type="RayCast2D" parent="Actions"]
+
+enabled = true
+cast_to = Vector2( 0, 20 )
+layer_mask = 2
+type_mask = 15
 
 
