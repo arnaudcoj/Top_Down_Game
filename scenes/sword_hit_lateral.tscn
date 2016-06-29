@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/sword_hit.gd" type="Script" id=1]
+[ext_resource path="res://sounds/sword.smp" type="Sample" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16.0002, 8 )
 
-[node name="SwordHitHorizontal" type="Area2D"]
+[sub_resource type="SampleLibrary" id=2]
+
+samples/sword = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+
+[node name="SwordHitLateral" type="Area2D"]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -25,10 +30,28 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="SoundPlayer" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 2 )
+config/pitch_random = 0.0
+
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="Timer_2" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.5
 one_shot = false
 autostart = false
 
