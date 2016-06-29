@@ -12,7 +12,7 @@ samples/game_over = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 
 transform/scale = Vector2( 2, 2 )
 script/script = ExtResource( 1 )
-playing_music = false
+playing_music = true
 
 [node name="Map" type="Node2D" parent="."]
 

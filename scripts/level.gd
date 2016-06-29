@@ -1,6 +1,7 @@
 extends Node2D
 
 export (String) var music
+export var loop = true
 
 var spawns 
 var player
