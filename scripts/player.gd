@@ -49,6 +49,7 @@ var monster = preload("res://scripts/monster.gd")
 func _ready():
 	set_process(true)
 	set_fixed_process(true)
+	set_process_input(true)
 	
 	# Fetch nodes.
 	node_animation_player = get_node("Sprite/AnimationPlayer")
@@ -58,6 +59,24 @@ func _ready():
 	action_front = actions.get_node("ActionFront")
 	
 	get_node("HitBox").connect("area_enter", self, "_on_enter")
+	
+func _input(event):	
+	var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
+	var is_interact_pressed = event.is_action_pressed("interact") && !event.is_echo()
+	
+	# Interaction
+	if(!is_interacting && is_interact_pressed) :
+#		is_interacting = true
+		if node_interaction_ray.is_colliding() :
+			var body = node_interaction_ray.get_collider()
+			if body.is_in_group("can_interact") :
+				body.interact(self)
+
+	if(!is_attacking  && is_attack_pressed):
+		is_attacking = true
+		# Create an attack
+		action_front.add_child(sword_hit_lateral.instance())
+	
 	
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):
@@ -151,21 +170,9 @@ func _process_input():
 	var is_left_pressed = int(Input.is_action_pressed("move_left"))
 	var is_right_pressed = int(Input.is_action_pressed("move_right"))
 	var is_down_pressed = int(Input.is_action_pressed("move_down"))
-	var is_attack_pressed = Input.is_action_pressed("attack")
-	var is_interact_pressed = Input.is_action_pressed("interact")
+#	var is_attack_pressed = Input.is_action_pressed("attack")
+#	var is_interact_pressed = Input.is_action_pressed("interact")
 	
-	if(!is_attacking && is_attack_pressed):
-		is_attacking = true
-		# Create an attack
-		action_front.add_child(sword_hit_lateral.instance())
-	
-	if(!is_interacting && is_interact_pressed):
-#		is_interacting = true
-		if node_interaction_ray.is_colliding() :
-			var body = node_interaction_ray.get_collider()
-			if body.is_in_group("can_interact") :
-				body.interact(self)
-
 	var left_right_direction = is_right_pressed ^ is_left_pressed
 	if (left_right_direction == 1):
 		directions_pressed += left_right_direction

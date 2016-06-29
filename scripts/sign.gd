@@ -12,5 +12,7 @@ func _ready():
 func interact(body) :
 	if interaction_ray.is_colliding() && interaction_ray.get_collider() == body && body extends Player:
 		print("yay")
+		#buffer text
+		#activate text_box
 	else :
 		print("mets teu dvan oh carvaille")
