@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/root.gd" type="Script" id=1]
-[ext_resource path="res://sounds/cut_bush.smp" type="Sample" id=2]
+[ext_resource path="res://sounds/bat.smp" type="Sample" id=2]
+[ext_resource path="res://sounds/cut_bush.smp" type="Sample" id=3]
+[ext_resource path="res://sounds/evil_laugh.smp" type="Sample" id=4]
+[ext_resource path="res://sounds/no_scream.smp" type="Sample" id=5]
+[ext_resource path="res://sounds/sword.smp" type="Sample" id=6]
 
 [sub_resource type="SampleLibrary" id=1]
 
-samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/evil_laugh = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/bat = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/sword = { "db":0.0, "pitch":0.9, "sample":ExtResource( 6 ) }
+samples/no_scream = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [node name="Root" type="Node2D"]
 

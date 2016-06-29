@@ -41,6 +41,7 @@ var actions
 var action_front
 
 var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
+var monster = preload("res://scripts/monster.gd")
 
 ##########################################################################
 ## Private Functions                                                   ##
@@ -55,6 +56,8 @@ func _ready():
 	
 	actions = get_node("Actions")
 	action_front = actions.get_node("ActionFront")
+	
+	get_node("HitBox").connect("area_enter", self, "_on_enter")
 	
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):
@@ -211,3 +214,12 @@ func set_direction(new_direction):
 	actions.set_rotd(rot)
 	
 	direction = new_direction
+	
+func _on_enter(area):
+	if (area extends monster):
+		die()
+		
+func die():
+	controler.soundPlayer.play("no_scream")
+	print("DEAD")
+

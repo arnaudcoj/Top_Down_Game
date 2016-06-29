@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/shadow.png" type="Texture" id=2]
@@ -137,6 +137,11 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 44, 51 ] }
 
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
@@ -195,7 +200,7 @@ autoplay = "idle_down"
 playback/process_mode = 0
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "anim", "transition", 0, "anim 2", "transition", 1, "anim 3", "transition", 2, "anim 4", "transition", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"idle_left", "id":"anim 2", "pos":Vector2( 5, 125 ), "type":"animation" }, { "id":"transition", "pos":Vector2( 289, 78 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"idle_up", "id":"anim 4", "pos":Vector2( 5, 290 ), "type":"animation" }, { "from":"idle_down", "id":"anim", "pos":Vector2( 5, 44 ), "type":"animation" }, { "id":"out", "pos":Vector2( 547, 84 ), "type":"output" }, { "from":"idle_right", "id":"anim 3", "pos":Vector2( 5, 208 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "anim", "transition", 0, "anim 2", "transition", 1, "anim 3", "transition", 2, "anim 4", "transition", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"idle_right", "id":"anim 3", "pos":Vector2( 5, 208 ), "type":"animation" }, { "from":"idle_left", "id":"anim 2", "pos":Vector2( 5, 125 ), "type":"animation" }, { "from":"idle_down", "id":"anim", "pos":Vector2( 5, 44 ), "type":"animation" }, { "id":"out", "pos":Vector2( 547, 84 ), "type":"output" }, { "id":"transition", "pos":Vector2( 289, 78 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"idle_up", "id":"anim 4", "pos":Vector2( 5, 290 ), "type":"animation" } ] }
 
 [node name="Actions" type="Node2D" parent="."]
 
@@ -209,5 +214,22 @@ enabled = true
 cast_to = Vector2( 0, 20 )
 layer_mask = 2
 type_mask = 15
+
+[node name="HitBox" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 14 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+
+shape = SubResource( 14 )
+trigger = false
+_update_shape_index = 0
 
 

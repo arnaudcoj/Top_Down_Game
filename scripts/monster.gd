@@ -1,5 +1,5 @@
 
-extends KinematicBody2D
+extends Area2D
 
 ##########################################################################
 ## Variables                                                            ##
@@ -26,6 +26,7 @@ export(float) var movement_threshold = 0.8
 ################################
 
 var tree_player = AnimationTreePlayer
+var sword_hit = preload("res://scripts/sword_hit.gd")
 
 # States
 var current_direction = DIRECTION_LEFT
@@ -39,6 +40,8 @@ func _ready():
 	tree_player.transition_node_set_current("direction", current_direction)
 	tree_player.set_active(true)
 	set_process(true)
+	
+	connect("area_enter", self, "_on_enter")
 
 func update_animation():
 	tree_player.transition_node_set_current("direction", current_direction)
@@ -75,3 +78,8 @@ func path_follow_path(path_follow, delta):
 		travel = Vector2(0,0)
 
 	update_travel(travel)
+	
+func _on_enter(area):
+	if (area extends sword_hit):
+		controler.soundPlayer.play("bat")
+		queue_free()
