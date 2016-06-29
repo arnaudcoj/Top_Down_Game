@@ -7,4 +7,5 @@ func _ready():
 
 func _on_enter(area):
 	if (area extends sword_hit):
-		controler.soundPlayer.play("sword_solid")
+		get_node("SoundPlayer").play("sword_solid")
+		get_node("Particles").set_emitting(true)

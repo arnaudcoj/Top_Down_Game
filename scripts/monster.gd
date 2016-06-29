@@ -33,8 +33,8 @@ func _ready():
 	tree_player.set_active(true)
 	
 	connect("area_enter", self, "_on_enter")
-	
-	set_process(true)
+	get_node("Timer").connect("timeout", self, "_on_timeout")
+
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -57,8 +57,15 @@ func get_direction_from_angle(angle):
 	elif(angle >= (PI / 4) and angle < ((3 * PI) / 4)):
 		return DIRECTION_DOWN
 	return DIRECTION_LEFT
-			
+		
 func _on_enter(area):
 	if (area extends sword_hit):
-		controler.soundPlayer.play("bat")
-		queue_free()
+		set_fixed_process(false)
+		get_node("Sprite").queue_free()
+		get_node("HitBox").queue_free()
+		get_node("SoundPlayer").play("bat")
+		get_node("Particles").set_emitting(true)
+		get_node("Timer").start()
+		
+func _on_timeout():
+	queue_free()

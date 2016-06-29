@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/solid.gd" type="Script" id=1]
+[ext_resource path="res://sounds/sword_solid.wav" type="Sample" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
+[sub_resource type="SampleLibrary" id=2]
+
+samples/sword_solid = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+
 [node name="Solid" type="Area2D"]
 
+transform/pos = Vector2( 75, 36 )
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.25, 0, 0, 0.234375, 0, -0.5 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -20,12 +26,47 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 0, -0.5 )
 transform/scale = Vector2( 0.25, 0.234375 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Particles" type="Particles2D" parent="."]
+
+config/amount = 15
+config/lifetime = 0.5
+config/emit_timeout = 0.1
+config/emitting = false
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 25.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 5.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.941406, 0.941406, 0.941406, 1 )
+
+[node name="SoundPlayer" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 2 )
+config/pitch_random = 0.0
 
 
