@@ -3,6 +3,8 @@ extends Node2D
 
 var current_music
 
+export(bool) var playing_music = true
+
 func _ready():
 	change_level("level1", "Spawn")
 	
@@ -16,7 +18,8 @@ func change_level(level, spawn):
 	
 	var level_scene = load("res://scenes/levels/" + level + ".tscn")
 	var level_node = level_scene.instance()
-	#change_music(level_node.music)
+	if(playing_music):
+		change_music(level_node.music)
 	
 	level_node.spawn_player(spawn)
 	map.add_child(level_node)
