@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://musics/Game Over.ogg" type="AudioStream" id=6]
+
+[node name="GameOver" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+music = ""
+
+[node name="Ground" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ground"]
+
+margin/right = 224.0
+margin/bottom = 192.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ground/HBoxContainer"]
+
+margin/left = 80.0
+margin/right = 144.0
+margin/bottom = 192.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="Ground/HBoxContainer/VBoxContainer"]
+
+margin/top = 86.0
+margin/right = 64.0
+margin/bottom = 105.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+click_on_press = true
+text = "You died!"
+flat = true
+items = [  ]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Middle" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Spawn" parent="Spawns" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 112.094, 10.717 )
+
+[node name="Portal" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 112, -16 )
+transform/scale = Vector2( 18, 1 )
+spawn_point = "Spawn"
+target_level = "level1"
+
+[node name="Portal1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 112, 208 )
+transform/scale = Vector2( 18, 1 )
+spawn_point = "Spawn"
+target_level = "level1"
+
+[node name="Portal2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -16, 96 )
+transform/scale = Vector2( 1, 18 )
+spawn_point = "Spawn"
+target_level = "level1"
+
+[node name="Portal3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 240, 96 )
+transform/scale = Vector2( 1, 18 )
+spawn_point = "Spawn"
+target_level = "level1"
+
+[node name="SamplePlayer2D" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 6 )
+stream/play = true
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/root.gd" type="Script" id=1]
 [ext_resource path="res://sounds/evil_laugh.smp" type="Sample" id=2]
+[ext_resource path="res://scenes/text_box.scn" type="PackedScene" id=3]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -11,7 +12,7 @@ samples/game_over = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 
 transform/scale = Vector2( 2, 2 )
 script/script = ExtResource( 1 )
-playing_music = false
+playing_music = true
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -36,5 +37,7 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 1 )
 config/pitch_random = 0.0
+
+[node name="TextBox" parent="." instance=ExtResource( 3 )]
 
 
