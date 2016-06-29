@@ -59,9 +59,6 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-walk_speed = 120.0
-walk_animation_scale = 1.2
-movement_threshold = 0.8
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 
@@ -96,6 +93,6 @@ autoplay = ""
 playback/process_mode = 0
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" }, { "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" }, { "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" }, { "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" }, { "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" } ] }
 
 

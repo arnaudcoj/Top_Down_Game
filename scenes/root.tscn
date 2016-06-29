@@ -10,12 +10,12 @@
 
 [sub_resource type="SampleLibrary" id=1]
 
-samples/sword_solid = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/evil_laugh = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
-samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 samples/no_scream = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 samples/bat = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 samples/sword = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/cut_bush = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/evil_laugh = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/sword_solid = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
 [node name="Root" type="Node2D"]
 

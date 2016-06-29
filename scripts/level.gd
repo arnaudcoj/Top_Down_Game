@@ -6,8 +6,6 @@ var spawns
 var player
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
 
 func spawn_player(spawn_name):

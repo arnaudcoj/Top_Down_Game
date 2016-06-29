@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 96, 160, 0, 0, 0, 0, 128, 160, 0, 0, 0, 0, 128, 80 ) }
 
 [node name="Level2" type="Node2D"]
 
@@ -89,14 +94,14 @@ tile_data = IntArray( 65536, 322, 131072, 322, 196608, 322, 196611, 197, 262144,
 
 collision/margin = 0.08
 
-[node name="Bat" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="BatPath" type="Path2D" parent="Objects/Middle"]
 
-transform/pos = Vector2( 176, 96 )
-linear_damp = 0.1
+curve = SubResource( 1 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle"]
+[node name="Follow" type="PathFollow2D" parent="Objects/Middle/BatPath"]
 
-transform/pos = Vector2( 160, 128 )
+transform/pos = Vector2( 128, 80 )
+transform/rot = -180.0
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -104,6 +109,11 @@ rotate = true
 cubic_interp = true
 loop = true
 lookahead = 4.0
+
+[node name="Bat" parent="Objects/Middle/BatPath/Follow" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 3.33491e-13, -3.8147e-06 )
+transform/rot = -180.0
 
 [node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
 
