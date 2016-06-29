@@ -38,10 +38,12 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	get_parent().set_offset(get_parent().get_offset() + (50*delta))
-	var vector = Vector2(0,0)
-	var angle = vector.angle_to(Vector2(1,0))
-	#current_direction = get_direction_from_angle(angle)
+	var old_pos = get_parent().get_pos()
+	get_parent().set_offset(get_parent().get_offset() + (50 * delta))
+	var pos = get_parent().get_pos()
+	var travel = pos - old_pos
+	var angle = travel.angle_to(Vector2(1,0))
+	current_direction = get_direction_from_angle(angle)
 	update_animation()
 	
 func update_animation():

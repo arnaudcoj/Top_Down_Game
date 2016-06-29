@@ -105,7 +105,7 @@ transform/rot = -180.0
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
-rotate = true
+rotate = false
 cubic_interp = true
 loop = true
 lookahead = 4.0
@@ -114,6 +114,7 @@ lookahead = 4.0
 
 transform/pos = Vector2( 3.33491e-13, -3.8147e-06 )
 transform/rot = -180.0
+linear_damp = 0.1
 
 [node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
 
