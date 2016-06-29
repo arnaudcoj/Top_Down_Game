@@ -9,10 +9,11 @@ func _ready():
 	# Initialization here
 	pass
 
-func interact(body) :
-	if interaction_ray.is_colliding() && interaction_ray.get_collider() == body && body extends Player:
-		print("yay")
-		#buffer text
-		#activate text_box
-	else :
-		print("mets teu dvan oh carvaille")
+func interact(player) :
+	if player extends Player :
+		if interaction_ray.is_colliding() && interaction_ray.get_collider() == player:
+			controler.textBox.add_paragraph("This sign can't talk, you know ?")
+			controler.textBox.activate()
+		else :
+			controler.textBox.add_paragraph("You can't read this sign from here...")
+			controler.textBox.activate()

@@ -6,6 +6,10 @@ var debug = false
 var root
 var musicPlayer
 var soundPlayer
+var textBox
+
+#to be moved in a global player state
+var is_interacting = false
 
 func _ready():
 	if debug : print("Controler init")
@@ -17,4 +21,7 @@ func _ready():
 	
 	soundPlayer = root.get_node("SoundPlayer")
 	if debug : print("found soundPlayer: " + soundPlayer.get_name())
+	
+	textBox = root.get_node("TextBox")
+	if debug : print("found text box: " + textBox.get_name())
 	

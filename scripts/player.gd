@@ -35,7 +35,6 @@ var direction = DIRECTION_DOWN
 var velocity = Vector2(0, 0)
 
 var is_attacking = false
-var is_interacting = false
 
 var actions
 var action_front
@@ -65,14 +64,19 @@ func _input(event):
 	var is_interact_pressed = event.is_action_pressed("interact") && !event.is_echo()
 	
 	# Interaction
-	if(!is_interacting && is_interact_pressed) :
-#		is_interacting = true
-		if node_interaction_ray.is_colliding() :
-			var body = node_interaction_ray.get_collider()
-			if body.is_in_group("can_interact") :
-				body.interact(self)
+	if(is_interact_pressed) :
+		if !controler.is_interacting :
+			# interact with front object
+			if node_interaction_ray.is_colliding() :
+				var body = node_interaction_ray.get_collider()
+				if body.is_in_group("can_interact") :
+					body.interact(self)
+		elif controler.textBox.active :
+			controler.textBox.next()
 
 	if(!is_attacking  && is_attack_pressed):
+		if controler.textBox.active :
+			controler.textBox.deactivate()
 		is_attacking = true
 		# Create an attack
 		action_front.add_child(sword_hit_lateral.instance())
@@ -162,6 +166,11 @@ func _process_animation():
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
+	# provisoire, soon l'interaction se desactivera si on s'éloigne
+	if controler.is_interacting :
+		is_moving = false
+		return
+		
 	# Stores the directions pressed in this frame.
 	var directions_pressed = 0
 
