@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/root.gd" type="Script" id=1]
 [ext_resource path="res://sounds/cut_bush.smp" type="Sample" id=2]
-[ext_resource path="res://scripts/text_box.gd" type="Script" id=3]
+[ext_resource path="res://scenes/text_box.scn" type="PackedScene" id=3]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -38,30 +38,6 @@ config/polyphony = 1
 config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 
-[node name="TextBox" type="Panel" parent="."]
-
-visibility/self_opacity = 0.5
-margin/left = 16.0
-margin/top = 144.0
-margin/right = 208.0
-margin/bottom = 184.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-script/script = ExtResource( 3 )
-__meta__ = { "_edit_group_":true }
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TextBox"]
-
-margin/right = 192.0
-margin/bottom = 40.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-bbcode/enabled = true
-bbcode/bbcode = ""
-visible_characters = -1
+[node name="TextBox" parent="." instance=ExtResource( 3 )]
 
 
