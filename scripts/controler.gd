@@ -1,7 +1,7 @@
 
 extends Node
 
-var debug = true
+var debug = false
 
 var root
 var musicPlayer

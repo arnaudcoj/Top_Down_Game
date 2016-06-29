@@ -16,7 +16,7 @@ func change_level(level, spawn):
 	
 	var level_scene = load("res://scenes/levels/" + level + ".tscn")
 	var level_node = level_scene.instance()
-	change_music(level_node.music)
+	#change_music(level_node.music)
 	
 	level_node.spawn_player(spawn)
 	map.add_child(level_node)
