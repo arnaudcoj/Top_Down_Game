@@ -10,7 +10,7 @@ func _ready():
 	deactivate()
 	
 func activate():
-	print("activate")
+	if controler.debug : print("[textbox] activate")
 	if !paragraphs.empty():
 		active = true
 		controler.is_interacting = true
@@ -18,14 +18,14 @@ func activate():
 		show()
 
 func deactivate():
-	print("deactivate")
+	if controler.debug : print("[textbox] deactivate")
 	controler.is_interacting = false
 	active = false
 	clear()
 	hide()
 
 func next():
-	print("next")
+	if controler.debug : print("[textbox] next")
 	if !paragraphs.empty():
 		current_paragraph = paragraphs[0]
 		paragraphs.pop_front()
@@ -36,10 +36,10 @@ func next():
 	return false
 
 func add_paragraph(text):
-	print("add", text)
+	if controler.debug : print("[textbox] add ", text)
 	paragraphs.push_back(text)
 		
 func clear():
-	print("clear")
+	if controler.debug : print("[textbox] clear")
 	paragraphs.clear()
 	current_paragraph = null
