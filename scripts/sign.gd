@@ -11,6 +11,7 @@ func _ready():
 
 func interact(player) :
 	if player extends Player :
+		get_node("SoundPlayer").play("bleep")
 		if interaction_ray.is_colliding() && interaction_ray.get_collider() == player:
 			controler.textBox.add_paragraph("This sign can't talk, you know ?")
 			controler.textBox.activate()
