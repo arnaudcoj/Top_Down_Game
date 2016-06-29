@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/bat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=7]
-
-
+[ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/bat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=8]
 
 [node name="Level2" type="Node2D"]
 
@@ -53,6 +52,21 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 65537, 172, 65538, 172, 65539, 172, 65546, 306, 65549, 307, 196620, 308, 196621, 306, 458754, 172, 524289, 172, 524291, 172, 655362, 172, 655363, 172 )
 
+[node name="Solid" parent="Objects/Back" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 56, 56 )
+linear_damp = 0.1
+
+[node name="Solid1" parent="Objects/Back" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 24, 168 )
+linear_damp = 0.1
+
+[node name="Solid2" parent="Objects/Back" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 200, 168 )
+linear_damp = 0.1
+
 [node name="Middle" type="TileMap" parent="Objects"]
 
 mode = 0
@@ -71,14 +85,14 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 65536, 322, 131072, 322, 196608, 322, 196611, 197, 262144, 322, 262147, 200, 458752, 322, 458761, 289, 458762, 304, 458763, 320, 458765, 338, 524288, 322, 524297, 290, 524298, 305, 524299, 321, 524301, 338, 589824, 322, 589825, 199, 589836, 199, 589837, 338, 655360, 322, 655361, 185, 655371, 201, 655372, 197, 655373, 338, 720896, 310, 720897, 310, 720898, 310, 720899, 310, 720900, 310, 720901, 310, 720904, 310, 720905, 310, 720906, 310, 720907, 310, 720908, 310, 720909, 310 )
 
-[node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
+[node name="Player" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 collision/margin = 0.08
 
-[node name="Bat" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Bat" parent="Objects/Middle" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 176, 96 )
-collision/margin = 0.08
+linear_damp = 0.1
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle"]
 
@@ -91,35 +105,35 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Bush" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 40, 24 )
 
-[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 24, 24 )
 
-[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 56, 24 )
 
-[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 24, 136 )
 
-[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 40, 120 )
 
-[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 56, 136 )
 
-[node name="Bush6" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush6" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 40, 168 )
 
-[node name="Bush7" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="Bush7" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 56, 168 )
 
@@ -143,27 +157,27 @@ tile_data = IntArray(  )
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 6 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 112.094, 10.717 )
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 7 )]
+[node name="Portal" parent="Portals" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 112, -16 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn1"
 target_level = "level1"
 
-[node name="Portal1" parent="Portals" instance=ExtResource( 7 )]
+[node name="Portal1" parent="Portals" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn"
 target_level = "level2"
 
-[node name="Portal2" parent="Portals" instance=ExtResource( 7 )]
+[node name="Portal2" parent="Portals" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -16, 96 )
 transform/scale = Vector2( 1, 2 )
