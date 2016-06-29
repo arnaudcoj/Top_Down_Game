@@ -220,6 +220,6 @@ func _on_enter(area):
 		die()
 		
 func die():
-	controler.soundPlayer.play("no_scream")
+	controler.soundPlayer.play("game_over")
 	controler.root.change_level("level1", "Spawn")
 

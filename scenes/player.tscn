@@ -200,7 +200,7 @@ autoplay = "idle_down"
 playback/process_mode = 0
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "anim", "transition", 0, "anim 2", "transition", 1, "anim 3", "transition", 2, "anim 4", "transition", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "id":"out", "pos":Vector2( 547, 84 ), "type":"output" }, { "from":"idle_down", "id":"anim", "pos":Vector2( 5, 44 ), "type":"animation" }, { "id":"transition", "pos":Vector2( 289, 78 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"idle_right", "id":"anim 3", "pos":Vector2( 5, 208 ), "type":"animation" }, { "from":"idle_left", "id":"anim 2", "pos":Vector2( 5, 125 ), "type":"animation" }, { "from":"idle_up", "id":"anim 4", "pos":Vector2( 5, 290 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "anim", "transition", 0, "anim 2", "transition", 1, "anim 3", "transition", 2, "anim 4", "transition", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"idle_down", "id":"anim", "pos":Vector2( 5, 44 ), "type":"animation" }, { "id":"transition", "pos":Vector2( 289, 78 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "id":"out", "pos":Vector2( 547, 84 ), "type":"output" }, { "from":"idle_left", "id":"anim 2", "pos":Vector2( 5, 125 ), "type":"animation" }, { "from":"idle_up", "id":"anim 4", "pos":Vector2( 5, 290 ), "type":"animation" }, { "from":"idle_right", "id":"anim 3", "pos":Vector2( 5, 208 ), "type":"animation" } ] }
 
 [node name="Actions" type="Node2D" parent="."]
 
