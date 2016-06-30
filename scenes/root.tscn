@@ -10,11 +10,12 @@ samples/game_over = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 
 [node name="Root" type="Node2D"]
 
-transform/scale = Vector2( 2, 2 )
 script/script = ExtResource( 1 )
 playing_music = true
 
 [node name="Map" type="Node2D" parent="."]
+
+transform/scale = Vector2( 2, 2 )
 
 [node name="MusicPlayer" type="StreamPlayer" parent="."]
 
@@ -39,5 +40,9 @@ config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 
 [node name="TextBox" parent="." instance=ExtResource( 3 )]
+
+margin/top = 288.0
+margin/right = 448.0
+margin/bottom = 384.0
 
 
