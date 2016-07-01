@@ -14,10 +14,17 @@
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 96, 160, 0, 0, 0, 0, 128, 160, 0, 0, 0, 0, 128, 80 ) }
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="ReferenceFrame"]
 
+margin/right = 224.0
+margin/bottom = 192.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 script/script = ExtResource( 1 )
 music = "Peace Returns"
+loop = true
 
 [node name="Ground" type="TileMap" parent="."]
 
@@ -76,8 +83,6 @@ occluder/light_mask = 1
 tile_data = IntArray( 65536, 322, 131072, 322, 196608, 322, 196611, 197, 262144, 322, 262147, 200, 458752, 322, 458761, 289, 458762, 304, 458763, 320, 458765, 338, 524288, 322, 524297, 290, 524298, 305, 524299, 321, 524301, 338, 589824, 322, 589825, 199, 589836, 199, 589837, 338, 655360, 322, 655361, 185, 655371, 201, 655372, 197, 655373, 338, 720896, 310, 720897, 310, 720898, 310, 720899, 310, 720900, 310, 720901, 310, 720904, 310, 720905, 310, 720906, 310, 720907, 310, 720908, 310, 720909, 310 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
-
-collision/margin = 0.08
 
 [node name="BatPath" type="Path2D" parent="Objects/Middle"]
 

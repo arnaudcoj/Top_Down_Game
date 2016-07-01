@@ -15,8 +15,6 @@ playing_music = true
 
 [node name="Map" type="Node2D" parent="."]
 
-transform/scale = Vector2( 2, 2 )
-
 [node name="MusicPlayer" type="StreamPlayer" parent="."]
 
 stream/stream = null
@@ -41,8 +39,7 @@ config/pitch_random = 0.0
 
 [node name="TextBox" parent="." instance=ExtResource( 3 )]
 
-margin/top = 288.0
-margin/right = 448.0
-margin/bottom = 384.0
+margin/top = 128.0
+margin/bottom = 192.0
 
 

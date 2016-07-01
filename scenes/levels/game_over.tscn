@@ -6,8 +6,14 @@
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
 
-[node name="GameOver" type="Node2D"]
+[node name="GameOver" type="ReferenceFrame"]
 
+margin/right = 224.0
+margin/bottom = 192.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 music = "Game Over"
@@ -88,8 +94,6 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
-
-collision/margin = 0.08
 
 [node name="Spawns" type="Node2D" parent="."]
 
