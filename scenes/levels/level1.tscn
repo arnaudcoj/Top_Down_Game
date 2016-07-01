@@ -79,9 +79,12 @@ tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610,
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
+collision/margin = 0.08
+
 [node name="Sign" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 72, 88 )
+messages = [ "This is a sign. Use \"interact\" to read the next line.", "To read it, use your eye.", "You can skip the text faster by holding \"interact\".", "I will now talk a lot to let you test this feature. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. ", "Be careful not to read this sign again." ]
 
 [node name="Solid" parent="Objects/Middle" instance=ExtResource( 5 )]
 

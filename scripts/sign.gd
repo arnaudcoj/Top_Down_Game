@@ -1,8 +1,7 @@
 
-extends StaticBody2D
+extends "res://scripts/interact_object.gd"
 
-onready var interaction_ray = get_node("InteractionRay")
-onready var Player = preload("res://scripts/player.gd")
+export var messages = ["Your message here."]
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -13,10 +12,9 @@ func interact(player) :
 	if player extends Player :
 		get_node("SoundPlayer").play("bleep")
 		if interaction_ray.is_colliding() && interaction_ray.get_collider() == player:
-			controler.textBox.add_paragraph("This sign can't talk, you know ?")
-			controler.textBox.add_paragraph("I ain't joking, leave this poor thing alone, you soulless monster ! Don't you have any pity ? Won't you understand this sign's sadness ? I advise you to go away and think about what you did. And don't forget to call your mother.")
-			controler.textBox.add_paragraph("Shoo !")
-			controler.textBox.activate()
+			for msg in messages :
+				controler.textBox.add_paragraph(msg)
+				controler.textBox.activate()
 		else :
 			controler.textBox.add_paragraph("You can't read this sign from here...")
 			controler.textBox.activate()

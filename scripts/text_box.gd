@@ -18,9 +18,9 @@ var strong_punct = ['.', '!', '?', '\n', '(', ')']
 
 func _ready():
 	set_process_input(true)
+	deactivate()
 	text_label.set_scroll_active(false)
 	text_label.set_scroll_follow(true)
-	deactivate()
 	
 func _input(event):
 	if event.is_action_pressed("interact") :
@@ -49,9 +49,9 @@ func deactivate():
 # Shows the next paragraph
 func next():
 	if controler.debug : print("[textbox] next")
-	if !paragraphs.empty():
-		if !current_paragraph :
-			# set the next paragraph as current
+	if !current_paragraph :
+		if !paragraphs.empty():
+				# set the next paragraph as current
 			current_paragraph = paragraphs[0]
 			paragraphs.pop_front()
 			
@@ -65,8 +65,8 @@ func next():
 			
 			timer.start()
 			return true
-	else :
-		deactivate()
+		else :
+			deactivate()
 	return false
 
 # Add a paragraph to the paragraphs list
