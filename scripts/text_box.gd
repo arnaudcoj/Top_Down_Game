@@ -11,10 +11,23 @@ var visible_cursor = 0
 var paragraphs = []
 var current_paragraph = null
 
+var skip_text = false
+
+var weak_punct = [',', ':', ';', '"']
+var strong_punct = ['.', '!', '?', '\n', '(', ')']
+
 func _ready():
+	set_process_input(true)
 	text_label.set_scroll_active(false)
 	text_label.set_scroll_follow(true)
 	deactivate()
+	
+func _input(event):
+	if event.is_action_pressed("interact") :
+		skip_text = true
+		timer.set_wait_time(0.0001)
+	elif event.is_action_released("interact") :
+		skip_text = false
 	
 # Activates, prompts the text box and lock the character if contains paragraphs
 func activate():
@@ -66,6 +79,7 @@ func clear():
 	if controler.debug : print("[textbox] clear")
 	paragraphs.clear()
 	current_paragraph = null
+	skip_text = false
 	cursor = 0
 	visible_cursor = 0
 
@@ -92,12 +106,22 @@ func _add_word():
 	if cursor < current_paragraph.length() && current_paragraph[cursor] == ' ' :
 		text_label.add_text(current_paragraph[cursor])
 		cursor += 1
+		
+func _reset_timer():
+	if !skip_text :
+		if current_paragraph[visible_cursor -1] in strong_punct :
+			timer.set_wait_time(0.15)
+		elif current_paragraph[visible_cursor -1] in weak_punct :
+			timer.set_wait_time(0.1)
+		else :
+			timer.set_wait_time(0.02)
+	timer.start()
 
 # Adds a character each tick or breaks if the paragraph is completely displayed
 func _on_Timer_timeout():
 	if current_paragraph :
 		if visible_cursor < current_paragraph.length() :
 			_add_character()
-			timer.start()
+			_reset_timer()
 		else :
 			current_paragraph = null
