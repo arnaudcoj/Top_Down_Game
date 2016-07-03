@@ -238,3 +238,13 @@ func _on_enter(area):
 func die():
 	controler.root.change_level("game_over", "Spawn")
 
+func set_camera_limits(rect):
+	var camera = get_node("Camera2D")
+	camera.set_limit(MARGIN_LEFT, rect.pos.x)
+	camera.set_limit(MARGIN_TOP, rect.pos.y)
+	camera.set_limit(MARGIN_RIGHT, rect.pos.x + rect.size.x)
+	camera.set_limit(MARGIN_BOTTOM, rect.pos.y + rect.size.y)
+	print("MARGIN_LEFT", rect.pos.x)
+	print("MARGIN_TOP", rect.pos.y)
+	print("MARGIN_RIGHT", rect.pos.x + rect.size.x)
+	print("MARGIN_BOTTOM", rect.pos.y + rect.size.y)

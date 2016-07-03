@@ -1,13 +1,13 @@
-extends Node2D
+extends ReferenceFrame
+
+var spawns
+var player
 
 export (String) var music
 export var loop = true
 
-var spawns 
-var player
-
 func _ready():
-	pass
+	player.set_camera_limits(get_rect())
 
 func spawn_player(spawn_name):
 	spawns = get_node("Spawns")

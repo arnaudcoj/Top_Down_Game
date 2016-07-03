@@ -9,10 +9,17 @@
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=8]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="ReferenceFrame"]
 
+margin/right = 224.0
+margin/bottom = 192.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 script/script = ExtResource( 1 )
 music = "Peace Returns"
+loop = true
 
 [node name="Ground" type="TileMap" parent="."]
 
@@ -77,6 +84,7 @@ collision/margin = 0.08
 [node name="Sign" parent="Objects/Middle" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 72, 88 )
+messages = [ "This is a sign. Use \"interact\" to read the next line.", "To read it, use your eye.", "You can skip the text faster by holding \"interact\".", "I will now talk a lot to let you test this feature. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. ", "Be careful not to read this sign again." ]
 
 [node name="Solid" parent="Objects/Middle" instance=ExtResource( 5 )]
 
