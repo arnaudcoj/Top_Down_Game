@@ -8,8 +8,8 @@ onready var animation = get_node("AnimationPlayer")
 onready var animation_timer = animation.get_node("Timer")
 
 export(bool) var playing_music = true
-export(String) var level = "level1"
-export(String) var spawn = "Spawn"
+var level = "../intro"
+var spawn = null
 
 func _ready():
 	_enter_level()

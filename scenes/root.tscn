@@ -34,8 +34,6 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":Float
 
 script/script = ExtResource( 1 )
 playing_music = true
-level = "level1"
-spawn = "Spawn"
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -81,7 +79,7 @@ autoplay = ""
 
 [node name="Polygon2D" type="Polygon2D" parent="AnimationPlayer"]
 
-visibility/opacity = 0.0
+visibility/opacity = 5.96046e-08
 transform/pos = Vector2( 112, 96 )
 transform/scale = Vector2( 5.6, 4.8 )
 polygon = Vector2Array( -20, -20, 20, -20, 20, 20, -20, 20 )
