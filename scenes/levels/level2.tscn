@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
@@ -7,13 +7,19 @@
 [ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 96, 160, 0, 0, 0, 0, 128, 160, 0, 0, 0, 0, 128, 80 ) }
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 24, 56 ) }
 
 [node name="Level2" type="ReferenceFrame"]
 
@@ -161,6 +167,25 @@ linear_damp = 0.1
 transform/pos = Vector2( 136, 40 )
 messages = [ "This is a bat.", "In the real world, Bats are so adorable ! They won\'t hurt you.", "So please, don\'t kill the bat.", "To AVOID killing the bat, Do NOT press \"attack\"", "Thank you !" ]
 
+[node name="Path2D" type="Path2D" parent="Objects/Middle"]
+
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/Path2D"]
+
+transform/pos = Vector2( 24, 40 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Cherry" parent="Objects/Middle/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+
+linear_damp = 0.1
+
 [node name="Front" type="TileMap" parent="Objects"]
 
 mode = 0
@@ -181,27 +206,27 @@ tile_data = IntArray(  )
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 8 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 112.094, 10.717 )
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 9 )]
+[node name="Portal" parent="Portals" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 112, -16 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn1"
 target_level = "level1"
 
-[node name="Portal1" parent="Portals" instance=ExtResource( 9 )]
+[node name="Portal1" parent="Portals" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn"
 target_level = "level2"
 
-[node name="Portal2" parent="Portals" instance=ExtResource( 9 )]
+[node name="Portal2" parent="Portals" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -16, 96 )
 transform/scale = Vector2( 1, 2 )

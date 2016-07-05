@@ -33,7 +33,7 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":Float
 [node name="Root" type="Node2D"]
 
 script/script = ExtResource( 1 )
-playing_music = true
+playing_music = false
 level = "level1"
 spawn = "Spawn"
 
