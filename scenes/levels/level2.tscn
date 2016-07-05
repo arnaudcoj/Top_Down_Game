@@ -16,12 +16,12 @@
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 24, 64 ) }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 72, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 168, 0, 0, 0, 0, 72, 168, 0, 0, 0, 0, 72, 128 ) }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=3]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 128, 112, 0, 0, 0, 0, 96, 112, 0, 0, 0, 0, 96, 80 ) }
@@ -119,7 +119,7 @@ linear_damp = 0.1
 
 [node name="CherryPath 2" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/CherryPath 2"]
 
@@ -186,11 +186,11 @@ linear_damp = 0.1
 [node name="Sign" parent="Objects/Middle" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 136, 40 )
-messages = [ "This is a bat.", "In the real world, Bats are so adorable ! They won\'t hurt you.", "So please, don\'t kill the bat.", "To AVOID killing the bat, Do NOT press \"attack\"", "Thank you !" ]
+messages = [ "These are monsters.", "They are so adorable ! They won\'t hurt you.", "So please, don\'t kill the monsters.", "To AVOID killing the monsters, Do NOT press \"attack\".", "Thank you !" ]
 
 [node name="Path2D" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 2 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/Path2D"]
 
