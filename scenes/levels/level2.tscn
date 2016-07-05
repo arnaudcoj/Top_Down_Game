@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
@@ -11,12 +11,17 @@
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 24, 64 ) }
 
 [sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 72, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 168, 0, 0, 0, 0, 72, 168, 0, 0, 0, 0, 72, 128 ) }
+
+[sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 128, 112, 0, 0, 0, 0, 96, 112, 0, 0, 0, 0, 96, 80 ) }
@@ -95,11 +100,11 @@ collision/margin = 0.08
 
 [node name="CherryPath" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/CherryPath"]
 
-transform/pos = Vector2( 24, 56 )
+transform/pos = Vector2( 24, 64 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -109,6 +114,25 @@ loop = true
 lookahead = 4.0
 
 [node name="Cherry" parent="Objects/Middle/CherryPath/PathFollow2D" instance=ExtResource( 4 )]
+
+linear_damp = 0.1
+
+[node name="CherryPath 2" type="Path2D" parent="Objects/Middle"]
+
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/CherryPath 2"]
+
+transform/pos = Vector2( 72, 128 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Cherry" parent="Objects/Middle/CherryPath 2/PathFollow2D" instance=ExtResource( 4 )]
 
 linear_damp = 0.1
 
@@ -166,7 +190,7 @@ messages = [ "This is a bat.", "In the real world, Bats are so adorable ! They w
 
 [node name="Path2D" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/Path2D"]
 
