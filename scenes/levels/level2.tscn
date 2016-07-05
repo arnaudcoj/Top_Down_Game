@@ -3,23 +3,23 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/bat.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/slime.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Curve2D" id=1]
-
-bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 96, 160, 0, 0, 0, 0, 128, 160, 0, 0, 0, 0, 128, 80 ) }
 
 [sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, 24, 56 ) }
+_data = { "points":Vector2Array( 0, 0, 0, 0, 24, 64 ) }
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 96, 80, 0, 0, 0, 0, 128, 80, 0, 0, 0, 0, 128, 112, 0, 0, 0, 0, 96, 112, 0, 0, 0, 0, 96, 80 ) }
 
 [node name="Level2" type="ReferenceFrame"]
 
@@ -93,14 +93,13 @@ tile_data = IntArray( 65536, 322, 131072, 322, 196608, 322, 196611, 197, 262144,
 
 collision/margin = 0.08
 
-[node name="BatPath" type="Path2D" parent="Objects/Middle"]
+[node name="CherryPath" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
-[node name="Follow" type="PathFollow2D" parent="Objects/Middle/BatPath"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/CherryPath"]
 
-transform/pos = Vector2( 128, 80 )
-transform/rot = -180.0
+transform/pos = Vector2( 24, 56 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -109,10 +108,8 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Bat" parent="Objects/Middle/BatPath/Follow" instance=ExtResource( 4 )]
+[node name="Cherry" parent="Objects/Middle/CherryPath/PathFollow2D" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 3.33491e-13, -3.8147e-06 )
-transform/rot = -180.0
 linear_damp = 0.1
 
 [node name="Bush" parent="Objects/Middle" instance=ExtResource( 5 )]
@@ -169,11 +166,11 @@ messages = [ "This is a bat.", "In the real world, Bats are so adorable ! They w
 
 [node name="Path2D" type="Path2D" parent="Objects/Middle"]
 
-curve = SubResource( 2 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/Path2D"]
 
-transform/pos = Vector2( 24, 40 )
+transform/pos = Vector2( 96, 80 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -182,7 +179,7 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Cherry" parent="Objects/Middle/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+[node name="Slime" parent="Objects/Middle/Path2D/PathFollow2D" instance=ExtResource( 8 )]
 
 linear_damp = 0.1
 
