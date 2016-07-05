@@ -140,15 +140,15 @@ tile_data = IntArray( 65537, 332, 65538, 348, 65539, 364, 65540, 380, 65541, 327
 
 [node name="Spawns" type="Node2D" parent="."]
 
-__meta__ = { "_editor_collapsed":true }
-
 [node name="Spawn" parent="Spawns" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 170.775, 93.3087 )
+direction = "left"
 
 [node name="Spawn1" parent="Spawns" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 111.193, 178.71 )
+direction = "up"
 
 [node name="Portals" type="Node2D" parent="."]
 

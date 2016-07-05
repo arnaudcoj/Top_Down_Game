@@ -6,6 +6,7 @@
 
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
+direction = "NONE"
 
 [node name="Label" type="Label" parent="."]
 

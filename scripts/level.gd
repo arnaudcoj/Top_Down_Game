@@ -21,3 +21,13 @@ func spawn_player(spawn_name):
 	
 	if spawn != null :
 		player.set_pos(spawn.get_pos())
+		if spawn.direction == "up":
+			player.direction = player.DIRECTION_UP
+		elif spawn.direction == "right":
+			player.direction = player.DIRECTION_RIGHT
+		elif spawn.direction == "down":
+			player.direction = player.DIRECTION_DOWN
+		elif spawn.direction == "left":
+			player.direction = player.DIRECTION_LEFT
+		elif spawn.direction == "none":
+			player.direction = player.DIRECTION_NONE
