@@ -60,8 +60,9 @@ func _ready():
 	get_node("HitBox").connect("area_enter", self, "_on_enter")
 	
 func _input(event):	
-	var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
+	#var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
 	var is_interact_pressed = event.is_action_pressed("interact") && !event.is_echo()
+	var is_attack_pressed = false
 	
 	# Interaction
 	if(is_interact_pressed) :

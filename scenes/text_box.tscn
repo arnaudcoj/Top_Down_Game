@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/text_box.gd" type="Script" id=1]
+[ext_resource path="res://fonts/ShangriLaNF_29_bec497.fnt" type="Font" id=2]
+
+[sub_resource type="Theme" id=1]
+
+default_font = ExtResource( 2 )
+
+[node name="TextBox" type="Panel"]
+
+visibility/self_opacity = 0.7
+margin/top = 160.0
+margin/right = 224.0
+margin/bottom = 208.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 5.0
+margin/right = 5.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = SubResource( 1 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.02
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

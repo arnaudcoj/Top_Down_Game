@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://tiles/tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/solid.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 178, 26, 0, 0, 0, 0, 178, 62, 0, 0, 0, 0, 130, 62, 0, 0, 0, 0, 130, 26, 0, 0, 0, 0, 178, 26 ) }
 
 [node name="Level1" type="ReferenceFrame"]
 
@@ -25,8 +27,8 @@ loop = true
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 16, 16 )
-cell/quadrant_size = 16
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -37,7 +39,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 106, 1, 115, 2, 131, 3, 115, 4, 131, 5, 115, 6, 131, 7, 115, 8, 131, 9, 115, 10, 131, 11, 115, 12, 131, 13, 122, 65536, 107, 65537, 8, 65538, 8, 65539, 8, 65540, 8, 65541, 8, 65542, 8, 65543, 8, 65544, 8, 65545, 8, 65546, 8, 65547, 8, 65548, 8, 65549, 123, 131072, 108, 131073, 41, 131074, 8, 131075, 8, 131076, 8, 131077, 8, 131078, 8, 131079, 8, 131080, 8, 131081, 8, 131082, 8, 131083, 10, 131084, 8, 131085, 124, 196608, 109, 196609, 8, 196610, 10, 196611, 8, 196612, 8, 196613, 8, 196614, 8, 196615, 8, 196616, 8, 196617, 8, 196618, 10, 196619, 8, 196620, 8, 196621, 125, 262144, 109, 262145, 8, 262146, 8, 262147, 10, 262148, 10, 262149, 8, 262150, 8, 262151, 8, 262152, 24, 262153, 8, 262154, 8, 262155, 8, 262156, 54, 262157, 123, 327680, 108, 327681, 41, 327682, 8, 327683, 9, 327684, 54, 327685, 24, 327686, 26, 327687, 26, 327688, 24, 327689, 24, 327690, 54, 327691, 8, 327692, 8, 327693, 124, 393216, 109, 393217, 9, 393218, 40, 393219, 39, 393220, 8, 393221, 24, 393222, 24, 393223, 26, 393224, 8, 393225, 11, 393226, 55, 393227, 55, 393228, 8, 393229, 125, 458752, 107, 458753, 8, 458754, 46, 458755, 41, 458756, 38, 458757, 8, 458758, 9, 458759, 10, 458760, 11, 458761, 55, 458762, 55, 458763, 55, 458764, 8, 458765, 123, 524288, 108, 524289, 41, 524290, 46, 524291, 46, 524292, 8, 524293, 24, 524294, 24, 524295, 24, 524296, 24, 524297, 24, 524298, 8, 524299, 41, 524300, 8, 524301, 124, 589824, 109, 589825, 55, 589826, 46, 589827, 46, 589828, 8, 589829, 161, 589830, 220, 589831, 220, 589832, 145, 589833, 8, 589834, 8, 589835, 8, 589836, 54, 589837, 125, 655360, 110, 655361, 8, 655362, 8, 655363, 8, 655364, 8, 655365, 126, 655366, 139, 655367, 139, 655368, 110, 655369, 25, 655370, 25, 655371, 25, 655372, 25, 655373, 126, 720896, 111, 720897, 113, 720898, 129, 720899, 113, 720900, 129, 720901, 127, 720902, 139, 720903, 139, 720904, 111, 720905, 113, 720906, 129, 720907, 113, 720908, 129, 720909, 127 )
+tile_data = IntArray( 0, 0, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 8, 65536, 1, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 9, 131072, 1, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 9, 196608, 1, 196609, 5, 196610, 5, 196611, 5, 196612, 5, 196613, 5, 196614, 9, 262144, 1, 262145, 5, 262146, 5, 262147, 5, 262148, 5, 262149, 5, 262150, 9, 327680, 2, 327681, 6, 327682, 6, 327683, 6, 327684, 6, 327685, 6, 327686, 10 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -45,8 +47,8 @@ tile_data = IntArray( 0, 106, 1, 115, 2, 131, 3, 115, 4, 131, 5, 115, 6, 131, 7,
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 16, 16 )
-cell/quadrant_size = 16
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -57,14 +59,14 @@ collision/bounce = 0.0
 collision/layers = 2
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 262145, 335, 262146, 351, 262147, 367, 262148, 383, 262155, 198, 327685, 120, 327687, 152, 327689, 184, 393222, 137, 393223, 153, 393224, 169, 524297, 172, 524298, 172, 524299, 172, 589833, 172, 589834, 172, 589835, 172 )
+tile_data = IntArray(  )
 
 [node name="Middle" type="TileMap" parent="Objects"]
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 16, 16 )
-cell/quadrant_size = 16
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -75,57 +77,38 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65548, 338, 131083, 199, 131084, 338, 196609, 334, 196610, 350, 196611, 366, 196612, 382, 196619, 197, 196620, 338, 262145, 195, 262149, 119, 262153, 183, 262156, 338, 327686, 136, 327688, 168, 327692, 338, 393228, 338, 458764, 338, 524300, 338, 589825, 185, 589836, 338, 655361, 200, 655369, 309, 655370, 309, 655371, 309, 655372, 309 )
+tile_data = IntArray( 65536, 12, 65537, 15, 65538, 18, 131072, 13, 131073, 16, 131074, 19, 262148, 3, 262149, 7 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
 collision/margin = 0.08
 
-[node name="Sign" parent="Objects/Middle" instance=ExtResource( 4 )]
+[node name="Path2D" type="Path2D" parent="Objects/Middle"]
 
-transform/pos = Vector2( 72, 88 )
-messages = [ "This is a sign. Use \"interact\" to read the next line.", "To read it, use your eye.", "You can skip the text faster by holding \"interact\".", "I will now talk a lot to let you test this feature. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. Bla. ", "Be careful not to read this sign again." ]
+z/relative = false
+curve = SubResource( 1 )
 
-[node name="Solid" parent="Objects/Middle" instance=ExtResource( 5 )]
+[node name="PathFollow2D" type="PathFollow2D" parent="Objects/Middle/Path2D"]
 
-transform/pos = Vector2( 24, 152 )
+transform/pos = Vector2( 178, 26 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Cherry" parent="Objects/Middle/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+
 linear_damp = 0.1
-
-[node name="Solid1" parent="Objects/Middle" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 184, 56 )
-linear_damp = 0.1
-
-[node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 184, 136 )
-
-[node name="Bush1" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 184, 152 )
-
-[node name="Bush2" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 168, 152 )
-
-[node name="Bush3" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 152, 152 )
-
-[node name="Bush4" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 168, 136 )
-
-[node name="Bush5" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 152, 136 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 16, 16 )
-cell/quadrant_size = 16
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -136,29 +119,13 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65537, 332, 65538, 348, 65539, 364, 65540, 380, 65541, 327, 65542, 343, 65543, 359, 65544, 375, 65545, 391, 131073, 333, 131074, 349, 131075, 365, 131076, 381, 131077, 117, 131078, 133, 131079, 149, 131080, 165, 131081, 181, 196613, 118, 196614, 134, 196615, 150, 196616, 166, 196617, 182, 262150, 135, 262151, 151, 262152, 167 )
+tile_data = IntArray( 0, 11, 1, 14, 2, 17 )
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 7 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 170.775, 93.3087 )
-direction = "left"
-
-[node name="Spawn1" parent="Spawns" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 106, 154 )
-direction = "up"
-
-[node name="Portals" type="Node2D" parent="."]
-
-__meta__ = { "_editor_collapsed":true }
-
-[node name="Portal" parent="Portals" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 112, 208 )
-transform/scale = Vector2( 2, 1 )
-spawn_point = "Spawn"
-target_level = "level2"
+transform/pos = Vector2( 112, 96 )
+transform/scale = Vector2( 1.6, 1.6 )
 
 

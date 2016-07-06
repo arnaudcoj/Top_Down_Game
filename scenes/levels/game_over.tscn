@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://tiles/zelda_tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=4]
 
 [node name="GameOver" type="ReferenceFrame"]
 
@@ -22,7 +21,7 @@ loop = false
 [node name="Ground" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = null
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -60,10 +59,9 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Ground/HBoxContainer/VBoxContainer"]
 
-margin/left = -86.0
-margin/right = 362.0
-margin/bottom = 384.0
-rect/scale = Vector2( 0.5, 0.5 )
+margin/top = 89.0
+margin/right = 52.0
+margin/bottom = 102.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -79,7 +77,7 @@ max_lines_visible = -1
 [node name="Middle" type="TileMap" parent="Objects"]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = null
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -94,36 +92,38 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
 
-[node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
+[node name="Player" parent="Objects/Middle" instance=ExtResource( 2 )]
+
+collision/margin = 0.08
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 4 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 112, 112 )
 
-[node name="Portal" parent="." instance=ExtResource( 5 )]
+[node name="Portal" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 112, -16 )
 transform/scale = Vector2( 18, 1 )
 spawn_point = "Spawn"
 target_level = "level1"
 
-[node name="Portal1" parent="." instance=ExtResource( 5 )]
+[node name="Portal1" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 18, 1 )
 spawn_point = "Spawn"
 target_level = "level1"
 
-[node name="Portal2" parent="." instance=ExtResource( 5 )]
+[node name="Portal2" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -16, 96 )
 transform/scale = Vector2( 1, 18 )
 spawn_point = "Spawn"
 target_level = "level1"
 
-[node name="Portal3" parent="." instance=ExtResource( 5 )]
+[node name="Portal3" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 240, 96 )
 transform/scale = Vector2( 1, 18 )
