@@ -8,24 +8,24 @@
 		<real name="lossy_quality"> 0.7 </real>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://4">
+	<resource type="ConvexPolygonShape2D" path="local://8">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="5"> 			16, 9, 9, 11, -2, 11, -6, 4, 16, 3 </vector2_array>
+		<vector2_array name="points" len="4"> 			16, 11, -6, 11, -6, -2, 16, -2 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://5">
+	<resource type="ConvexPolygonShape2D" path="local://9">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-16, 1, 8, -1, 2, 7, -16, 9 </vector2_array>
+		<vector2_array name="points" len="4"> 			-16, -2, 8, -2, 8, 11, -16, 11 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://2">
+	<resource type="ConvexPolygonShape2D" path="local://6">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			16, 11, 5, 11, 9, 6, 16, 6 </vector2_array>
+		<vector2_array name="points" len="4"> 			5, 12, 5, 5, 16, 5, 16, 12 </vector2_array>
 
 	</resource>
-	<resource type="ConvexPolygonShape2D" path="local://3">
+	<resource type="ConvexPolygonShape2D" path="local://7">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2_array name="points" len="4"> 			-16, 6, -11, 6, -7, 11, -16, 11 </vector2_array>
+		<vector2_array name="points" len="4"> 			-16, 5, -7, 5, -7, 12, -16, 12 </vector2_array>
 
 	</resource>
 	<main_resource>
@@ -73,7 +73,7 @@
 		<resource name="4/occluder"></resource>		<vector2 name="4/navigation_offset"> 16, 16 </vector2>
 		<resource name="4/navigation"></resource>		<vector2 name="4/shape_offset"> 16, 16 </vector2>
 		<array name="4/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://2">  </resource>
+			<resource  resource_type="Shape2D" path="local://6">  </resource>
 		</array>
 		<string name="5/name"> "Sprite 6" </string>
 		<resource name="5/texture" resource_type="Texture" path="local://1">  </resource>
@@ -119,7 +119,7 @@
 		<resource name="9/occluder"></resource>		<vector2 name="9/navigation_offset"> 16, 16 </vector2>
 		<resource name="9/navigation"></resource>		<vector2 name="9/shape_offset"> 16, 16 </vector2>
 		<array name="9/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://3">  </resource>
+			<resource  resource_type="Shape2D" path="local://7">  </resource>
 		</array>
 		<string name="10/name"> "Sprite 11" </string>
 		<resource name="10/texture" resource_type="Texture" path="local://1">  </resource>
@@ -156,7 +156,7 @@
 		<resource name="13/occluder"></resource>		<vector2 name="13/navigation_offset"> 16, 16 </vector2>
 		<resource name="13/navigation"></resource>		<vector2 name="13/shape_offset"> 16, 16 </vector2>
 		<array name="13/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://4">  </resource>
+			<resource  resource_type="Shape2D" path="local://8">  </resource>
 		</array>
 		<string name="14/name"> "Sprite 15" </string>
 		<resource name="14/texture" resource_type="Texture" path="local://1">  </resource>
@@ -193,7 +193,7 @@
 		<resource name="17/occluder"></resource>		<vector2 name="17/navigation_offset"> 16, 16 </vector2>
 		<resource name="17/navigation"></resource>		<vector2 name="17/shape_offset"> 16, 16 </vector2>
 		<array name="17/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://5">  </resource>
+			<resource  resource_type="Shape2D" path="local://9">  </resource>
 		</array>
 		<string name="18/name"> "Sprite 19" </string>
 		<resource name="18/texture" resource_type="Texture" path="local://1">  </resource>
