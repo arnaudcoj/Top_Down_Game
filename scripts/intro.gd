@@ -9,7 +9,7 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_released("attack") :
-		controler.root.change_level("level1", "Spawn")
+		controler.root.change_level("level3", "Spawn")
 
 func spawn_player(spawn_name):
 	pass

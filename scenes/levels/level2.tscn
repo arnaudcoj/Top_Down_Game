@@ -233,7 +233,7 @@ transform/pos = Vector2( 112.094, 10.717 )
 
 [node name="Spawn1" parent="Spawns" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 111, 182 )
+transform/pos = Vector2( 122, 154 )
 direction = "up"
 
 [node name="Portals" type="Node2D" parent="."]

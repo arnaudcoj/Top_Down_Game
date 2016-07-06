@@ -147,7 +147,7 @@ direction = "left"
 
 [node name="Spawn1" parent="Spawns" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 111.193, 178.71 )
+transform/pos = Vector2( 106, 154 )
 direction = "up"
 
 [node name="Portals" type="Node2D" parent="."]
@@ -156,7 +156,7 @@ __meta__ = { "_editor_collapsed":true }
 
 [node name="Portal" parent="Portals" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 111.547, 209.986 )
+transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn"
 target_level = "level2"

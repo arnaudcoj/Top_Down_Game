@@ -89,7 +89,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65537, 4, 65538, 9, 196612, 4, 196613, 9, 262145, 4, 262146, 9, 262148, 13, 262149, 17 )
+tile_data = IntArray( 65537, 4, 65538, 9, 65539, 19, 196612, 4, 196613, 9, 262145, 4, 262146, 9, 262148, 13, 262149, 17 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
