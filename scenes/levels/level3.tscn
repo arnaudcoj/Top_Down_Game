@@ -89,7 +89,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 3, 1, 8, 3, 6, 65536, 4, 65537, 9, 196609, 3, 196610, 8, 196613, 3, 196614, 8, 262145, 4, 262146, 9, 262149, 4, 262150, 9 )
+tile_data = IntArray( 3, 6, 65536, 4, 65537, 9, 65538, 13, 65539, 17, 262145, 4, 262146, 9, 262149, 4, 262150, 9 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
@@ -171,7 +171,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( 0, 3, 1, 8, 196609, 3, 196610, 8, 196613, 3, 196614, 8 )
 
 [node name="Spawns" type="Node2D" parent="."]
 
