@@ -19,7 +19,7 @@ _data = { "points":Vector2Array( 0, 0, 0, 0, 24, 64 ) }
 [sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, 72, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 168, 0, 0, 0, 0, 72, 168, 0, 0, 0, 0, 72, 128 ) }
+_data = { "points":Vector2Array( 0, 0, 0, 0, 72, 128, 0, 0, 0, 0, 96, 128, 0, 0, 0, 0, 96, 157, 0, 0, 0, 0, 72, 157, 0, 0, 0, 0, 72, 128 ) }
 
 [sub_resource type="Curve2D" id=3]
 
@@ -230,6 +230,11 @@ tile_data = IntArray(  )
 [node name="Spawn" parent="Spawns" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 112.094, 10.717 )
+
+[node name="Spawn1" parent="Spawns" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 111, 182 )
+direction = "up"
 
 [node name="Portals" type="Node2D" parent="."]
 
