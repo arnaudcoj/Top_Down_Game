@@ -245,7 +245,7 @@ target_level = "level1"
 transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 2, 1 )
 spawn_point = "Spawn"
-target_level = "level2"
+target_level = "level3"
 
 [node name="Portal2" parent="Portals" instance=ExtResource( 10 )]
 
