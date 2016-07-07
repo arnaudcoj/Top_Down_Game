@@ -19,6 +19,7 @@ const DIRECTION_RIGHT = 3
 
 var tree_player = AnimationTreePlayer
 var sword_hit = preload("res://scripts/sword_hit.gd")
+var pathFollow = null
 
 # States
 var current_direction = DIRECTION_LEFT
@@ -38,10 +39,14 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	if !controler.is_interacting :
-		var old_pos = get_parent().get_pos()
-		get_parent().set_offset(get_parent().get_offset() + (50 * delta))
-		var pos = get_parent().get_pos()
+	if pathFollow && !controler.is_interacting :
+		#move the monster and retrieve the old and new pos
+		var old_pos = pathFollow.get_pos()
+		pathFollow.set_offset(pathFollow.get_offset() + (50 * delta))		
+		set_pos(pathFollow.get_pos())
+		var pos = pathFollow.get_pos()
+		
+		#compute the angle with the old and new pos
 		var travel = pos - old_pos
 		var angle = travel.angle_to(Vector2(1,0))
 		current_direction = get_direction_from_angle(angle)

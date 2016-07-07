@@ -245,7 +245,8 @@ func set_camera_limits(rect):
 	camera.set_limit(MARGIN_TOP, rect.pos.y)
 	camera.set_limit(MARGIN_RIGHT, rect.pos.x + rect.size.x)
 	camera.set_limit(MARGIN_BOTTOM, rect.pos.y + rect.size.y)
-	print("MARGIN_LEFT", rect.pos.x)
-	print("MARGIN_TOP", rect.pos.y)
-	print("MARGIN_RIGHT", rect.pos.x + rect.size.x)
-	print("MARGIN_BOTTOM", rect.pos.y + rect.size.y)
+	if controler.debug : 
+		print("MARGIN_LEFT", rect.pos.x)
+		print("MARGIN_TOP", rect.pos.y)
+		print("MARGIN_RIGHT", rect.pos.x + rect.size.x)
+		print("MARGIN_BOTTOM", rect.pos.y + rect.size.y)
