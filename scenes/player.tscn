@@ -101,7 +101,7 @@ extents = Vector2( 7, 4 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 16 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -111,12 +111,14 @@ motion_speed = 80.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 
+transform/pos = Vector2( 0, 16 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0, 16 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
@@ -141,6 +143,8 @@ autoplay = "idle_down"
 
 [node name="Actions" type="Node2D" parent="."]
 
+transform/pos = Vector2( 0, 16 )
+
 [node name="ActionFront" type="Position2D" parent="Actions"]
 
 transform/pos = Vector2( 0, 16 )
@@ -154,6 +158,7 @@ type_mask = 15
 
 [node name="HitBox" type="Area2D" parent="."]
 
+transform/pos = Vector2( 0, 16 )
 input/pickable = true
 shapes/0/shape = SubResource( 10 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
