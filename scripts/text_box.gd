@@ -51,6 +51,7 @@ func next():
 	if controler.debug : print("[textbox] next")
 	if !current_paragraph :
 		if !paragraphs.empty():
+			_hide_arrow()
 				# set the next paragraph as current
 			current_paragraph = paragraphs[0]
 			paragraphs.pop_front()
@@ -95,6 +96,8 @@ func _add_character():
 			_add_word()
 		visible_cursor += 1
 		text_label.set_visible_characters(visible_cursor)
+		if visible_cursor >= current_paragraph.length():
+			_show_arrow()
 		
 # Add the complete word, in order to get a nice auto wrapping
 # Used in _add_character
@@ -110,7 +113,7 @@ func _add_word():
 func _reset_timer():
 	if !skip_text :
 		if current_paragraph[visible_cursor -1] in strong_punct :
-			timer.set_wait_time(0.15)
+			timer.set_wait_time(0.2)
 		elif current_paragraph[visible_cursor -1] in weak_punct :
 			timer.set_wait_time(0.1)
 		else :
@@ -125,3 +128,13 @@ func _on_Timer_timeout():
 			_reset_timer()
 		else :
 			current_paragraph = null
+			
+func _show_arrow():
+	var arrow = get_node("Arrow")
+	arrow.show()
+	arrow.get_node("AnimationPlayer").play("next_paragraph")
+	
+func _hide_arrow():
+	var arrow = get_node("Arrow")
+	arrow.get_node("AnimationPlayer").stop_all()
+	arrow.hide()

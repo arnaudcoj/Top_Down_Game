@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/text_box.gd" type="Script" id=1]
-[ext_resource path="res://fonts/ShangriLaNF_29_bec497.fnt" type="Font" id=2]
+[ext_resource path="res://fonts/munro_13.fnt" type="Font" id=2]
+[ext_resource path="res://sprites/text_box_arrow.png" type="Texture" id=3]
 
 [sub_resource type="Theme" id=1]
 
 default_font = ExtResource( 2 )
 
+[sub_resource type="Animation" id=2]
+
+resource/name = "next_paragraph"
+length = 1.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 1 ] }
+
 [node name="TextBox" type="Panel"]
 
 visibility/self_opacity = 0.7
-margin/top = 160.0
+margin/top = 144.0
 margin/right = 224.0
-margin/bottom = 208.0
+margin/bottom = 192.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -25,7 +37,6 @@ __meta__ = { "_edit_group_":true }
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 5.0
-margin/right = 5.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -41,6 +52,23 @@ process_mode = 1
 wait_time = 0.02
 one_shot = false
 autostart = false
+
+[node name="Arrow" type="Sprite" parent="."]
+
+transform/pos = Vector2( 215, 40 )
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arrow"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/next_paragraph = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
