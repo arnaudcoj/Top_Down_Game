@@ -8,17 +8,21 @@ extends KinematicBody2D
 ## Consts        ##
 ###################
 
-const DIRECTION_NONE = 0
-const DIRECTION_UP = 1
-const DIRECTION_RIGHT = 2
-const DIRECTION_DOWN = 3
-const DIRECTION_LEFT = 4
+const DIRECTION_UP = 0
+const DIRECTION_DOWN = 1
+const DIRECTION_LEFT = 2
+const DIRECTION_RIGHT = 3
+
+const IDLE = 0
+const WALK = 1
 
 ################################
 ## Exported Editor variables  ##
 ################################
 
 export(float) var motion_speed = 60
+export(float) var walk_animation_scale = 2
+
 
 ################################
 ## Other                      ##
@@ -26,11 +30,13 @@ export(float) var motion_speed = 60
 
 # Animation player node
 var node_animation_player = AnimationPlayer
+var tree_player = AnimationTreePlayer
 
 onready var node_interaction_ray = get_node("Actions/InteractionRay")
 
 # States
 var is_moving = false
+var animation = IDLE
 var direction = DIRECTION_DOWN
 var velocity = Vector2(0, 0)
 
@@ -50,9 +56,11 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	
-	# Fetch nodes.
-	node_animation_player = get_node("Sprite/AnimationPlayer")
-	node_animation_player.connect("finished", self, "_animation_finished")
+	tree_player = get_node("Sprite/AnimationTreePlayer")
+	tree_player.transition_node_set_current("animation", animation)
+	tree_player.transition_node_set_current("idle_direction", direction)
+	tree_player.timescale_node_set_scale("walk_scale", walk_animation_scale)	
+	tree_player.set_active(true)
 	
 	actions = get_node("Actions")
 	action_front = actions.get_node("ActionFront")
@@ -112,64 +120,18 @@ func _animation_finished():
 		
 ## _process_animation
 func _process_animation():
-	if (is_attacking):
-		# Display sword animation depending on the direction.
-		if (direction == DIRECTION_LEFT):
-			if (node_animation_player.get_current_animation() != "sword_left"):
-				node_animation_player.set_current_animation("sword_left")
-		if (direction == DIRECTION_RIGHT):
-			if (node_animation_player.get_current_animation() != "sword_right"):
-				node_animation_player.set_current_animation("sword_right")
-		if (direction == DIRECTION_UP):
-			if (node_animation_player.get_current_animation() != "sword_up"):
-				node_animation_player.set_current_animation("sword_up")
-		if (direction == DIRECTION_DOWN):
-			if (node_animation_player.get_current_animation() != "sword_down"):
-				node_animation_player.set_current_animation("sword_down")
-		
-		if (!node_animation_player.is_playing()):
-			node_animation_player.play()
-			
-	elif (is_moving):
-		# Display move animation depending on the direction.
-		if (direction == DIRECTION_LEFT):
-			if (node_animation_player.get_current_animation() != "move_left"):
-				node_animation_player.set_current_animation("move_left")
-		if (direction == DIRECTION_RIGHT):
-			if (node_animation_player.get_current_animation() != "move_right"):
-				node_animation_player.set_current_animation("move_right")
-		if (direction == DIRECTION_UP):
-			if (node_animation_player.get_current_animation() != "move_up"):
-				node_animation_player.set_current_animation("move_up")
-		if (direction == DIRECTION_DOWN):
-			if (node_animation_player.get_current_animation() != "move_down"):
-				node_animation_player.set_current_animation("move_down")
-		if (!node_animation_player.is_playing()):
-			node_animation_player.play()
-			
+	tree_player.transition_node_set_current("animation", animation)
+	if (animation == IDLE):
+		tree_player.transition_node_set_current("idle_direction", direction)
 	else:
-		# Display idle animation depending on the direction.
-		if (direction == DIRECTION_LEFT):
-			if (node_animation_player.get_current_animation() != "idle_left"):
-				node_animation_player.set_current_animation("idle_left")
-		if (direction == DIRECTION_RIGHT):
-			if (node_animation_player.get_current_animation() != "idle_right"):
-				node_animation_player.set_current_animation("idle_right")
-		if (direction == DIRECTION_UP):
-			if (node_animation_player.get_current_animation() != "idle_up"):
-				node_animation_player.set_current_animation("idle_up")
-		if (direction == DIRECTION_DOWN):
-			if (node_animation_player.get_current_animation() != "idle_down"):
-				node_animation_player.set_current_animation("idle_down")
-			
-		if (!node_animation_player.is_playing()):
-			node_animation_player.play()
+		tree_player.transition_node_set_current("walk_direction", direction)
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
 	# provisoire, soon l'interaction se desactivera si on s'éloigne
 	if controler.is_interacting :
 		is_moving = false
+		animation = IDLE
 		return
 		
 	# Stores the directions pressed in this frame.
@@ -197,6 +159,7 @@ func _process_input():
 
 		if (left_right_direction):
 			is_moving = true
+			animation = WALK
 			
 			if (is_left_pressed):
 				velocity.x -= 1
@@ -207,6 +170,7 @@ func _process_input():
 
 		if (up_down_direction):
 			is_moving = true
+			animation = WALK
 
 			if (is_up_pressed):
 				velocity.y -= 1
@@ -216,6 +180,7 @@ func _process_input():
 				set_direction(DIRECTION_DOWN)
 	else:
 		is_moving = false
+		animation = IDLE
 		
 func set_direction(new_direction):
 	var rot = 0
