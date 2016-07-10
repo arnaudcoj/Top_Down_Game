@@ -23,13 +23,11 @@ const WALK = 1
 export(float) var motion_speed = 60
 export(float) var walk_animation_scale = 2
 
-
 ################################
 ## Other                      ##
 ################################
 
 # Animation player node
-var node_animation_player = AnimationPlayer
 var tree_player = AnimationTreePlayer
 
 onready var node_interaction_ray = get_node("Actions/InteractionRay")
@@ -142,8 +140,6 @@ func _process_input():
 	var is_left_pressed = int(Input.is_action_pressed("move_left"))
 	var is_right_pressed = int(Input.is_action_pressed("move_right"))
 	var is_down_pressed = int(Input.is_action_pressed("move_down"))
-#	var is_attack_pressed = Input.is_action_pressed("attack")
-#	var is_interact_pressed = Input.is_action_pressed("interact")
 	
 	var left_right_direction = is_right_pressed ^ is_left_pressed
 	if (left_right_direction == 1):
