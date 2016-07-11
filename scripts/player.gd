@@ -36,7 +36,7 @@ export(float) var walk_animation_scale = 2
 
 onready var tree_player = get_node("AnimationTreePlayer")
 onready var effects = get_node("Effects")
-onready var node_interaction_ray = get_node("InteractionRay")
+onready var node_interaction_ray = get_node("Actions/InteractionRay")
 
 # States
 var max_life = 3

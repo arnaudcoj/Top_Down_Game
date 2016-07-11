@@ -5,7 +5,6 @@ export var motion_speed = 80
 var velocity = Vector2(0, 0)
 
 func _ready():
-	._ready()
 	get_node("Timer").connect("timeout", self, "_on_timeout")
 	set_fixed_process(true)
 	
