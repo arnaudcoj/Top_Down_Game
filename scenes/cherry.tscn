@@ -69,6 +69,7 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
+life = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

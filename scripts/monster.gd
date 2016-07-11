@@ -24,6 +24,7 @@ var tree_player = AnimationTreePlayer
 var pathFollow = null
 
 # States
+export var life = 1
 var current_direction = DIRECTION_LEFT
 
 ##########################################################################
@@ -73,10 +74,15 @@ func _on_enter_body(body):
 						
 func _on_enter_area(area):
 	if (area extends attack):
-		die()
+		lose_life(area.get_damages())
 
 func hit(body):
 	body.lose_life(1)
+
+func lose_life(damages):
+	life -= damages
+	if life < 1 :
+		die()
 
 func die():
 	set_fixed_process(false)
