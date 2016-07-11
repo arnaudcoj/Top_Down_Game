@@ -38,7 +38,7 @@ func _ready():
 	tree_player.transition_node_set_current("direction", current_direction)
 	tree_player.set_active(true)
 	
-	get_node("HitBox").connect("body_enter", self, "_on_enter_body")
+	get_node("Damages").connect("body_enter", self, "_on_enter_body")
 	get_node("HitBox").connect("area_enter", self, "_on_enter_area")
 	get_node("Timer").connect("timeout", self, "_on_timeout")
 
@@ -92,6 +92,7 @@ func lose_life(damages):
 
 func die():
 	set_fixed_process(false)
+	get_node("CollisionShape2D").queue_free()
 	get_node("Sprite").queue_free()
 	get_node("HitBox").queue_free()
 	get_node("SoundPlayer").play("bat")

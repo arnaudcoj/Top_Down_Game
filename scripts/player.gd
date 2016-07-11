@@ -39,6 +39,7 @@ onready var effects = get_node("Effects")
 onready var node_interaction_ray = get_node("InteractionRay")
 
 # States
+var max_life = 3
 var life = 3
 export var vulnerable = true
 
@@ -207,6 +208,11 @@ func set_direction(new_direction):
 	actions.set_rotd(rot)
 	
 	direction = new_direction
+	
+func heal(value):
+	life += value
+	if life > max_life:
+		life = max_life
 	
 func lose_life(damages):
 	if vulnerable :
