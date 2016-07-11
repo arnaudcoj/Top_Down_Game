@@ -8,13 +8,20 @@ extends KinematicBody2D
 ## Consts        ##
 ###################
 
+#Directions
 const DIRECTION_UP = 0
 const DIRECTION_DOWN = 1
 const DIRECTION_LEFT = 2
 const DIRECTION_RIGHT = 3
 
+#Animations
 const IDLE = 0
 const WALK = 1
+
+#Equipments
+const NO_OBJECT = 0
+const SWORD = 1
+const FIREBALL = 2
 
 ################################
 ## Exported Editor variables  ##
@@ -27,24 +34,25 @@ export(float) var walk_animation_scale = 2
 ## Other                      ##
 ################################
 
-# Animation player node
-var tree_player = AnimationTreePlayer
-
+onready var tree_player = get_node("Sprite/AnimationTreePlayer")
 onready var node_interaction_ray = get_node("Actions/InteractionRay")
 
 # States
-var is_moving = false
-var animation = IDLE
 var direction = DIRECTION_DOWN
-var velocity = Vector2(0, 0)
+var animation = IDLE
+var velocity = Vector2(0, 1)
 
+var is_moving = false
 var is_attacking = false
+
+var equipment = FIREBALL
 
 var actions
 var action_front
 
-var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
 var monster = preload("res://scripts/monster.gd")
+var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
+var fireball = preload("res://scenes/fireball.tscn")
 
 ##########################################################################
 ## Private Functions                                                   ##
@@ -54,7 +62,6 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	
-	tree_player = get_node("Sprite/AnimationTreePlayer")
 	tree_player.transition_node_set_current("animation", animation)
 	tree_player.transition_node_set_current("idle_direction", direction)
 	tree_player.timescale_node_set_scale("walk_scale", walk_animation_scale)	
@@ -63,15 +70,12 @@ func _ready():
 	actions = get_node("Actions")
 	action_front = actions.get_node("ActionFront")
 	
-	get_node("HitBox").connect("area_enter", self, "_on_enter")
-	
 func _input(event):	
-	#var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
+	var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
 	var is_interact_pressed = event.is_action_pressed("interact") && !event.is_echo()
-	var is_attack_pressed = false
 	
 	# Interaction
-	if(is_interact_pressed) :
+	if is_interact_pressed :
 		if !controler.is_interacting :
 			# interact with front object
 			if node_interaction_ray.is_colliding() :
@@ -86,8 +90,15 @@ func _input(event):
 			controler.textBox.deactivate()
 		is_attacking = true
 		# Create an attack
-		action_front.add_child(sword_hit_lateral.instance())
-	
+		if equipment == SWORD :
+			action_front.add_child(sword_hit_lateral.instance())
+		elif equipment == FIREBALL :
+			var ball = fireball.instance()
+			ball.velocity = velocity
+			ball.set_global_transform(action_front.get_global_transform())
+			get_parent().add_child(ball)
+			is_attacking = false
+			
 	
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):
@@ -192,10 +203,6 @@ func set_direction(new_direction):
 	actions.set_rotd(rot)
 	
 	direction = new_direction
-	
-func _on_enter(area):
-	if (area extends monster):
-		die()
 		
 func die():
 	controler.root.change_level("game_over", "Spawn")

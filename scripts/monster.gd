@@ -1,5 +1,5 @@
 
-extends Area2D
+extends KinematicBody2D
 
 ##########################################################################
 ## Variables                                                            ##
@@ -17,8 +17,10 @@ const DIRECTION_RIGHT = 3
 ## Other                      ##
 ################################
 
+var player = preload("res://scripts/player.gd")
+var attack = preload("res://scripts/attack.gd")
+
 var tree_player = AnimationTreePlayer
-var sword_hit = preload("res://scripts/sword_hit.gd")
 var pathFollow = null
 
 # States
@@ -33,7 +35,8 @@ func _ready():
 	tree_player.transition_node_set_current("direction", current_direction)
 	tree_player.set_active(true)
 	
-	connect("area_enter", self, "_on_enter")
+	get_node("HitBox").connect("body_enter", self, "_on_enter_body")
+	get_node("HitBox").connect("area_enter", self, "_on_enter_area")
 	get_node("Timer").connect("timeout", self, "_on_timeout")
 
 	set_fixed_process(true)
@@ -63,15 +66,25 @@ func get_direction_from_angle(angle):
 	elif(angle >= (PI / 4) and angle < ((3 * PI) / 4)):
 		return DIRECTION_DOWN
 	return DIRECTION_LEFT
-		
-func _on_enter(area):
-	if (area extends sword_hit):
-		set_fixed_process(false)
-		get_node("Sprite").queue_free()
-		get_node("HitBox").queue_free()
-		get_node("SoundPlayer").play("bat")
-		get_node("Particles").set_emitting(true)
-		get_node("Timer").start()
-		
+
+func _on_enter_body(body):
+	if (body extends player):
+		hit(body)
+						
+func _on_enter_area(area):
+	if (area extends attack):
+		die()
+
+func hit(body):
+	body.die()
+
+func die():
+	set_fixed_process(false)
+	get_node("Sprite").queue_free()
+	get_node("HitBox").queue_free()
+	get_node("SoundPlayer").play("bat")
+	get_node("Particles").set_emitting(true)
+	get_node("Timer").start()
+
 func _on_timeout():
 	queue_free()
