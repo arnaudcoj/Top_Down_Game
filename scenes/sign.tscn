@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scripts/sign.gd" type="Script" id=1]
 [ext_resource path="res://sounds/bleep.smp" type="Sample" id=2]
-[ext_resource path="res://tiles/log.png" type="Texture" id=3]
+[ext_resource path="res://sprites/slime.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8, 3 )
+extents = Vector2( 6, 3 )
 
 [sub_resource type="SampleLibrary" id=2]
 
@@ -58,6 +58,8 @@ config/pitch_random = 0.0
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 3 )
-modulate = Color( 0.101563, 1, 0, 1 )
+vframes = 4
+hframes = 4
+modulate = Color( 1, 0, 0.679688, 1 )
 
 
