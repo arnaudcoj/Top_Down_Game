@@ -22,9 +22,11 @@ var attack = preload("res://scripts/attack.gd")
 
 var tree_player = AnimationTreePlayer
 var pathFollow = null
+onready var effects = get_node("Effects")
 
 # States
 export var life = 1
+export var vulnerable = true
 var current_direction = DIRECTION_LEFT
 
 ##########################################################################
@@ -74,15 +76,19 @@ func _on_enter_body(body):
 						
 func _on_enter_area(area):
 	if (area extends attack):
-		lose_life(area.get_damages())
+		lose_life(area.damages)
 
 func hit(body):
 	body.lose_life(1)
 
 func lose_life(damages):
-	life -= damages
-	if life < 1 :
-		die()
+	if vulnerable :
+		life -= damages
+		if life < 1 :
+			die()
+		else:
+			vulnerable = false
+			effects.play("hurt")
 
 func die():
 	set_fixed_process(false)

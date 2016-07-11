@@ -34,11 +34,13 @@ export(float) var walk_animation_scale = 2
 ## Other                      ##
 ################################
 
-onready var tree_player = get_node("Sprite/AnimationTreePlayer")
-onready var node_interaction_ray = get_node("Actions/InteractionRay")
+onready var tree_player = get_node("AnimationTreePlayer")
+onready var effects = get_node("Effects")
+onready var node_interaction_ray = get_node("InteractionRay")
 
 # States
 var life = 3
+export var vulnerable = true
 
 var direction = DIRECTION_DOWN
 var animation = IDLE
@@ -207,9 +209,13 @@ func set_direction(new_direction):
 	direction = new_direction
 	
 func lose_life(damages):
-	life -= damages
-	if life < 1 :
-		die()
+	if vulnerable :
+		life -= damages
+		if life < 1 :
+			die()
+		else:
+			vulnerable = false
+			effects.play("hurt")
 		
 func die():
 	controler.root.change_level("game_over", "Spawn")

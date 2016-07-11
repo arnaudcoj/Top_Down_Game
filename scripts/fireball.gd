@@ -6,9 +6,6 @@ var player = preload("res://scripts/player.gd")
 export var motion_speed = 80
 var velocity = Vector2(0, 0)
 
-func _init():
-    print("constructed!")
-
 func _ready():
 	connect("body_enter", self, "_on_enter_body")
 	get_node("Timer").connect("timeout", self, "_on_timeout")

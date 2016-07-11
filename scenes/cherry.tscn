@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/monster.gd" type="Script" id=1]
 [ext_resource path="res://sprites/cherry.png" type="Texture" id=2]
@@ -54,6 +54,21 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 3, 5 ] }
 
+[sub_resource type="Animation" id=8]
+
+resource/name = "hurt"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/visible")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ false, true, false, true, false, true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:vulnerable")
+tracks/1/interp = 1
+tracks/1/keys = { "cont":false, "times":FloatArray( 0.5 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+
 [sub_resource type="SampleLibrary" id=7]
 
 samples/bat = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
@@ -70,6 +85,7 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 life = 2
+vulnerable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -88,7 +104,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-__meta__ = { "_editor_collapsed":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 
@@ -125,7 +140,18 @@ autoplay = ""
 playback/process_mode = 0
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" }, { "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" }, { "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" }, { "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" }, { "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" } ] }
+
+[node name="Effects" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/hurt = SubResource( 8 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [node name="SoundPlayer" type="SamplePlayer2D" parent="."]
 
