@@ -38,8 +38,7 @@ func _ready():
 	tree_player.transition_node_set_current("direction", current_direction)
 	tree_player.set_active(true)
 	
-	get_node("Damages").connect("body_enter", self, "_on_enter_body")
-	get_node("HitBox").connect("area_enter", self, "_on_enter_area")
+	get_node("HitBox").connect("body_enter", self, "_on_enter_body")
 	get_node("Timer").connect("timeout", self, "_on_timeout")
 
 	set_fixed_process(true)
@@ -73,10 +72,6 @@ func get_direction_from_angle(angle):
 func _on_enter_body(body):
 	if (body extends player):
 		hit(body)
-						
-func _on_enter_area(area):
-	if (area extends attack):
-		lose_life(area.damages)
 
 func hit(body):
 	body.lose_life(1)
