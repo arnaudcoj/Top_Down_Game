@@ -38,6 +38,8 @@ onready var tree_player = get_node("Sprite/AnimationTreePlayer")
 onready var node_interaction_ray = get_node("Actions/InteractionRay")
 
 # States
+var life = 3
+
 var direction = DIRECTION_DOWN
 var animation = IDLE
 var velocity = Vector2(0, 1)
@@ -203,6 +205,11 @@ func set_direction(new_direction):
 	actions.set_rotd(rot)
 	
 	direction = new_direction
+	
+func lose_life(damages):
+	life -= damages
+	if life < 1 :
+		die()
 		
 func die():
 	controler.root.change_level("game_over", "Spawn")

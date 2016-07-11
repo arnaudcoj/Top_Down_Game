@@ -76,7 +76,7 @@ func _on_enter_area(area):
 		die()
 
 func hit(body):
-	body.die()
+	body.lose_life(1)
 
 func die():
 	set_fixed_process(false)
