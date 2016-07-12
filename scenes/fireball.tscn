@@ -32,26 +32,27 @@ _update_shape_index = 0
 
 [node name="Particles" type="Particles2D" parent="."]
 
-transform/pos = Vector2( -2, -4 )
 config/amount = 10
-config/lifetime = 0.3
+config/lifetime = 1.0
+config/preprocess = 0.8
+config/texture = ExtResource( 2 )
 params/direction = 180.0
-params/spread = 45.0
-params/linear_velocity = 20.0
+params/spread = 5.0
+params/linear_velocity = 15.0
 params/spin_velocity = 0.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 0.0
 params/gravity_strength = 9.8
-params/radial_accel = 0.0
+params/radial_accel = 30.0
 params/tangential_accel = 0.0
 params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
+params/initial_angle = 270.01
+params/initial_size = 0.9
+params/final_size = 0.1
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-color/color = Color( 0.972549, 0.403922, 0, 1 )
+randomness/tangential_accel = 0.00384176
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -60,14 +61,15 @@ texture = ExtResource( 2 )
 
 [node name="DestructionParticles" type="Particles2D" parent="."]
 
-config/amount = 20
-config/lifetime = 0.2
-config/preprocess = 0.1
+config/amount = 25
+config/lifetime = 0.4
+config/preprocess = 0.5
 config/emit_timeout = 0.1
 config/emitting = false
+config/texture = ExtResource( 2 )
 params/direction = 0.0
 params/spread = 180.0
-params/linear_velocity = 30.0
+params/linear_velocity = 40.0
 params/spin_velocity = 0.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 0.0
@@ -75,13 +77,12 @@ params/gravity_strength = 9.8
 params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
+params/initial_angle = 270.0
+params/initial_size = 0.7
+params/final_size = 0.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-color/color = Color( 0.972549, 0.407843, 0, 1 )
 
 [node name="Timer" type="Timer" parent="."]
 
