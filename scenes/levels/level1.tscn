@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/heart.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
@@ -112,7 +112,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Heart" parent="Objects/Middle" instance=ExtResource( 6 )]
+[node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 192, 96 )
 

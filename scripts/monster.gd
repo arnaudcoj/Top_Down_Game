@@ -19,6 +19,7 @@ const DIRECTION_RIGHT = 3
 
 var player = preload("res://scripts/player.gd")
 var attack = preload("res://scripts/attack.gd")
+var heart = preload("res://scenes/heart.tscn")
 
 var tree_player = AnimationTreePlayer
 var pathFollow = null
@@ -92,7 +93,13 @@ func die():
 	get_node("HitBox").queue_free()
 	get_node("SoundPlayer").play("bat")
 	get_node("Particles").set_emitting(true)
+	drop()
 	get_node("Timer").start()
+	
+func drop():
+	var drop = heart.instance()
+	drop.set_global_pos(self.get_global_pos())
+	get_parent().add_child(drop)
 
 func _on_timeout():
 	queue_free()
