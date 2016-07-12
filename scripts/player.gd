@@ -96,14 +96,19 @@ func _input(event):
 		is_attacking = true
 		# Create an attack
 		if equipment == SWORD :
-			action_front.add_child(sword_hit_lateral.instance())
+			sword_hit()
 		elif equipment == FIREBALL :
-			var ball = fireball.instance()
-			ball.velocity = velocity
-			ball.set_global_transform(action_front.get_global_transform())
-			get_parent().add_child(ball)
-			is_attacking = false
-			
+			fire()
+
+func sword_hit():
+	action_front.add_child(sword_hit_lateral.instance())
+
+func fire():
+	var ball = fireball.instance()
+	ball.velocity = velocity
+	ball.set_global_transform(action_front.get_global_transform())
+	get_parent().add_child(ball)
+	is_attacking = false
 	
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):
