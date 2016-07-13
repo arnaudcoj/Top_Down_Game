@@ -6,14 +6,51 @@ var current_music
 onready var map = get_node("Map")
 onready var animation = get_node("AnimationPlayer")
 onready var animation_timer = animation.get_node("Timer")
+onready var textbox = get_node("TextBox")
 
 export(bool) var playing_music = true
 var level = "../intro"
 var spawn = null
 
+var player
+
 func _ready():
+	set_process(true)
+	set_process_input(true)
 	_enter_level()
 	
+func _process(delta):
+	if textbox && textbox.active :
+		pass
+	elif player:
+		player.update()
+	
+func _input(event):
+	if not event.is_echo():
+		if event.is_action_pressed("attack"):
+			on_attack_pressed()
+		elif event.is_action_pressed("interact"):
+			on_interact_pressed()
+		elif event.is_action_released("interact"):
+			on_interact_released()
+	
+func on_attack_pressed():
+	if textbox && textbox.active :
+		textbox.on_attack_pressed()
+	elif player : 
+		player.on_attack_pressed()
+		
+func on_interact_pressed():
+	if textbox && textbox.active :
+		textbox.on_interact_pressed()
+	elif player : 
+		player.on_interact_pressed()
+	
+func on_interact_released():
+	if textbox && textbox.active : 
+		textbox.on_interact_released()
+	
+
 func change_level(new_level, new_spawn):
 	level = new_level
 	spawn = new_spawn
@@ -50,6 +87,7 @@ func _enter_level():
 		change_music(level_node.music, level_node.loop)
 	
 	level_node.spawn_player(spawn)
+	player = level_node.get_player()
 	map.add_child(level_node)
 	
 	animation.queue("enter_area")

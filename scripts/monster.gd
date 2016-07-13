@@ -45,7 +45,7 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	if pathFollow && !controler.is_interacting :
+	if pathFollow && !controler.textBox.active :
 		#move the monster and retrieve the old and new pos
 		var old_pos = pathFollow.get_pos()
 		pathFollow.set_offset(pathFollow.get_offset() + (50 * delta))		

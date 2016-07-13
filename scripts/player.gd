@@ -58,14 +58,13 @@ var action_front
 var monster = preload("res://scripts/monster.gd")
 var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
 var fireball = preload("res://scenes/fireball.tscn")
+var interact_object = preload("res://scripts/interact_object.gd")
 
 ##########################################################################
 ## Private Functions                                                   ##
 ##########################################################################
 func _ready():
-	set_process(true)
 	set_fixed_process(true)
-	set_process_input(true)
 	
 	tree_player.transition_node_set_current("animation", animation)
 	tree_player.transition_node_set_current("idle_direction", direction)
@@ -75,24 +74,20 @@ func _ready():
 	actions = get_node("Actions")
 	action_front = actions.get_node("ActionFront")
 	
-func _input(event):	
-	var is_attack_pressed = event.is_action_pressed("attack") && !event.is_echo()
-	var is_interact_pressed = event.is_action_pressed("interact") && !event.is_echo()
-	
+func on_interact_pressed():
 	# Interaction
-	if is_interact_pressed :
-		if !controler.is_interacting :
-			# interact with front object
-			if node_interaction_ray.is_colliding() :
-				var body = node_interaction_ray.get_collider()
-				if body.is_in_group("can_interact") :
-					body.interact(self)
-		elif controler.textBox.active :
-			controler.textBox.next()
-
-	if(!is_attacking  && is_attack_pressed):
-		if controler.textBox.active :
-			controler.textBox.deactivate()
+	if !controler.is_interacting() :
+		# interact with front object
+		if node_interaction_ray.is_colliding() :
+			var body = node_interaction_ray.get_collider()
+			if body extends interact_object :
+				body.interact(self)
+				is_moving = false
+				animation = IDLE
+				_process_animation()
+	
+func on_attack_pressed():
+	if(!is_attacking):
 		is_attacking = true
 		# Create an attack
 		if equipment == SWORD :
@@ -126,7 +121,7 @@ func _fixed_process(delta):
 			move(motion)
 	
 ## _process - Main game logic
-func _process(delta):
+func update():
 	# Process the input.
 	_process_input()
 	
@@ -147,11 +142,6 @@ func _process_animation():
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
-	# provisoire, soon l'interaction se desactivera si on s'éloigne
-	if controler.is_interacting :
-		is_moving = false
-		animation = IDLE
-		return
 		
 	# Stores the directions pressed in this frame.
 	var directions_pressed = 0

@@ -13,3 +13,6 @@ func _input(event):
 
 func spawn_player(spawn_name):
 	pass
+	
+func get_player():
+	return null

@@ -22,13 +22,14 @@ tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.5 ), "transitions":Floa
 [node name="TextBox" type="Panel"]
 
 visibility/self_opacity = 0.7
-margin/top = 144.0
-margin/right = 224.0
-margin/bottom = 192.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 144.0
+margin/right = 224.0
+margin/bottom = 192.0
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 
@@ -36,12 +37,15 @@ __meta__ = { "_edit_group_":true }
 
 anchor/right = 1
 anchor/bottom = 1
-margin/left = 5.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 theme/theme = SubResource( 1 )
+margin/left = 5.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1

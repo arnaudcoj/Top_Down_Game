@@ -14,7 +14,7 @@ func interact(player) :
 		if interaction_ray.is_colliding() && interaction_ray.get_collider() == player:
 			for msg in messages :
 				controler.textBox.add_paragraph(msg)
-				controler.textBox.activate()
+			controler.textBox.activate()
 		else :
 			controler.textBox.add_paragraph("You can't read this sign from here...")
 			controler.textBox.activate()

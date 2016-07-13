@@ -32,10 +32,13 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":Float
 
 [node name="Root" type="Node2D"]
 
+process/pause_mode = 2
 script/script = ExtResource( 1 )
 playing_music = false
 
 [node name="Map" type="Node2D" parent="."]
+
+process/pause_mode = 1
 
 [node name="MusicPlayer" type="StreamPlayer" parent="."]
 
@@ -60,8 +63,6 @@ config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 
 [node name="TextBox" parent="." instance=ExtResource( 3 )]
-
-visibility/self_opacity = 0.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

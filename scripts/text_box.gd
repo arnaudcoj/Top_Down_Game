@@ -22,26 +22,30 @@ func _ready():
 	text_label.set_scroll_active(false)
 	text_label.set_scroll_follow(true)
 	
-func _input(event):
-	if event.is_action_pressed("interact") :
-		skip_text = true
-		timer.set_wait_time(0.0001)
-	elif event.is_action_released("interact") :
-		skip_text = false
+func on_attack_pressed():
+	clear()
+	deactivate()
+	
+func on_interact_pressed():
+	if !current_paragraph :
+		next()
+	skip_text = true
+	timer.set_wait_time(0.0001)
+
+func on_interact_released():
+	skip_text = false
 	
 # Activates, prompts the text box and lock the character if contains paragraphs
 func activate():
 	if controler.debug : print("[textbox] activate")
 	if !paragraphs.empty():
 		active = true
-		controler.is_interacting = true
 		next()
 		show()
 
 # Deactivates the textbox, ie unlock the character, clears the textbox content and hides the text box
 func deactivate():
 	if controler.debug : print("[textbox] deactivate")
-	controler.is_interacting = false
 	active = false
 	clear()
 	hide()
@@ -49,25 +53,24 @@ func deactivate():
 # Shows the next paragraph
 func next():
 	if controler.debug : print("[textbox] next")
-	if !current_paragraph :
-		if !paragraphs.empty():
-			_hide_arrow()
-				# set the next paragraph as current
-			current_paragraph = paragraphs[0]
-			paragraphs.pop_front()
-			
-			# reset the cursors
-			cursor = 0
-			visible_cursor = 0
-			
-			# reset the text box 
-			text_label.set_visible_characters(visible_cursor)
-			text_label.clear()
-			
-			timer.start()
-			return true
-		else :
-			deactivate()
+	if !paragraphs.empty():
+		_hide_arrow()
+			# set the next paragraph as current
+		current_paragraph = paragraphs[0]
+		paragraphs.pop_front()
+		
+		# reset the cursors
+		cursor = 0
+		visible_cursor = 0
+		
+		# reset the text box 
+		text_label.set_visible_characters(visible_cursor)
+		text_label.clear()
+		
+		timer.start()
+		return true
+	else :
+		deactivate()
 	return false
 
 # Add a paragraph to the paragraphs list

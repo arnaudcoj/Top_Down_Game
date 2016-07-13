@@ -8,9 +8,6 @@ var musicPlayer
 var soundPlayer
 var textBox
 
-#to be moved in a global player state
-var is_interacting = false
-
 func _ready():
 	if debug : print("Controler init")
 	root = get_tree().get_root().get_node("Root")
@@ -25,3 +22,5 @@ func _ready():
 	textBox = root.get_node("TextBox")
 	if debug : print("found text box: " + textBox.get_name())
 	
+func is_interacting():
+	return textBox.active

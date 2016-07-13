@@ -40,3 +40,6 @@ func spawn_player(spawn_name):
 			player.direction = player.DIRECTION_LEFT
 		elif spawn.direction == "none":
 			player.direction = player.DIRECTION_NONE
+
+func get_player():
+	return get_node("Objects/Middle/Player")
