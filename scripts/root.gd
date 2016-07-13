@@ -23,7 +23,7 @@ func _process(delta):
 	if textbox && textbox.active :
 		pass
 	elif player:
-		player.update()
+		player.process_directions()
 	
 func _input(event):
 	if not event.is_echo():

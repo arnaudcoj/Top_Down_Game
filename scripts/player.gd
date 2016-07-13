@@ -121,7 +121,7 @@ func _fixed_process(delta):
 			move(motion)
 	
 ## _process - Main game logic
-func update():
+func process_directions():
 	# Process the input.
 	_process_input()
 	
@@ -161,6 +161,7 @@ func _process_input():
 		directions_pressed += up_down_direction
 	
 	if (directions_pressed > 0 && !is_attacking):
+		var new_direction
 		
 		velocity = Vector2(0, 0)
 
@@ -169,22 +170,26 @@ func _process_input():
 			animation = WALK
 			
 			if (is_left_pressed):
+				new_direction = DIRECTION_LEFT
 				velocity.x -= 1
-				set_direction(DIRECTION_LEFT)
 			else:
+				new_direction = DIRECTION_RIGHT
 				velocity.x += 1
-				set_direction(DIRECTION_RIGHT)
 
 		if (up_down_direction):
 			is_moving = true
 			animation = WALK
 
 			if (is_up_pressed):
+				if direction != new_direction :
+					new_direction = DIRECTION_UP
 				velocity.y -= 1
-				set_direction(DIRECTION_UP)
 			else:
+				if direction != new_direction :
+					new_direction = DIRECTION_DOWN
 				velocity.y += 1
-				set_direction(DIRECTION_DOWN)
+		
+		set_direction(new_direction)
 	else:
 		is_moving = false
 		animation = IDLE
