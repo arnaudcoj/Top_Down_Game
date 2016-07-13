@@ -7,6 +7,7 @@ onready var map = get_node("Map")
 onready var animation = get_node("AnimationPlayer")
 onready var animation_timer = animation.get_node("Timer")
 onready var textbox = get_node("TextBox")
+onready var inventory = get_node("Inventory")
 
 export(bool) var playing_music = true
 var level = "../intro"
@@ -33,16 +34,22 @@ func _input(event):
 			on_interact_pressed()
 		elif event.is_action_released("interact"):
 			on_interact_released()
+		elif event.is_action_pressed("inventory"):
+			on_inventory_pressed()
 	
 func on_attack_pressed():
 	if textbox && textbox.active :
 		textbox.on_attack_pressed()
+	elif inventory && inventory.active :
+		inventory.on_attack_pressed()
 	elif player : 
 		player.on_attack_pressed()
 		
 func on_interact_pressed():
 	if textbox && textbox.active :
 		textbox.on_interact_pressed()
+	elif inventory && inventory.active :
+		inventory.on_interact_pressed()
 	elif player : 
 		player.on_interact_pressed()
 	
@@ -50,6 +57,11 @@ func on_interact_released():
 	if textbox && textbox.active : 
 		textbox.on_interact_released()
 	
+func on_inventory_pressed():
+	if textbox && textbox.active :
+		textbox.on_interact_pressed()
+	elif inventory : 
+		inventory.on_inventory_pressed()
 
 func change_level(new_level, new_spawn):
 	level = new_level

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/root.gd" type="Script" id=1]
 [ext_resource path="res://sounds/evil_laugh.smp" type="Sample" id=2]
-[ext_resource path="res://scenes/text_box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/inventory.gd" type="Script" id=3]
+[ext_resource path="res://scenes/text_box.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -62,7 +63,30 @@ config/polyphony = 1
 config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 
-[node name="TextBox" parent="." instance=ExtResource( 3 )]
+[node name="Inventory" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 16.0
+margin/right = 208.0
+margin/bottom = 176.0
+script/script = ExtResource( 3 )
+
+[node name="ItemList" type="ItemList" parent="Inventory"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 16.0
+margin/right = 176.0
+margin/bottom = 144.0
+
+[node name="TextBox" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
