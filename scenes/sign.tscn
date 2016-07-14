@@ -1,23 +1,23 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/sign.gd" type="Script" id=1]
-[ext_resource path="res://sounds/bleep.smp" type="Sample" id=2]
-[ext_resource path="res://sprites/slime.png" type="Texture" id=3]
+[ext_resource path="res://tiles/sign.png" type="Texture" id=2]
+[ext_resource path="res://sounds/bleep.smp" type="Sample" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6, 3 )
+extents = Vector2( 7, 1.22837 )
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/bleep = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/bleep = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 
 [node name="Sign" type="StaticBody2D" groups=[ "can_interact" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.18308, 0, 6.45326 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
@@ -29,9 +29,15 @@ script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 messages = [ "Your message here." ]
 
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 5 )
+transform/pos = Vector2( 0, 6.45326 )
+transform/scale = Vector2( 1, 1.18308 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -54,12 +60,5 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 2 )
 config/pitch_random = 0.0
-
-[node name="Sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 3 )
-vframes = 4
-hframes = 4
-modulate = Color( 1, 0, 0.679688, 1 )
 
 

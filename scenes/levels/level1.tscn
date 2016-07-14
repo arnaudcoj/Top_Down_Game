@@ -91,26 +91,8 @@ transform/pos = Vector2( 96, 32 )
 
 [node name="Sign" parent="Objects/Middle" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 32, 96 )
-messages = [ "Hello ! I\'m a slime too !", "God I feel so lonely... I\'m so glad you interacted with me ! Thank you !", "I hope you are doing well !" ]
-
-[node name="Label" type="Label" parent="Objects/Middle/Sign"]
-
-rect/scale = Vector2( 0.7, 0.7 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -20.0
-margin/top = -20.0
-margin/right = 39.0
-margin/bottom = 6.0
-text = "Slime"
-align = 1
-valign = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+transform/pos = Vector2( 32, 88 )
+messages = [ "Hello ! I\'m a sign!", "God I feel so lonely... I\'m so glad you interacted with me ! Thank you !", "I hope you are doing well !" ]
 
 [node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
 
