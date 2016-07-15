@@ -96,7 +96,16 @@ func sword_hit():
 
 func fire():
 	var ball = fireball.instance()
-	ball.velocity = velocity
+	var ball_velocity = Vector2(0,0)
+	if direction == DIRECTION_UP :
+		ball_velocity.y -= 1
+	elif direction == DIRECTION_DOWN :
+		ball_velocity.y += 1
+	elif direction == DIRECTION_LEFT :
+		ball_velocity.x -= 1
+	elif direction == DIRECTION_RIGHT :
+		ball_velocity.x += 1
+	ball.velocity = ball_velocity
 	ball.set_global_transform(action_front.get_global_transform())
 	get_parent().add_child(ball)
 	is_attacking = false
