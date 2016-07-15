@@ -120,6 +120,9 @@ final_dialog = "This slime does have a name though..."
 [node name="Blub" parent="Objects/Middle" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 44, 149 )
+name = "Blub"
+dialog = [ "Look how I\'m gliding here !" ]
+final_dialog = "Shuuuuuu !"
 
 [node name="Front" type="TileMap" parent="Objects"]
 
@@ -169,6 +172,8 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Blub"]
 
+transform/pos = Vector2( 40, 120 )
+transform/rot = -9.46255
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
