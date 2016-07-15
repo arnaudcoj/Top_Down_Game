@@ -1,6 +1,7 @@
 
 extends "res://scripts/interact_object.gd"
 
+onready var interaction_ray = get_node("InteractionRay")
 export var messages = ["Your message here."]
 
 func _ready():

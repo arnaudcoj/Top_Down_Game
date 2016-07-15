@@ -1,7 +1,6 @@
 
-extends StaticBody2D
+extends Node2D
 
-onready var interaction_ray = get_node("InteractionRay")
 onready var Player = preload("res://scripts/player.gd")
 
 func _ready():
@@ -12,9 +11,5 @@ func _ready():
 func interact(player) :
 	if player extends Player :
 		get_node("SoundPlayer").play("bleep")
-		if interaction_ray.is_colliding() && interaction_ray.get_collider() == player:
-			controler.textBox.add_paragraph("Interaction")
-			controler.textBox.activate()
-		else :
-			controler.textBox.add_paragraph("Too far")
-			controler.textBox.activate()
+		controler.textBox.add_paragraph("Interaction")
+		controler.textBox.activate()

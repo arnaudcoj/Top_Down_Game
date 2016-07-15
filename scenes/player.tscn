@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/slime.png" type="Texture" id=2]
@@ -107,6 +107,11 @@ tracks/1/path = NodePath(".:vulnerable")
 tracks/1/interp = 1
 tracks/1/keys = { "cont":false, "times":FloatArray( 0.5 ), "transitions":FloatArray( 1 ), "values":[ true ] }
 
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 4 )
+
 [sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
@@ -116,7 +121,7 @@ extents = Vector2( 7, 4 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -128,17 +133,18 @@ vulnerable = true
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 3 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0, -3 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 5
+frame = 4
+modulate = Color( 0.383911, 0.706778, 0.722656, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -163,7 +169,7 @@ autoplay = "idle_down"
 playback/process_mode = 1
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "animation", "out", 0, "idle_direction", "animation", 0, "walk_scale", "animation", 1, "walk_direction", "walk_scale", 0, "anim 5", "walk_direction", 0, "anim 8", "walk_direction", 1, "anim 7", "walk_direction", 2, "anim 6", "walk_direction", 3, "anim", "idle_direction", 0, "anim 2", "idle_direction", 1, "anim 3", "idle_direction", 2, "anim 4", "idle_direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"idle_up", "id":"anim", "pos":Vector2( 48, 9 ), "type":"animation" }, { "id":"out", "pos":Vector2( 630, 54 ), "type":"output" }, { "id":"animation", "pos":Vector2( 495, 316 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"idle_right", "id":"anim 4", "pos":Vector2( 48, 243 ), "type":"animation" }, { "from":"idle_down", "id":"anim 2", "pos":Vector2( 47, 85 ), "type":"animation" }, { "id":"walk_scale", "pos":Vector2( 370, 441 ), "scale":1.0, "type":"timescale" }, { "id":"walk_direction", "pos":Vector2( 226, 444 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"move_right", "id":"anim 6", "pos":Vector2( 49, 595 ), "type":"animation" }, { "id":"idle_direction", "pos":Vector2( 333, 95 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"move_left", "id":"anim 7", "pos":Vector2( 49, 515 ), "type":"animation" }, { "from":"move_down", "id":"anim 8", "pos":Vector2( 48, 435 ), "type":"animation" }, { "from":"idle_left", "id":"anim 3", "pos":Vector2( 48, 162 ), "type":"animation" }, { "from":"move_up", "id":"anim 5", "pos":Vector2( 48, 355 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "animation", "out", 0, "idle_direction", "animation", 0, "walk_scale", "animation", 1, "anim 5", "walk_direction", 0, "anim 8", "walk_direction", 1, "anim 7", "walk_direction", 2, "anim 6", "walk_direction", 3, "anim", "idle_direction", 0, "anim 2", "idle_direction", 1, "anim 3", "idle_direction", 2, "anim 4", "idle_direction", 3, "walk_direction", "walk_scale", 0 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"idle_up", "id":"anim", "pos":Vector2( 48, 9 ), "type":"animation" }, { "id":"out", "pos":Vector2( 630, 54 ), "type":"output" }, { "from":"move_left", "id":"anim 7", "pos":Vector2( 49, 515 ), "type":"animation" }, { "id":"animation", "pos":Vector2( 495, 316 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"move_down", "id":"anim 8", "pos":Vector2( 48, 435 ), "type":"animation" }, { "from":"idle_left", "id":"anim 3", "pos":Vector2( 48, 162 ), "type":"animation" }, { "from":"move_up", "id":"anim 5", "pos":Vector2( 48, 355 ), "type":"animation" }, { "from":"idle_right", "id":"anim 4", "pos":Vector2( 48, 243 ), "type":"animation" }, { "from":"idle_down", "id":"anim 2", "pos":Vector2( 47, 85 ), "type":"animation" }, { "id":"walk_direction", "pos":Vector2( 226, 444 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"move_right", "id":"anim 6", "pos":Vector2( 49, 595 ), "type":"animation" }, { "id":"idle_direction", "pos":Vector2( 333, 95 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "id":"walk_scale", "pos":Vector2( 370, 441 ), "scale":1.0, "type":"timescale" } ] }
 
 [node name="Effects" type="AnimationPlayer" parent="."]
 
@@ -182,19 +188,32 @@ autoplay = ""
 
 transform/pos = Vector2( 0, 16 )
 
-[node name="InteractionRay" type="RayCast2D" parent="Actions"]
+[node name="InteractionArea" type="Area2D" parent="Actions"]
 
-enabled = true
-cast_to = Vector2( 0, 20 )
-layer_mask = 2
-type_mask = 15
+input/pickable = true
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 6 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 0
+collision/mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/InteractionArea"]
+
+transform/pos = Vector2( 0, 6 )
+shape = SubResource( 12 )
+trigger = false
+_update_shape_index = 0
 
 [node name="HitBox" type="Area2D" parent="."]
 
 transform/pos = Vector2( 0, 3 )
 input/pickable = true
 shapes/0/shape = SubResource( 11 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -3 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -203,6 +222,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 
+transform/pos = Vector2( 0, -3 )
 shape = SubResource( 11 )
 trigger = false
 _update_shape_index = 0

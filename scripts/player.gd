@@ -36,7 +36,7 @@ export(float) var walk_animation_scale = 2
 
 onready var tree_player = get_node("AnimationTreePlayer")
 onready var effects = get_node("Effects")
-onready var node_interaction_ray = get_node("Actions/InteractionRay")
+onready var interaction_area = get_node("Actions/InteractionArea")
 
 # States
 var max_life = 3
@@ -75,16 +75,12 @@ func _ready():
 	action_front = actions.get_node("ActionFront")
 	
 func on_interact_pressed():
-	# Interaction
-	if !controler.is_interacting() :
-		# interact with front object
-		if node_interaction_ray.is_colliding() :
-			var body = node_interaction_ray.get_collider()
-			if body extends interact_object :
-				body.interact(self)
-				is_moving = false
-				animation = IDLE
-				_process_animation()
+	for body in interaction_area.get_overlapping_bodies() :
+		if body extends interact_object :
+			body.interact(self)
+			is_moving = false
+			animation = IDLE
+			_process_animation()
 	
 func on_attack_pressed():
 	if(!is_attacking):

@@ -17,9 +17,9 @@ samples/bleep = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1.18308, 0, 6.45326 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.18308, 0, 2.45326 )
 shapes/0/trigger = false
-collision/layers = 2
+collision/layers = 3
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
@@ -31,12 +31,13 @@ messages = [ "Your message here." ]
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0, -4 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 6.45326 )
+transform/pos = Vector2( 0, 2.45326 )
 transform/scale = Vector2( 1, 1.18308 )
 shape = SubResource( 1 )
 trigger = false
@@ -44,7 +45,7 @@ _update_shape_index = 0
 
 [node name="InteractionRay" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 0, 8 )
+transform/pos = Vector2( 0, 4 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 layer_mask = 1
@@ -52,6 +53,7 @@ type_mask = 15
 
 [node name="SoundPlayer" type="SamplePlayer2D" parent="."]
 
+transform/pos = Vector2( 0, -4 )
 params/volume_db = 0.0
 params/pitch_scale = 1.0
 params/attenuation/min_distance = 1.0
