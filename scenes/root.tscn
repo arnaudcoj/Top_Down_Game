@@ -35,7 +35,7 @@ tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":Float
 
 process/pause_mode = 2
 script/script = ExtResource( 1 )
-playing_music = false
+playing_music = true
 
 [node name="Map" type="Node2D" parent="."]
 

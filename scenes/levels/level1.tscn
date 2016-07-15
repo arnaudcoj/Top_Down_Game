@@ -25,7 +25,7 @@ margin/top = 0.0
 margin/right = 224.0
 margin/bottom = 192.0
 script/script = ExtResource( 1 )
-music = "Peace Returns"
+music = "level1"
 loop = true
 
 [node name="Ground" type="TileMap" parent="."]
