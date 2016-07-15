@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/tileset.xml" type="TileSet" id=2]
@@ -13,6 +13,11 @@
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 96, 64, 0, 0, 0, 0, 160, 64, 0, 0, 0, 0, 160, 32, 0, 0, 0, 0, 96, 32 ) }
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 40, 120, 0, 0, 0, 0, 100, 130, 0, 0, 0, 0, 70, 160, 0, 0, 0, 0, 40, 120 ) }
 
 [node name="Level1" type="ReferenceFrame"]
 
@@ -109,9 +114,12 @@ final_dialog = "Please, leave me alone !"
 [node name="noname" parent="Objects/Middle" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 58, 75 )
-name = null
 dialog = [ "Who am I \?", "Why is there no name in this textbox \?", "Maybe because I should be an enemy..." ]
 final_dialog = "This slime does have a name though..."
+
+[node name="Blub" parent="Objects/Middle" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 44, 149 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 
@@ -151,6 +159,20 @@ offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
 rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Blub" type="Path2D" parent="Paths"]
+
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Blub"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
 cubic_interp = true
 loop = true
 lookahead = 4.0

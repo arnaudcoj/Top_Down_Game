@@ -9,11 +9,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8, 3 )
 
-[sub_resource type="SampleLibrary" id=3]
+[sub_resource type="SampleLibrary" id=2]
 
 samples/bleep = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource/name = "Down"
 length = 1.0
@@ -24,7 +24,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 0 ] }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource/name = "Left"
 length = 1.0
@@ -35,7 +35,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 8 ] }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource/name = "Right"
 length = 1.0
@@ -46,7 +46,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ 12 ] }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 resource/name = "Up"
 length = 1.0
@@ -68,6 +68,8 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
+direction = 1
+name = null
 dialog = [ "Your dialog here." ]
 final_dialog = "The final dialog here"
 
@@ -86,7 +88,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 3 )
+config/samples = SubResource( 2 )
 config/pitch_random = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -100,10 +102,10 @@ hframes = 4
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Down = SubResource( 4 )
-anims/Left = SubResource( 5 )
-anims/Right = SubResource( 6 )
-anims/Up = SubResource( 7 )
+anims/Down = SubResource( 3 )
+anims/Left = SubResource( 4 )
+anims/Right = SubResource( 5 )
+anims/Up = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -114,6 +116,6 @@ autoplay = ""
 playback/process_mode = 111
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":true, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Up", "id":"anim", "pos":Vector2( 38, 52 ), "type":"animation" }, { "id":"out", "pos":Vector2( 379, 71 ), "type":"output" }, { "id":"direction", "pos":Vector2( 217, 76 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Left", "id":"anim 3", "pos":Vector2( 40, 221 ), "type":"animation" }, { "from":"Right", "id":"anim 4", "pos":Vector2( 41, 305 ), "type":"animation" }, { "from":"Down", "id":"anim 2", "pos":Vector2( 39, 136 ), "type":"animation" } ] }
+data = { "active":true, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Up", "id":"anim", "pos":Vector2( 38, 52 ), "type":"animation" }, { "id":"out", "pos":Vector2( 379, 71 ), "type":"output" }, { "id":"direction", "pos":Vector2( 217, 76 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Right", "id":"anim 4", "pos":Vector2( 41, 305 ), "type":"animation" }, { "from":"Left", "id":"anim 3", "pos":Vector2( 40, 221 ), "type":"animation" }, { "from":"Down", "id":"anim 2", "pos":Vector2( 39, 136 ), "type":"animation" } ] }
 
 
