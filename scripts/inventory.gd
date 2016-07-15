@@ -1,7 +1,6 @@
 
 extends Panel
 
-onready var item_list = get_node("ItemList")
 var active = false
 
 func _ready():

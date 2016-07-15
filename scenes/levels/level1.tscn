@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/tileset.xml" type="TileSet" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/cherry.png" type="Texture" id=8]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -99,11 +100,27 @@ messages = [ "Hello ! I\'m a sign!", "God I feel so lonely... I\'m so glad you i
 
 transform/pos = Vector2( 192, 96 )
 
-[node name="NPC" parent="Objects/Middle" instance=ExtResource( 7 )]
+[node name="Glooey" parent="Objects/Middle" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 153.5, 135 )
+name = "Glooey"
 dialog = [ "Hi ! I\'m hiding from this cherry.", "Go away please, It will find me." ]
 final_dialog = "Please, leave me alone !"
+
+[node name="noname" parent="Objects/Middle" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 58, 75 )
+name = null
+dialog = [ "Who am I \?", "Why is there no name in this textbox \?", "Maybe because I should be an enemy..." ]
+final_dialog = "This slime does have a name though..."
+
+[node name="Sprite" parent="Objects/Middle/noname"]
+
+texture = ExtResource( 8 )
+
+[node name="AnimationTreePlayer" parent="Objects/Middle/noname/Sprite"]
+
+data = { "active":true, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Up", "id":"anim", "pos":Vector2( 38, 52 ), "type":"animation" }, { "id":"out", "pos":Vector2( 379, 71 ), "type":"output" }, { "from":"Down", "id":"anim 2", "pos":Vector2( 39, 136 ), "type":"animation" }, { "id":"direction", "pos":Vector2( 217, 76 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Right", "id":"anim 4", "pos":Vector2( 41, 305 ), "type":"animation" }, { "from":"Left", "id":"anim 3", "pos":Vector2( 40, 221 ), "type":"animation" } ] }
 
 [node name="Front" type="TileMap" parent="Objects"]
 
@@ -125,7 +142,7 @@ tile_data = IntArray( 0, 11, 1, 14, 2, 17, 65536, 12, 65537, 15, 65538, 18 )
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 8 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 112, 96 )
 transform/scale = Vector2( 1.6, 1.6 )
@@ -148,3 +165,4 @@ loop = true
 lookahead = 4.0
 
 
+[editable path="Objects/Middle/noname"]

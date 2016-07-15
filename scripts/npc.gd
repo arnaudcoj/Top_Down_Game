@@ -1,5 +1,6 @@
 extends "res://scripts/interact_object.gd"
 
+export (String) var name = null
 export var dialog = ["Your dialog here."]
 export var final_dialog = "The final dialog here"
 
@@ -14,10 +15,10 @@ func interact(player) :
 	if player extends Player :
 		get_node("SoundPlayer").play("bleep")
 		if dialog_finished :
-			controler.textBox.add_paragraph(final_dialog)
+			controler.textBox.add_paragraph(final_dialog, name)
 			controler.textBox.activate()
 		else :
 			for msg in dialog :
-				controler.textBox.add_paragraph(msg)
+				controler.textBox.add_paragraph(msg, name)
 			controler.textBox.activate()
 			dialog_finished = true

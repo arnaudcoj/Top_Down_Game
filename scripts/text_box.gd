@@ -2,14 +2,21 @@
 extends Panel
 
 onready var text_label = get_node("RichTextLabel")
+onready var character_box = get_node("CharacterBox")
+onready var character_box_label = character_box.get_node("Label")
+
 onready var timer = get_node("Timer")
 onready var nb_rows = floor(text_label.get_size().height / text_label.get_font("normal_font").get_height())
 
 var active = false
 var cursor = 0
 var visible_cursor = 0
+
 var paragraphs = []
+var characters = []
+
 var current_paragraph = null
+var current_character = null
 
 var skip_text = false
 
@@ -58,6 +65,10 @@ func next():
 			# set the next paragraph as current
 		current_paragraph = paragraphs[0]
 		paragraphs.pop_front()
+	
+		# set the next character as current
+		current_character = characters[0]
+		characters.pop_front()
 		
 		# reset the cursors
 		cursor = 0
@@ -67,6 +78,14 @@ func next():
 		text_label.set_visible_characters(visible_cursor)
 		text_label.clear()
 		
+		# update the character box
+		if current_character:
+			character_box_label.set_text(current_character)
+			character_box.show()
+		else:
+			character_box_label.set_text("")
+			character_box.hide()
+		
 		timer.start()
 		return true
 	else :
@@ -74,10 +93,11 @@ func next():
 	return false
 
 # Add a paragraph to the paragraphs list
-func add_paragraph(text):
+func add_paragraph(text, character=null):
 	if controler.debug : print("[textbox] add ", text)
 	paragraphs.push_back(text)
-
+	characters.push_back(character)
+	
 # Clears the text box, ie empties the paragaphs list, remove the current paragraph and resets the cursors
 func clear():
 	if controler.debug : print("[textbox] clear")

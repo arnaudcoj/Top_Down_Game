@@ -75,17 +75,6 @@ margin/right = 208.0
 margin/bottom = 176.0
 script/script = ExtResource( 3 )
 
-[node name="ItemList" type="ItemList" parent="Inventory"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 16.0
-margin/top = 16.0
-margin/right = 176.0
-margin/bottom = 144.0
-
 [node name="TextBox" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
