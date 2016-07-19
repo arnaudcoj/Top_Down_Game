@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scripts/inventory.gd" type="Script" id=1]
+
+[node name="Inventory" type="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 16.0
+margin/right = 208.0
+margin/bottom = 176.0
+script/script = ExtResource( 1 )
+nb_slot = 12
+
+

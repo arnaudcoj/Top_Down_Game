@@ -25,15 +25,38 @@ func _process(delta):
 		player.process_directions()
 	
 func _input(event):
-	if not event.is_echo():
-		if event.is_action_pressed("attack"):
-			on_attack_pressed()
-		elif event.is_action_pressed("interact"):
-			on_interact_pressed()
-		elif event.is_action_released("interact"):
-			on_interact_released()
-		elif event.is_action_pressed("inventory"):
-			on_inventory_pressed()
+	if event.is_action_pressed("attack"):
+		on_attack_pressed()
+	elif event.is_action_pressed("interact"):
+		on_interact_pressed()
+	elif event.is_action_released("interact"):
+		on_interact_released()
+	elif event.is_action_pressed("inventory"):
+		on_inventory_pressed()
+	elif event.is_action("move_up") && event.is_pressed():
+		on_move_up_pressed()
+	elif event.is_action("move_down") && event.is_pressed():
+		on_move_down_pressed()
+	elif event.is_action("move_left") && event.is_pressed():
+		on_move_left_pressed()
+	elif event.is_action("move_right") && event.is_pressed():
+		on_move_right_pressed()
+	
+func on_move_up_pressed():
+	if inventory && inventory.active :
+		inventory.on_move_up_pressed()
+	
+func on_move_down_pressed():
+	if inventory && inventory.active :
+		inventory.on_move_down_pressed()
+	
+func on_move_left_pressed():
+	if inventory && inventory.active :
+		inventory.on_move_left_pressed()
+	
+func on_move_right_pressed():
+	if inventory && inventory.active :
+		inventory.on_move_right_pressed()
 	
 func on_attack_pressed():
 	if textbox && textbox.active :
