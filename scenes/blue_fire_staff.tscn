@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/fireball.png" type="Texture" id=2]
 [ext_resource path="res://sprites/staff.png" type="Texture" id=3]
 
-[node name="FireStaff" type="Node2D" groups=[ "item" ]]
+[node name="BlueFireStaff" type="Node2D"]
 
 transform/pos = Vector2( 16, 17 )
 script/script = ExtResource( 1 )
@@ -37,16 +37,18 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/tangential_accel = 0.00384176
+color/color = Color( 0.155029, 0.344698, 0.992188, 1 )
 
 [node name="Sprite" type="Sprite" parent="Icon/Fireball"]
 
 transform/pos = Vector2( 10, 9 )
 transform/rot = -90.0
 texture = ExtResource( 2 )
+modulate = Color( 0.169069, 0.0999756, 1, 1 )
 
 [node name="Staff" type="Sprite" parent="Icon"]
 
 texture = ExtResource( 3 )
-modulate = Color( 0.851563, 0.292725, 0.292725, 1 )
+modulate = Color( 0.466553, 0.40625, 1, 1 )
 
 
