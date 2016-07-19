@@ -78,9 +78,6 @@ func on_interact_pressed():
 	for body in interaction_area.get_overlapping_bodies() :
 		if body extends interact_object :
 			body.interact(self)
-			is_moving = false
-			animation = IDLE
-			_process_animation()
 	
 func on_attack_pressed():
 	if(!is_attacking):
@@ -147,7 +144,12 @@ func _process_animation():
 
 ## _process_input - handle the player input appropriately.
 func _process_input():
-		
+	if controler.is_interacting():
+		is_moving = false
+		animation = IDLE
+		_process_animation()
+		return
+	
 	# Stores the directions pressed in this frame.
 	var directions_pressed = 0
 

@@ -21,9 +21,7 @@ func _ready():
 	_enter_level()
 	
 func _process(delta):
-	if textbox && textbox.active :
-		pass
-	elif player:
+	if player :
 		player.process_directions()
 	
 func _input(event):
@@ -60,7 +58,7 @@ func on_interact_released():
 func on_inventory_pressed():
 	if textbox && textbox.active :
 		textbox.on_interact_pressed()
-	elif inventory : 
+	elif player && inventory : 
 		inventory.on_inventory_pressed()
 
 func change_level(new_level, new_spawn):

@@ -7,6 +7,7 @@ var root
 var musicPlayer
 var soundPlayer
 var textBox
+var inventory
 
 func _ready():
 	if debug : print("Controler init")
@@ -22,5 +23,8 @@ func _ready():
 	textBox = root.get_node("TextBox")
 	if debug : print("found text box: " + textBox.get_name())
 	
+	inventory = root.get_node("Inventory")
+	if debug : print("found inventory: " + inventory.get_name())
+	
 func is_interacting():
-	return textBox.active
+	return textBox.active || inventory.active
