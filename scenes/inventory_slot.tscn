@@ -18,13 +18,13 @@ margin/right = 208.0
 margin/bottom = 176.0
 script/script = ExtResource( 1 )
 
-[node name="Back" type="Polygon2D" parent="."]
+[node name="Hover" type="Polygon2D" parent="."]
 
 visibility/visible = false
 visibility/self_opacity = 0.8
 polygon = Vector2Array( -1, -1, 33, -1, 33, 33, -1, 33 )
 uv = Vector2Array(  )
-color = Color( 1, 0, 0, 1 )
+color = Color( 1, 0, 0, 0.847805 )
 offset = Vector2( 0, 0 )
 texture/texture = null
 texture/offset = Vector2( 0, 0 )
@@ -38,6 +38,21 @@ invert/border = 100.0
 polygon = Vector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 uv = Vector2Array(  )
 color = Color( 1, 1, 1, 1 )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Select" type="Polygon2D" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.8
+polygon = Vector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+uv = Vector2Array(  )
+color = Color( 0.125, 1, 0, 0.319503 )
 offset = Vector2( 0, 0 )
 texture/texture = null
 texture/offset = Vector2( 0, 0 )

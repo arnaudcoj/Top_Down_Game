@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://scripts/inventory.gd" type="Script" id=1]
+[ext_resource path="res://scenes/inventory_slot.tscn" type="PackedScene" id=2]
 
 [node name="Inventory" type="Panel"]
 
@@ -20,6 +21,97 @@ margin/bottom = -80.0
 script/script = ExtResource( 1 )
 size = Vector2( 3, 4 )
 
+[node name="Equipment" type="HBoxContainer" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 1
+size_flags/vertical = 1
+margin/left = 84.0
+margin/top = 73.0
+margin/right = -92.0
+margin/bottom = 34.0
+alignment = 0
+
+[node name="B_Slot" parent="Equipment" instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 56.0
+margin/bottom = 39.0
+
+[node name="Label" type="Label" parent="Equipment/B_Slot"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -25.0
+margin/top = -2.0
+margin/right = 15.0
+margin/bottom = 11.0
+text = "B"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="X_Slot" parent="Equipment" instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 60.0
+margin/top = 0.0
+margin/right = 116.0
+margin/bottom = 39.0
+
+[node name="Label" type="Label" parent="Equipment/X_Slot"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -25.0
+margin/top = -2.0
+margin/right = 15.0
+margin/bottom = 11.0
+text = "X"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Y_Slot" parent="Equipment" instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 120.0
+margin/top = 0.0
+margin/right = 176.0
+margin/bottom = 39.0
+
+[node name="Label" type="Label" parent="Equipment/Y_Slot"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -25.0
+margin/top = -2.0
+margin/right = 15.0
+margin/bottom = 11.0
+text = "Y"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Items" type="GridContainer" parent="."]
 
 anchor/left = 3
@@ -31,7 +123,7 @@ focus/stop_mouse = false
 size_flags/horizontal = 1
 size_flags/vertical = 1
 margin/left = 84.0
-margin/top = 68.0
+margin/top = 31.0
 margin/right = -92.0
 margin/bottom = -76.0
 columns = 4

@@ -4,12 +4,16 @@ extends Panel
 var slot = preload("res://scenes/inventory_slot.tscn")
 var fire_staff = preload("res://scenes/fire_staff.tscn")
 var blue_fire_staff = preload("res://scenes/blue_fire_staff.tscn")
+var selected_slot = null
 
 onready var items = get_node("Items")
+onready var equipment = get_node("Equipment")
+onready var b_slot = equipment.get_node("B_Slot")
+onready var x_slot = equipment.get_node("X_Slot")
+onready var y_slot = equipment.get_node("Y_Slot")
 
 export var size = Vector2(3, 4)
 
-onready var slot_size = Vector2(items.get_size().width / (size.y), items.get_size().height / (size.x))
 var active = false
 var cursor = -1
 
@@ -46,10 +50,18 @@ func add_item(item_instance):
 			return true
 	return false
 	
+func swap_items(slot1, slot2):
+	var item1 = slot1.get_item()
+	var item2 = slot2.get_item()
+	slot1.remove_item()
+	slot2.remove_item()
+	slot1.set_item(item2)
+	slot2.set_item(item1)
+	
 func move_cursor(child_nb):
-	if cursor != -1 : items.get_child(cursor).set_hover(false)
+	if cursor != -1 : get_current_item_slot().set_hover(false)
 	cursor = child_nb
-	items.get_child(cursor).set_hover(true)
+	get_current_item_slot().set_hover(true)
 	
 func get_current_item_slot():
 	return items.get_child(cursor)
@@ -68,7 +80,21 @@ func on_move_right_pressed():
 
 
 func on_interact_pressed():
-	pass
+	var slot = get_current_item_slot()
+	# if a slot is already selected
+	if selected_slot :
+		# if the slot is different of the selected slot
+		if selected_slot != slot :
+			swap_items(selected_slot, slot)
+		
+		# if the slot is the same as the selected slot
+		selected_slot.set_select(false)
+		selected_slot = null
+	# if no slot has been selected previously
+	else :
+		selected_slot = slot
+		selected_slot.set_select(true)
+		
 	
 func on_attack_pressed():
 	if active :

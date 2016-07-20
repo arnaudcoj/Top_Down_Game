@@ -4,7 +4,8 @@ extends Control
 var item = preload("res://scripts/item.gd")
 
 onready var current_item = get_node("Item")
-var empty = true
+onready var hover = get_node("Hover")
+onready var select = get_node("Select")
 
 
 func _ready():
@@ -13,16 +14,31 @@ func _ready():
 	pass
 
 func set_item(item_instance):
-	if item_instance extends item :
-		current_item.replace_by(item_instance)
-		print(current_item.get_name())
-		empty = false
+	if item_instance && item_instance extends item :
+		remove_item()
+		current_item.add_child(item_instance)
+
+func remove_item():
+	for child in current_item.get_children():
+		current_item.remove_child(child)
+
+func get_item():
+	return current_item.get_child(0)
 
 func set_hover(boolean):
 	if boolean:
-		get_node("Back").show()
+		hover.show()
 	else:
-		get_node("Back").hide()
+		hover.hide()
+
+func set_select(boolean):
+	if boolean:
+		select.show()
+	else:
+		select.hide()
+
+func is_selected():
+	return !select.is_hidden()
 		
 func is_empty():
-	return empty
+	return current_item.get_child_count() == 0
