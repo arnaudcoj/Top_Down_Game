@@ -5,6 +5,8 @@
 [node name="Slot" type="Control"]
 
 visibility/opacity = 0.88
+anchor/left = 1
+anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
 rect/min_size = Vector2( 18, 18 )
@@ -12,8 +14,8 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = -16.0
-margin/top = -16.0
+margin/left = 240.0
+margin/top = 208.0
 margin/right = 208.0
 margin/bottom = 176.0
 script/script = ExtResource( 1 )

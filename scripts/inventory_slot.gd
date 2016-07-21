@@ -23,7 +23,9 @@ func remove_item():
 		current_item.remove_child(child)
 
 func get_item():
-	return current_item.get_child(0)
+	if current_item.get_child_count() :
+		return current_item.get_child(0)
+	return null
 
 func set_hover(boolean):
 	if boolean:

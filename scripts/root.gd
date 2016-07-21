@@ -8,12 +8,12 @@ onready var animation = get_node("AnimationPlayer")
 onready var animation_timer = animation.get_node("Timer")
 onready var textbox = get_node("TextBox")
 onready var inventory = get_node("Inventory")
+var player
 
 export(bool) var playing_music = true
 var level = "../intro"
 var spawn = null
 
-var player
 
 func _ready():
 	set_process(true)
@@ -83,6 +83,10 @@ func on_inventory_pressed():
 		textbox.on_interact_pressed()
 	elif player && inventory : 
 		inventory.on_inventory_pressed()
+
+func update_player_equipment():
+	if player :
+		player.update_equipment()
 
 func change_level(new_level, new_spawn):
 	level = new_level

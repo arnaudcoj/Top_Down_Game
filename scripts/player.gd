@@ -18,11 +18,6 @@ const DIRECTION_RIGHT = 3
 const IDLE = 0
 const WALK = 1
 
-#Equipments
-const NO_OBJECT = 0
-const SWORD = 1
-const FIREBALL = 2
-
 ################################
 ## Exported Editor variables  ##
 ################################
@@ -50,8 +45,6 @@ var velocity = Vector2(0, 1)
 var is_moving = false
 var is_attacking = false
 
-var equipment = FIREBALL
-
 var actions
 var action_front
 
@@ -59,6 +52,12 @@ var monster = preload("res://scripts/monster.gd")
 var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
 var fireball = preload("res://scenes/fireball.tscn")
 var interact_object = preload("res://scripts/interact_object.gd")
+
+# Equipment
+onready var equipment_slots = get_node("Equipment")
+onready var b_slot = equipment_slots.get_node("B_Slot")
+onready var x_slot = equipment_slots.get_node("X_Slot")
+onready var y_slot = equipment_slots.get_node("Y_Slot")
 
 ##########################################################################
 ## Private Functions                                                   ##
@@ -81,11 +80,11 @@ func on_interact_pressed():
 	
 func on_attack_pressed():
 	if(!is_attacking):
-		is_attacking = true
 		# Create an attack
-		if equipment == SWORD :
-			sword_hit()
-		elif equipment == FIREBALL :
+		
+		# to be improved. For now we just check if there is an item in the b slot
+		if b_slot.get_child_count() :
+			is_attacking = true
 			fire()
 
 func sword_hit():
@@ -107,6 +106,18 @@ func fire():
 	get_parent().add_child(ball)
 	is_attacking = false
 	
+func update_equipment():
+	for slot in equipment_slots.get_children() :
+		for item in slot.get_children() :
+			slot.remove_child(item)
+			
+	if !controler.inventory.b_slot.is_empty() :
+		b_slot.add_child(controler.inventory.b_slot.get_item().duplicate())
+	if !controler.inventory.x_slot.is_empty() :
+		x_slot.add_child(controler.inventory.x_slot.get_item().duplicate())
+	if !controler.inventory.y_slot.is_empty() :
+		y_slot.add_child(controler.inventory.y_slot.get_item().duplicate())
+
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):
 	# Apply motion speed and delta.

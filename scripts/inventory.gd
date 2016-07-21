@@ -41,11 +41,11 @@ func deactivate():
 	if controler.debug : print("[inventory] deactivate")
 	active = false
 	hide()
+	controler.root.update_player_equipment()
 	
 func add_item(item_instance):
 	for slot in items.get_children() :
 		if slot.is_empty() :
-			print("mdr")
 			slot.set_item(item_instance)
 			return true
 	return false
@@ -64,19 +64,32 @@ func move_cursor(child_nb):
 	get_current_item_slot().set_hover(true)
 	
 func get_current_item_slot():
-	return items.get_child(cursor)
+	if cursor == 0 :
+		return b_slot
+	elif cursor == 1 :
+		return x_slot
+	elif cursor == 2 :
+		return y_slot
+	else :
+		return items.get_child(cursor - 3)
 	
 func on_move_up_pressed():
-	move_cursor(max(0, cursor - size.y))
+	if cursor >= 3 && cursor < 3 + size.y :
+		move_cursor(max(0, cursor - size.y + 1))
+	else :
+		move_cursor(max(0, cursor - size.y))
 	
 func on_move_down_pressed():
-	move_cursor(min(size.x * size.y -1, cursor + size.y))
+	if cursor < 3 :
+		move_cursor(min(size.x * size.y + 2, cursor + size.y -1))
+	else :
+		move_cursor(min(size.x * size.y + 2, cursor + size.y))
 	
 func on_move_left_pressed():
 	move_cursor(max(0, cursor - 1))
 	
 func on_move_right_pressed():
-	move_cursor(min(size.x * size.y -1, cursor + 1))
+	move_cursor(min(size.x * size.y + 2, cursor + 1))
 
 
 func on_interact_pressed():
