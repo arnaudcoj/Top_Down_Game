@@ -25,21 +25,25 @@ func _process(delta):
 		player.process_directions()
 	
 func _input(event):
-	if event.is_action_pressed("attack"):
-		on_attack_pressed()
+	if event.is_action_pressed("equipment_B"):
+		on_equipment_B_pressed()
+	elif event.is_action_pressed("equipment_X"):
+		on_equipment_X_pressed()
+	elif event.is_action_pressed("equipment_Y"):
+		on_equipment_Y_pressed()
 	elif event.is_action_pressed("interact"):
 		on_interact_pressed()
 	elif event.is_action_released("interact"):
 		on_interact_released()
 	elif event.is_action_pressed("inventory"):
 		on_inventory_pressed()
-	elif event.is_action("move_up") && event.is_pressed():
+	elif event.is_action_pressed("move_up"):
 		on_move_up_pressed()
-	elif event.is_action("move_down") && event.is_pressed():
+	elif event.is_action_pressed("move_down"):
 		on_move_down_pressed()
-	elif event.is_action("move_left") && event.is_pressed():
+	elif event.is_action_pressed("move_left"):
 		on_move_left_pressed()
-	elif event.is_action("move_right") && event.is_pressed():
+	elif event.is_action_pressed("move_right"):
 		on_move_right_pressed()
 	
 func on_move_up_pressed():
@@ -58,13 +62,29 @@ func on_move_right_pressed():
 	if inventory && inventory.active :
 		inventory.on_move_right_pressed()
 	
-func on_attack_pressed():
+func on_equipment_B_pressed():
 	if textbox && textbox.active :
 		textbox.on_attack_pressed()
 	elif inventory && inventory.active :
 		inventory.on_attack_pressed()
 	elif player : 
-		player.on_attack_pressed()
+		player.on_equipment_B_pressed()
+		
+func on_equipment_X_pressed():
+	if textbox && textbox.active :
+		textbox.on_attack_pressed()
+	elif inventory && inventory.active :
+		inventory.on_attack_pressed()
+	elif player : 
+		player.on_equipment_X_pressed()
+		
+func on_equipment_Y_pressed():
+	if textbox && textbox.active :
+		textbox.on_attack_pressed()
+	elif inventory && inventory.active :
+		inventory.on_attack_pressed()
+	elif player : 
+		player.on_equipment_Y_pressed()
 		
 func on_interact_pressed():
 	if textbox && textbox.active :

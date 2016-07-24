@@ -78,12 +78,30 @@ func on_interact_pressed():
 		if body extends interact_object :
 			body.interact(self)
 	
-func on_attack_pressed():
+func on_equipment_B_pressed():
 	if(!is_attacking):
 		# Create an attack
 		
 		# to be improved. For now we just check if there is an item in the b slot
 		if b_slot.get_child_count() :
+			is_attacking = true
+			fire()
+			
+func on_equipment_X_pressed():
+	if(!is_attacking):
+		# Create an attack
+		
+		# to be improved. For now we just check if there is an item in the b slot
+		if x_slot.get_child_count() :
+			is_attacking = true
+			fire()
+			
+func on_equipment_Y_pressed():
+	if(!is_attacking):
+		# Create an attack
+		
+		# to be improved. For now we just check if there is an item in the b slot
+		if y_slot.get_child_count() :
 			is_attacking = true
 			fire()
 
