@@ -125,6 +125,7 @@ func fire():
 	is_attacking = false
 	
 func update_equipment():
+
 	for slot in equipment_slots.get_children() :
 		for item in slot.get_children() :
 			slot.remove_child(item)

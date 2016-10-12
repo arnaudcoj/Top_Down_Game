@@ -1,0 +1,239 @@
+[gd_scene load_steps=18 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://tiles/tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 220, 0, 128, 0, 128, -10, 230, -10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 140, -30, 140, -10, 128, -10, 128, -20 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 90, -30, 140, -30, 128, -20, 96, -20 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 90, -10, 90, -30, 96, -20, 96, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 90, -10, 96, 0, 0, 0, -10, -10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -10, 340, -10, -10, 0, 0, 1, 285 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 129, 330, 135, 285, 220, 284.519, 230, 340 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -10, 340, 1, 285, 85, 285, 94, 330 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 230, 340, -10, 340, 94, 330, 129, 330 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 230, -10, 230, 340, 220, 284.519, 220, 0 )
+
+[node name="Level1" type="ReferenceFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 224.0
+margin/bottom = 330.0
+script/script = ExtResource( 1 )
+music = "level1"
+loop = true
+
+[node name="Ground" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 0, 1, 4, 2, 4, 3, 5, 4, 4, 5, 4, 6, 8, 65536, 1, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 9, 131072, 1, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 9, 196608, 1, 196609, 5, 196610, 5, 196611, 5, 196612, 5, 196613, 5, 196614, 9, 262144, 1, 262145, 5, 262146, 5, 262147, 5, 262148, 5, 262149, 5, 262150, 9, 327680, 1, 327681, 5, 327682, 5, 327683, 5, 327684, 5, 327685, 5, 327686, 9, 393216, 1, 393217, 5, 393218, 5, 393219, 5, 393220, 5, 393221, 5, 393222, 9, 458752, 1, 458753, 5, 458754, 5, 458755, 5, 458756, 5, 458757, 5, 458758, 9, 524288, 2, 524289, 6, 524290, 6, 524291, 5, 524292, 6, 524293, 6, 524294, 10, 589827, 5, 655363, 5 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Back" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 2
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="Middle" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65541, 13, 65542, 16, 65543, 19 )
+
+[node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
+
+[node name="Cherry" parent="Objects/Middle" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 110.275, 260.275 )
+transform/scale = Vector2( 3.75858, 3.75858 )
+current_direction = 0
+
+[node name="Sign" parent="Objects/Middle" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 142, 33 )
+messages = [ "To defeat this monstruous beast, you have to find a weapon!", "Maybe you can try to go to the north." ]
+
+[node name="Front" type="TileMap" parent="Objects"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 32
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65531, 11, -65530, 14, -65529, 17, 5, 12, 6, 15, 7, 18 )
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Spawn" parent="Spawns" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 189.053, 59.4244 )
+transform/scale = Vector2( 1.6, 1.6 )
+
+[node name="up" parent="Spawns" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 112, 12 )
+direction = "DOWN"
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="limits" type="StaticBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 4 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 5 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 6 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 7 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 8 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 9 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 10 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="limits"]
+
+build_mode = 0
+polygon = Vector2Array( 96, 0, 0, 0, 1, 285, 85, 285, 94, 330, 129, 330, 135, 285, 220, 284.519, 220, 0, 128, 0, 128, -10, 230, -10, 230, 340, -10, 340, -10, -10, 90, -10, 90, -30, 140, -30, 140, -10, 128, -10, 128, -20, 96, -20 )
+shape_range = Vector2( 0, 9 )
+trigger = false
+
+[node name="Portals" type="Node2D" parent="."]
+
+[node name="Portal" parent="Portals" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 112, -10 )
+transform/scale = Vector2( 1.875, 1.34375 )
+spawn_point = "down"
+target_level = "level1"
+
+[node name="Portal1" parent="Portals" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 111.001, 311.001 )
+transform/scale = Vector2( 1.875, 1.34375 )
+spawn_point = "Spawn"
+target_level = "end"
+
+

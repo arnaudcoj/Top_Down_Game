@@ -1,13 +1,13 @@
 
-extends Node2D
+extends Node
 
 var current_music
 
 onready var map = get_node("Map")
 onready var animation = get_node("AnimationPlayer")
 onready var animation_timer = animation.get_node("Timer")
-onready var textbox = get_node("TextBox")
-onready var inventory = get_node("Inventory")
+onready var textbox = get_node("GUI/TextBox")
+onready var inventory = get_node("GUI/Inventory")
 var player
 
 export(bool) var playing_music = true
@@ -146,6 +146,7 @@ func _enter_level():
 	level_node.spawn_player(spawn)
 	player = level_node.get_player()
 	map.add_child(level_node)
+	update_player_equipment()
 	
 	animation.queue("enter_area")
 	if controler.debug : print("entered level " + level)

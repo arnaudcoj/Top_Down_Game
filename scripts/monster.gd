@@ -28,7 +28,7 @@ onready var effects = get_node("Effects")
 # States
 export var life = 1
 export var vulnerable = true
-var current_direction = DIRECTION_LEFT
+export var current_direction = DIRECTION_LEFT
 
 ##########################################################################
 ## Private Functions                                                    ##

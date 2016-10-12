@@ -7,12 +7,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6, 4 )
+extents = Vector2( 4.96614, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7, 5 )
+extents = Vector2( 5.944, 5.28882 )
 
 [sub_resource type="Animation" id=3]
 
@@ -22,7 +22,8 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 2 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 2 ] }
 
 [sub_resource type="Animation" id=4]
 
@@ -32,7 +33,8 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 6, 8 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 6, 8 ] }
 
 [sub_resource type="Animation" id=5]
 
@@ -42,7 +44,8 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 9, 11 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 9, 11 ] }
 
 [sub_resource type="Animation" id=6]
 
@@ -52,7 +55,8 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 3, 5 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 3, 5 ] }
 
 [sub_resource type="Animation" id=7]
 
@@ -62,11 +66,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visibility/visible")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "values":[ false, true, false, true, false, true ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ false, true, false, true, false, true ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:vulnerable")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":false, "times":FloatArray( 0.5 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0.5 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
 
 [sub_resource type="SampleLibrary" id=8]
 
@@ -74,9 +80,10 @@ samples/bat = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 
 [node name="Cherry" type="KinematicBody2D"]
 
+transform/pos = Vector2( 0, -4 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.033865, 4.45815 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -85,19 +92,21 @@ script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
 life = 2
 vulnerable = true
+current_direction = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 6 )
+transform/pos = Vector2( 0.033865, 4.45815 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="HitBox" type="Area2D" parent="."]
 
+transform/pos = Vector2( 0, -1 )
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.0338669, 5.28882 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -106,14 +115,14 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 
-transform/pos = Vector2( 0, 6 )
+transform/pos = Vector2( 0.0338669, 5.28882 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 1, 0 )
+transform/pos = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 3
@@ -138,7 +147,7 @@ autoplay = ""
 playback/process_mode = 0
 base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
-data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" }, { "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" }, { "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" } ] }
+data = { "active":false, "connections":[ "direction", "out", 0, "anim", "direction", 0, "anim 2", "direction", 1, "anim 3", "direction", 2, "anim 4", "direction", 3 ], "master":NodePath("../AnimationPlayer"), "nodes":[ { "filter":[  ], "from":"Up", "id":"anim", "pos":Vector2( 20, 30 ), "type":"animation" }, { "id":"out", "pos":Vector2( 651, 77 ), "type":"output" }, { "id":"direction", "pos":Vector2( 259, 74 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "filter":[  ], "from":"Left", "id":"anim 3", "pos":Vector2( 18, 187 ), "type":"animation" }, { "filter":[  ], "from":"Right", "id":"anim 4", "pos":Vector2( 18, 266 ), "type":"animation" }, { "filter":[  ], "from":"Down", "id":"anim 2", "pos":Vector2( 18, 108 ), "type":"animation" } ] }
 
 [node name="Effects" type="AnimationPlayer" parent="."]
 
@@ -153,6 +162,7 @@ autoplay = ""
 
 [node name="SoundPlayer" type="SamplePlayer2D" parent="."]
 
+transform/pos = Vector2( 0, -1 )
 params/volume_db = 0.0
 params/pitch_scale = 1.0
 params/attenuation/min_distance = 1.0
@@ -164,6 +174,7 @@ config/pitch_random = 0.0
 
 [node name="Particles" type="Particles2D" parent="."]
 
+transform/pos = Vector2( 0, -1 )
 config/amount = 20
 config/lifetime = 0.5
 config/emit_timeout = 0.1

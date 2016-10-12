@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/intro.gd" type="Script" id=1]
-[ext_resource path="res://fonts/ShangriLaNF_29_bec497.fnt" type="Font" id=2]
+[ext_resource path="res://fonts/ShangriLaNF_29_bec497.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -13,7 +13,8 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Label 2:visibility/opacity")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.5, 0.95 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 0.0, 1.0, 0.0 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5, 0.95 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 1.0, 0.0 ] }
 
 [node name="Intro" type="Node2D"]
 
@@ -24,6 +25,7 @@ script/script = ExtResource( 1 )
 polygon = Vector2Array( 224, 192, 0, 192, 0, 0, 224, 0 )
 uv = Vector2Array(  )
 color = Color( 0.0720978, 0.410156, 0.259615, 1 )
+vertex_colors = ColorArray(  )
 offset = Vector2( 0, 0 )
 texture/texture = null
 texture/offset = Vector2( 0, 0 )

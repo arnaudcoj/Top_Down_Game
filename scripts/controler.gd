@@ -1,7 +1,7 @@
 
 extends Node
 
-var debug = false
+var debug = true
 
 var root
 var musicPlayer
@@ -22,10 +22,10 @@ func _ready():
 	soundPlayer = root.get_node("SoundPlayer")
 	if debug : print("found soundPlayer: " + soundPlayer.get_name())
 	
-	textBox = root.get_node("TextBox")
+	textBox = root.get_node("GUI/TextBox")
 	if debug : print("found text box: " + textBox.get_name())
 	
-	inventory = root.get_node("Inventory")
+	inventory = root.get_node("GUI/Inventory")
 	if debug : print("found inventory: " + inventory.get_name())
 	
 func is_interacting():

@@ -1,65 +1,52 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/cherry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/bush.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/chest.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Curve2D" id=1]
-
-bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, 96, 38, 0, 0, 0, 0, 96, 68, 0, 0, 0, 0, 164, 68, 0, 0, 0, 0, 164, 38, 0, 0, 0, 0, 96, 38 ) }
-
-[sub_resource type="Curve2D" id=2]
-
-bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, 40, 120, 0, 0, 0, 0, 100, 130, 0, 0, 0, 0, 70, 160, 0, 0, 0, 0, 40, 120 ) }
+[ext_resource path="res://scenes/spawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 128, 220, 128, 210, 140, 210, 140, 230 )
+points = Vector2Array( 220, 0, 128, 0, 128, -10, 230, -10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 128, 220, 140, 230, 80, 230, 96, 220 )
+points = Vector2Array( 140, -30, 140, -10, 128, -10, 128, -20 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 96, 220, 80, 230, 80, 210, 96, 190 )
+points = Vector2Array( 90, -30, 140, -30, 128, -20, 96, -20 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, 190, 96, 190, 80, 210, -20, 210 )
+points = Vector2Array( 90, -10, 90, -30, 96, -20, 96, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, 190, -20, 210, -20, -20, 0, 0 )
+points = Vector2Array( 90, -10, 96, 0, 0, 0, -10, -10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, 0, -20, -20, 240, -20, 220, 0 )
+points = Vector2Array( -10, 200, -10, -10, 0, 0, 0, 190 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 220, 0, 240, -20, 240, 210, 220, 190 )
+points = Vector2Array( 230, 200, -10, 200, 0, 190, 220, 190 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 128, 210, 128, 190, 220, 190, 240, 210 )
+points = Vector2Array( 230, -10, 230, 200, 220, 190, 220, 0 )
 
 [node name="Level1" type="ReferenceFrame"]
 
@@ -91,7 +78,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 0, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 8, 65536, 1, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 9, 131072, 1, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 9, 196608, 1, 196609, 5, 196610, 5, 196611, 5, 196612, 5, 196613, 5, 196614, 9, 262144, 1, 262145, 5, 262146, 5, 262147, 5, 262148, 5, 262149, 5, 262150, 9, 327680, 2, 327681, 6, 327682, 6, 327683, 5, 327684, 6, 327685, 6, 327686, 10 )
+tile_data = IntArray( 0, 0, 1, 4, 2, 4, 3, 5, 4, 4, 5, 4, 6, 8, 65536, 1, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 9, 131072, 1, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 9, 196608, 1, 196609, 5, 196610, 5, 196611, 5, 196612, 5, 196613, 5, 196614, 9, 262144, 1, 262145, 5, 262146, 5, 262147, 5, 262148, 5, 262149, 5, 262150, 9, 327680, 2, 327681, 6, 327682, 6, 327683, 6, 327684, 6, 327685, 6, 327686, 10 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -129,46 +116,22 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 131072, 13, 131073, 16, 131074, 19, 262148, 3, 262149, 7 )
+tile_data = IntArray( 65541, 13, 65542, 16, 65543, 19 )
 
 [node name="Player" parent="Objects/Middle" instance=ExtResource( 3 )]
 
+vulnerable = false
+
 [node name="Cherry" parent="Objects/Middle" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 96, 32 )
+transform/pos = Vector2( 110.274, 128.274 )
+transform/scale = Vector2( 3.75858, 3.75858 )
+current_direction = 0
 
 [node name="Sign" parent="Objects/Middle" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 38, 100 )
+transform/pos = Vector2( 142, 33 )
 messages = [ "Hello ! I\'m a sign!", "God I feel so lonely... I\'m so glad you interacted with me ! Thank you !", "I hope you are doing well !" ]
-
-[node name="Bush" parent="Objects/Middle" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 192, 96 )
-
-[node name="Glooey" parent="Objects/Middle" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 153.5, 135 )
-name = "Glooey"
-dialog = [ "Hi ! I\'m hiding from this cherry.", "Go away please, It will find me." ]
-final_dialog = "Please, leave me alone !"
-
-[node name="noname" parent="Objects/Middle" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 58, 75 )
-dialog = [ "Who am I \?", "Why is there no name in this textbox \?", "Maybe because I should be an enemy..." ]
-final_dialog = "This slime does have a name though..."
-
-[node name="Blub" parent="Objects/Middle" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 41, 118 )
-name = "Blub"
-dialog = [ "Look how I\'m gliding here !" ]
-final_dialog = "Shuuuuuu !"
-
-[node name="InteractObject" parent="Objects/Middle" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 160.5, 98.5 )
 
 [node name="Front" type="TileMap" parent="Objects"]
 
@@ -186,52 +149,21 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 11, 1, 14, 2, 17, 65536, 12, 65537, 15, 65538, 18 )
+tile_data = IntArray( -65531, 11, -65530, 14, -65529, 17, 5, 12, 6, 15, 7, 18 )
 
 [node name="Spawns" type="Node2D" parent="."]
 
-[node name="Spawn" parent="Spawns" instance=ExtResource( 9 )]
+[node name="Spawn" parent="Spawns" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 112, 96 )
+transform/pos = Vector2( 189.053, 59.4244 )
 transform/scale = Vector2( 1.6, 1.6 )
 
-[node name="down" parent="Spawns" instance=ExtResource( 9 )]
+[node name="up" parent="Spawns" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 112, 183 )
+transform/pos = Vector2( 112, 12 )
 direction = "DOWN"
 
 [node name="Paths" type="Node2D" parent="."]
-
-[node name="Cherry" type="Path2D" parent="Paths"]
-
-curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Cherry"]
-
-transform/pos = Vector2( 96, 38 )
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = false
-cubic_interp = true
-loop = true
-lookahead = 4.0
-
-[node name="Blub" type="Path2D" parent="Paths"]
-
-curve = SubResource( 2 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Blub"]
-
-transform/pos = Vector2( 40, 120 )
-transform/rot = -9.46255
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
 
 [node name="limits" type="StaticBody2D" parent="."]
 
@@ -270,17 +202,24 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="limits"]
 
 build_mode = 0
-polygon = Vector2Array( 128, 190, 128, 210, 240, 210, 240, -20, -20, -20, -20, 210, 80, 210, 80, 230, 140, 230, 140, 210, 128, 210, 128, 220, 96, 220, 96, 190, 0, 190, 0, 0, 220, 0, 220, 190 )
+polygon = Vector2Array( 96, 0, 0, 0, 0, 190, 220, 190, 220, 0, 128, 0, 128, -10, 230, -10, 230, 200, -10, 200, -10, -10, 90, -10, 90, -30, 140, -30, 140, -10, 128, -10, 128, -20, 96, -20 )
 shape_range = Vector2( 0, 7 )
 trigger = false
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 10 )]
+[node name="Portal" parent="Portals" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 112, 208 )
-transform/scale = Vector2( 1.875, 1.5625 )
-spawn_point = "up"
-target_level = "level2"
+transform/pos = Vector2( 112, -10 )
+transform/scale = Vector2( 1.875, 1.34375 )
+spawn_point = "down"
+target_level = "level1"
+
+[node name="Portal1" parent="Portals" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 111, 179 )
+transform/scale = Vector2( 1.875, 1.34375 )
+spawn_point = "Spawn"
+target_level = "end"
 
 
