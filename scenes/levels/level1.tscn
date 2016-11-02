@@ -224,7 +224,7 @@ curve = SubResource( 2 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Blub"]
 
 transform/pos = Vector2( 40, 120 )
-transform/rot = -9.46255
+transform/rot = -9.46245
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -281,6 +281,5 @@ trigger = false
 transform/pos = Vector2( 112, 208 )
 transform/scale = Vector2( 1.875, 1.5625 )
 spawn_point = "up"
-target_level = "level2"
 
 

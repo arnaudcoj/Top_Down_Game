@@ -25,12 +25,12 @@ func _process(delta):
 		player.process_directions()
 	
 func _input(event):
-	if event.is_action_pressed("equipment_B"):
-		on_equipment_B_pressed()
-	elif event.is_action_pressed("equipment_X"):
+	if event.is_action_pressed("equipment_X"):
 		on_equipment_X_pressed()
-	elif event.is_action_pressed("equipment_Y"):
-		on_equipment_Y_pressed()
+	elif event.is_action_pressed("equipment_C"):
+		on_equipment_C_pressed()
+	elif event.is_action_pressed("equipment_V"):
+		on_equipment_V_pressed()
 	elif event.is_action_pressed("interact"):
 		on_interact_pressed()
 	elif event.is_action_released("interact"):
@@ -62,14 +62,6 @@ func on_move_right_pressed():
 	if inventory && inventory.active :
 		inventory.on_move_right_pressed()
 	
-func on_equipment_B_pressed():
-	if textbox && textbox.active :
-		textbox.on_attack_pressed()
-	elif inventory && inventory.active :
-		inventory.on_attack_pressed()
-	elif player : 
-		player.on_equipment_B_pressed()
-		
 func on_equipment_X_pressed():
 	if textbox && textbox.active :
 		textbox.on_attack_pressed()
@@ -78,13 +70,21 @@ func on_equipment_X_pressed():
 	elif player : 
 		player.on_equipment_X_pressed()
 		
-func on_equipment_Y_pressed():
+func on_equipment_C_pressed():
 	if textbox && textbox.active :
 		textbox.on_attack_pressed()
 	elif inventory && inventory.active :
 		inventory.on_attack_pressed()
 	elif player : 
-		player.on_equipment_Y_pressed()
+		player.on_equipment_C_pressed()
+		
+func on_equipment_V_pressed():
+	if textbox && textbox.active :
+		textbox.on_attack_pressed()
+	elif inventory && inventory.active :
+		inventory.on_attack_pressed()
+	elif player : 
+		player.on_equipment_V_pressed()
 		
 func on_interact_pressed():
 	if textbox && textbox.active :

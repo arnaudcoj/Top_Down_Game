@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/fireball.gd" type="Script" id=1]
+[ext_resource path="res://sprites/fireball.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 6.41666 )
+
+[node name="Blue_Fireball" type="Area2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.928571, 0, 0, 0.584071, -0.5, 0.5 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+damages = 1
+motion_speed = 100
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.5, 0.5 )
+transform/scale = Vector2( 0.928571, 0.584071 )
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Particles" type="Particles2D" parent="."]
+
+config/amount = 10
+config/lifetime = 1.0
+config/preprocess = 0.8
+config/texture = ExtResource( 2 )
+params/direction = 180.0
+params/spread = 5.0
+params/linear_velocity = 15.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 30.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 270.01
+params/initial_size = 0.9
+params/final_size = 0.1
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/tangential_accel = 0.00384176
+color/color = Color( 0.152941, 0.341176, 0.992157, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/rot = -90.0
+texture = ExtResource( 2 )
+modulate = Color( 0.168627, 0.0980392, 1, 1 )
+
+[node name="DestructionParticles" type="Particles2D" parent="."]
+
+config/amount = 25
+config/lifetime = 0.4
+config/preprocess = 0.5
+config/emit_timeout = 0.1
+config/emitting = false
+config/texture = ExtResource( 2 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 40.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 270.0
+params/initial_size = 0.7
+params/final_size = 0.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.152941, 0.341176, 0.992157, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+

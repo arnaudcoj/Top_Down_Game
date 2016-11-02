@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/intro.gd" type="Script" id=1]
 [ext_resource path="res://fonts/ShangriLaNF_29_bec497.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://fonts/munro_10.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -54,6 +55,27 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="usage" type="Label" parent="."]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 7.0
+margin/top = 5.0
+margin/right = -113.0
+margin/bottom = -77.0
+custom_fonts/font = ExtResource( 3 )
+text = "ZQSD, Arrows - Move\nE - Interact\nSpace - Open Inventory\nX-C-V - Use Equipment\n"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 0
@@ -67,24 +89,24 @@ autoplay = "Blink"
 
 [node name="Label 2" type="Label" parent="AnimationPlayer"]
 
-visibility/opacity = 0.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 22.0
+margin/left = 15.0
 margin/top = 158.0
-margin/right = 204.0
+margin/right = 208.0
 margin/bottom = 178.0
 custom_fonts/font = ExtResource( 2 )
-text = "Press Attack to start the game"
+text = "Press \'Interact\' to start the game"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 108, 102 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 171.5, 96.5 )
+transform/scale = Vector2( 0.671875, 0.671875 )
+texture = ExtResource( 4 )
 
 

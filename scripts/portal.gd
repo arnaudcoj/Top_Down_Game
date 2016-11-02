@@ -1,8 +1,8 @@
 
 extends Node2D
 
-export (String) var spawn_point
-export (String) var target_level
+export (String) var spawn_point = "Spawn"
+export (String) var target_level = "level2"
 
 # member variables here, example:
 # var a=2

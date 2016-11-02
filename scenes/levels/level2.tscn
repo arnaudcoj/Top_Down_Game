@@ -233,7 +233,6 @@ target_level = "level1"
 
 transform/pos = Vector2( 111.001, 311.001 )
 transform/scale = Vector2( 1.875, 1.34375 )
-spawn_point = "Spawn"
-target_level = "end"
+target_level = "ending"
 
 

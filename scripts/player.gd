@@ -50,14 +50,13 @@ var action_front
 
 var monster = preload("res://scripts/monster.gd")
 var sword_hit_lateral = preload("res://scenes/sword_hit_lateral.tscn")
-var fireball = preload("res://scenes/fireball.tscn")
 var interact_object = preload("res://scripts/interact_object.gd")
 
 # Equipment
 onready var equipment_slots = get_node("Equipment")
-onready var b_slot = equipment_slots.get_node("B_Slot")
 onready var x_slot = equipment_slots.get_node("X_Slot")
-onready var y_slot = equipment_slots.get_node("Y_Slot")
+onready var c_slot = equipment_slots.get_node("C_Slot")
+onready var v_slot = equipment_slots.get_node("V_Slot")
 
 ##########################################################################
 ## Private Functions                                                   ##
@@ -78,37 +77,37 @@ func on_interact_pressed():
 		if body extends interact_object :
 			body.interact(self)
 	
-func on_equipment_B_pressed():
-	if(!is_attacking):
-		# Create an attack
-		
-		# to be improved. For now we just check if there is an item in the b slot
-		if b_slot.get_child_count() :
-			is_attacking = true
-			fire()
-			
 func on_equipment_X_pressed():
 	if(!is_attacking):
 		# Create an attack
 		
 		# to be improved. For now we just check if there is an item in the b slot
-		if x_slot.get_child_count() :
+		if x_slot.get_child_count() >= 1:
 			is_attacking = true
-			fire()
+			fire(x_slot.get_child(0).fireball)
 			
-func on_equipment_Y_pressed():
+func on_equipment_C_pressed():
 	if(!is_attacking):
 		# Create an attack
 		
 		# to be improved. For now we just check if there is an item in the b slot
-		if y_slot.get_child_count() :
+		if c_slot.get_child_count() >= 1:
 			is_attacking = true
-			fire()
+			fire(c_slot.get_child(0).fireball)
+			
+func on_equipment_V_pressed():
+	if(!is_attacking):
+		# Create an attack
+		
+		# to be improved. For now we just check if there is an item in the b slot
+		if v_slot.get_child_count() >= 1 :
+			is_attacking = true
+			fire(v_slot.get_child(0).fireball)
 
 func sword_hit():
 	action_front.add_child(sword_hit_lateral.instance())
 
-func fire():
+func fire(fireball): 
 	var ball = fireball.instance()
 	var ball_velocity = Vector2(0,0)
 	if direction == DIRECTION_UP :
@@ -130,12 +129,12 @@ func update_equipment():
 		for item in slot.get_children() :
 			slot.remove_child(item)
 			
-	if !controler.inventory.b_slot.is_empty() :
-		b_slot.add_child(controler.inventory.b_slot.get_item().duplicate())
 	if !controler.inventory.x_slot.is_empty() :
 		x_slot.add_child(controler.inventory.x_slot.get_item().duplicate())
-	if !controler.inventory.y_slot.is_empty() :
-		y_slot.add_child(controler.inventory.y_slot.get_item().duplicate())
+	if !controler.inventory.c_slot.is_empty() :
+		c_slot.add_child(controler.inventory.c_slot.get_item().duplicate())
+	if !controler.inventory.v_slot.is_empty() :
+		v_slot.add_child(controler.inventory.v_slot.get_item().duplicate())
 
 ## _fixed_process - Main physics logic
 func _fixed_process(delta):

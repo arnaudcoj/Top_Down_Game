@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/inventory.gd" type="Script" id=1]
 [ext_resource path="res://scenes/inventory_slot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/munro_10.fnt" type="BitmapFont" id=3]
 
 [node name="Inventory" type="Panel"]
 
@@ -35,7 +36,7 @@ margin/right = 4.0
 margin/bottom = 114.0
 alignment = 0
 
-[node name="B_Slot" parent="Equipment" instance=ExtResource( 2 )]
+[node name="X_Slot" parent="Equipment" instance=ExtResource( 2 )]
 
 anchor/left = 0
 anchor/top = 0
@@ -46,23 +47,24 @@ margin/top = 0.0
 margin/right = 56.0
 margin/bottom = 39.0
 
-[node name="Label" type="Label" parent="Equipment/B_Slot"]
+[node name="Label" type="Label" parent="Equipment/X_Slot"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -25.0
-margin/top = -2.0
+margin/top = 9.0
 margin/right = 15.0
-margin/bottom = 11.0
-text = "B"
+margin/bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "X"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="X_Slot" parent="Equipment" instance=ExtResource( 2 )]
+[node name="C_Slot" parent="Equipment" instance=ExtResource( 2 )]
 
 anchor/left = 0
 anchor/top = 0
@@ -73,23 +75,24 @@ margin/top = 0.0
 margin/right = 116.0
 margin/bottom = 39.0
 
-[node name="Label" type="Label" parent="Equipment/X_Slot"]
+[node name="Label" type="Label" parent="Equipment/C_Slot"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -25.0
-margin/top = -2.0
+margin/top = 9.0
 margin/right = 15.0
-margin/bottom = 11.0
-text = "X"
+margin/bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "C"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Y_Slot" parent="Equipment" instance=ExtResource( 2 )]
+[node name="V_Slot" parent="Equipment" instance=ExtResource( 2 )]
 
 anchor/left = 0
 anchor/top = 0
@@ -100,17 +103,18 @@ margin/top = 0.0
 margin/right = 176.0
 margin/bottom = 39.0
 
-[node name="Label" type="Label" parent="Equipment/Y_Slot"]
+[node name="Label" type="Label" parent="Equipment/V_Slot"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -25.0
-margin/top = -2.0
+margin/top = 9.0
 margin/right = 15.0
-margin/bottom = 11.0
-text = "Y"
+margin/bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "V"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0

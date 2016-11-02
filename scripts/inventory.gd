@@ -8,9 +8,9 @@ var selected_slot = null
 
 onready var items = get_node("Items")
 onready var equipment = get_node("Equipment")
-onready var b_slot = equipment.get_node("B_Slot")
 onready var x_slot = equipment.get_node("X_Slot")
-onready var y_slot = equipment.get_node("Y_Slot")
+onready var c_slot = equipment.get_node("C_Slot")
+onready var v_slot = equipment.get_node("V_Slot")
 
 export var size = Vector2(3, 4)
 
@@ -42,6 +42,9 @@ func deactivate():
 	active = false
 	hide()
 	controler.root.update_player_equipment()
+	if selected_slot :
+		selected_slot.set_select(false)
+		selected_slot = null
 	
 func add_item(item_instance):
 	for slot in items.get_children() :
@@ -65,11 +68,11 @@ func move_cursor(child_nb):
 	
 func get_current_item_slot():
 	if cursor == 0 :
-		return b_slot
-	elif cursor == 1 :
 		return x_slot
+	elif cursor == 1 :
+		return c_slot
 	elif cursor == 2 :
-		return y_slot
+		return v_slot
 	else :
 		return items.get_child(cursor - 3)
 	

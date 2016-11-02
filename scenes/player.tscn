@@ -193,11 +193,11 @@ autoplay = ""
 
 [node name="Equipment" type="Node2D" parent="."]
 
-[node name="B_Slot" type="Node2D" parent="Equipment"]
-
 [node name="X_Slot" type="Node2D" parent="Equipment"]
 
-[node name="Y_Slot" type="Node2D" parent="Equipment"]
+[node name="C_Slot" type="Node2D" parent="Equipment"]
+
+[node name="V_Slot" type="Node2D" parent="Equipment"]
 
 [node name="Actions" type="Node2D" parent="."]
 

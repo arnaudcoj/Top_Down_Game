@@ -18,7 +18,7 @@ margin/right = 224.0
 margin/bottom = 192.0
 script/script = ExtResource( 1 )
 __meta__ = { "_edit_group_":true }
-music = "Game Over"
+music = "fanfare"
 loop = false
 
 [node name="Ground" type="TileMap" parent="."]
@@ -57,9 +57,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 30.0
+margin/left = 0.0
 margin/top = 0.0
-margin/right = 194.0
+margin/right = 224.0
 margin/bottom = 192.0
 alignment = 1
 
@@ -70,11 +70,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 72.0
-margin/right = 164.0
-margin/bottom = 120.0
+margin/top = 4.0
+margin/right = 224.0
+margin/bottom = 188.0
 custom_fonts/font = ExtResource( 2 )
-text = "Too bad, you died !\n\nLeave this screen to try again !"
+text = "After minutes of intense fighting,\nyou managed to kill the Cherry King.\nHe never threatened you. In fact, he\nactually liked you. But you killed it.\nWell played ! (this is sarcastic)\n\n BUT !\nYou can still go back in time and repair\nyour mistake, thanks to a... herm... big\nball of wibbly wobbly, timey wimey stuff \?\nLeave this screen, you will face him again."
 align = 1
 valign = 1
 percent_visible = 1.0

@@ -15,6 +15,7 @@ func interact(player) :
 		if not opened :
 			get_node("SoundPlayer").play("bleep")
 			controler.textBox.add_paragraph("You found a fire staff inside the burning log.")
+			controler.textBox.add_paragraph("To equip it, open the Inventory, select the staff with 'Interact', then put it on an equipment slot.")
 			controler.inventory.add_item(fire_staff.instance())
 			controler.textBox.activate()
 			opened = true
